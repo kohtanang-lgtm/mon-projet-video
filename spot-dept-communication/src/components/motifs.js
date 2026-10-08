@@ -92,12 +92,12 @@
       el: bug, quote: q, quoteWrap: qWrap,
       label(tl, t, text) {
         const span = DC.el("span", { cls: "bug-label", text }, labels);
-        if (current) tl.to(current, { yPercent: -110, y: 0, duration: 0.35, ease: DC.ease.press }, t);
-        tl.fromTo(span, { y: 0, yPercent: 110 }, { yPercent: 0, duration: 0.5, ease: DC.ease.signalOut, immediateRender: false }, t + 0.12);
+        if (current) tl.to(current, { yPercent: -150, y: 0, duration: 0.35, ease: DC.ease.press }, t);
+        tl.fromTo(span, { y: 0, yPercent: 150 }, { yPercent: 0, duration: 0.5, ease: DC.ease.signalOut, immediateRender: false }, t + 0.12);
         current = span;
       },
       hideLabel(tl, t) {
-        if (current) tl.to(current, { yPercent: -110, duration: 0.35, ease: DC.ease.press }, t);
+        if (current) tl.to(current, { yPercent: -150, duration: 0.35, ease: DC.ease.press }, t);
         current = null;
       },
     };

@@ -9,10 +9,10 @@
   };
   DC.exitUp = function (tl, targets, t, o) {
     o = o || {};
-    tl.to(targets, { yPercent: -115, duration: o.dur || 0.3, ease: o.ease || DC.ease.press, stagger: o.stagger == null ? 0.025 : o.stagger }, t);
+    tl.to(targets, { yPercent: -150, duration: o.dur || 0.3, ease: o.ease || DC.ease.press, stagger: o.stagger == null ? 0.025 : o.stagger }, t);
   };
   DC.hideWords = function (words) {
-    gsap.set(words, { yPercent: 115 });
+    gsap.set(words, { yPercent: 150 });
   };
 
   /** Texte Syne/Inter positionné, en lignes masquées. Renvoie { el, lines:[{line, words}], words }. */

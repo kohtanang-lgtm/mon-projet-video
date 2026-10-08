@@ -26,7 +26,8 @@
   const dot = DC.svg("circle", { cx: pin.x, cy: pin.y, r: 15, fill: C.rougeRec }, over);
   const pT = T("join_a.start") + 0.95;
   tl.fromTo(dot, { y: -60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.32, ease: E.land }, pT - 0.18);
-  tl.fromTo(ping, { scale: 0.6, opacity: 1, svgOrigin: `${pin.x} ${pin.y}` }, { scale: 3.2, opacity: 0, duration: 0.8, ease: E.signalOut }, pT + 0.05);
+  gsap.set(ping, { opacity: 0 });
+  tl.fromTo(ping, { scale: 0.6, opacity: 1, svgOrigin: `${pin.x} ${pin.y}` }, { scale: 3.2, opacity: 0, duration: 0.8, ease: E.signalOut, immediateRender: false }, pT + 0.05);
 
   // libellés
   const lx = pick(900, 0), al = pick("left", "center");

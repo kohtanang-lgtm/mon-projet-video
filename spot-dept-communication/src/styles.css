@@ -30,7 +30,7 @@ svg { display: block; overflow: visible; }
 /* bandeau de chapitre */
 .bug { position: absolute; display: flex; align-items: center; gap: 18px; z-index: 50; }
 .bug-labels { position: relative; height: 1.3em; overflow: hidden; }
-.bug-label { position: absolute; left: 0; top: 0; white-space: nowrap; transform: translateY(110%); }
+.bug-label { position: absolute; left: 0; top: 0; white-space: nowrap; transform: translateY(150%); }
 
 /* panneaux médias */
 .panel { position: absolute; overflow: hidden; }
