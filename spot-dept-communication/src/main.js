@@ -40,6 +40,5 @@
   (DC.sceneBuilders || []).forEach((build) => build(ctx));
 
   tl.set({}, {}, ctx.D);
-  window.__timelines = window.__timelines || {};
-  window.__timelines["main"] = tl;
+  DC.mainTimeline = tl;
 })();

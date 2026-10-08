@@ -7,7 +7,14 @@
     <link rel="preload" href="assets/fonts/Syne-Bold.ttf" as="font" type="font/ttf" crossorigin />
     <link rel="preload" href="assets/fonts/Inter-Medium.ttf" as="font" type="font/ttf" crossorigin />
     <link rel="stylesheet" href="src/styles.css" />
-    <style>html, body { width: 1080px; height: 1920px; }</style>
+    <style>
+      @font-face { font-family: Syne; src: url(assets/fonts/Syne-Bold.ttf) format("truetype"); font-weight: 700; font-display: block; }
+      @font-face { font-family: Syne; src: url(assets/fonts/Syne-ExtraBold.ttf) format("truetype"); font-weight: 800; font-display: block; }
+      @font-face { font-family: Inter; src: url(assets/fonts/Inter-Regular.ttf) format("truetype"); font-weight: 400; font-display: block; }
+      @font-face { font-family: Inter; src: url(assets/fonts/Inter-Medium.ttf) format("truetype"); font-weight: 500; font-display: block; }
+      @font-face { font-family: Inter; src: url(assets/fonts/Inter-SemiBold.ttf) format("truetype"); font-weight: 600; font-display: block; }
+      html, body { width: 1080px; height: 1920px; }
+    </style>
     <script>window.DC_FORMAT = "portrait";</script>
     <script src="assets/vendor/gsap.min.js"></script>
     <!-- configuration (charte, textes, formats, médias, repères générés) -->
@@ -41,5 +48,9 @@
     <script src="src/scenes/s09-avenir.js"></script>
     <script src="src/scenes/s10-signature.js"></script>
     <script src="src/main.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = DC.mainTimeline;
+    </script>
   </body>
 </html>

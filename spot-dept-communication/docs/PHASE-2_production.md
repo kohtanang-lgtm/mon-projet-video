@@ -85,6 +85,15 @@ npm run render:16x9   # → output/spot-dc-45s-16x9.mp4  (1920×1080, 60 i/s)
 npm run render:9x16   # → output/spot-dc-45s-9x16.mp4  (1080×1920, 60 i/s)
 ```
 
+Rendus livrés (vérifiés) :
+
+| Fichier | Format | Images | Audio |
+|---|---|---|---|
+| `output/spot-dc-45s-16x9.mp4` | H.264, 1920×1080, 60 i/s, 45,000 s, 25,7 Mo | 2 700 | AAC 48 kHz stéréo, −14,0 LUFS, crête −1,2 dBTP |
+| `output/spot-dc-45s-9x16.mp4` | H.264, 1080×1920, 60 i/s, 45,000 s, 24,6 Mo | 2 700 | idem |
+
+Note : `hyperframes lint` signale `multiple_root_compositions`, car le projet a deux pages d'entrée (`index.html` et `vertical.html`). C'est volontaire : un seul code sert les deux formats. Chaque rendu cible sa page avec `-c`, et l'audio n'est pas doublé (−14,0 LUFS, comme le master).
+
 ## 7. Points à valider avant la version finale
 
 1. **Nombre exact d'abonnés** au jour de la diffusion. Il s'affiche actuellement « +10 000 ».
