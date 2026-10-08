@@ -1,0 +1,147 @@
+/* Généré par tools/audio/build_vo.py — ne pas éditer à la main. */
+window.DC = window.DC || {};
+DC.timeline = {
+  "fps": 60,
+  "duration": 45.0,
+  "cues": {
+    "hook_a": {
+      "start": 0.55,
+      "end": 3.025,
+      "text": "À l'Université de Ngaoundéré,",
+      "group": "G01"
+    },
+    "hook_b": {
+      "start": 3.025,
+      "end": 4.635,
+      "text": "un département fait parler de lui.",
+      "group": "G01"
+    },
+    "prat_a": {
+      "start": 5.027,
+      "end": 6.852,
+      "text": "Cent pour cent d'immersion pratique :",
+      "group": "G02"
+    },
+    "prat_b": {
+      "start": 6.974,
+      "end": 8.244,
+      "text": "pas de théorie dans le vide.",
+      "group": "G02"
+    },
+    "studios": {
+      "start": 8.505,
+      "end": 9.71,
+      "text": "Des amphis aux studios,",
+      "group": "G03"
+    },
+    "welcome": {
+      "start": 9.866,
+      "end": 12.001,
+      "text": "bienvenue au Département de Communication.",
+      "group": "G03"
+    },
+    "pros_a": {
+      "start": 12.48,
+      "end": 14.715,
+      "text": "Ici, les professionnels de demain ne naissent pas :",
+      "group": "G04"
+    },
+    "pros_b": {
+      "start": 14.959,
+      "end": 15.749,
+      "text": "ils se forment.",
+      "group": "G04"
+    },
+    "aud_a": {
+      "start": 16.141,
+      "end": 17.416,
+      "text": "Des étudiants aguerris,",
+      "group": "G05"
+    },
+    "aud_b": {
+      "start": 17.468,
+      "end": 18.898,
+      "text": "et des partenaires rassurés,",
+      "group": "G05"
+    },
+    "aud_c": {
+      "start": 18.933,
+      "end": 21.168,
+      "text": "qui savent leur communication entre de bonnes mains.",
+      "group": "G05"
+    },
+    "secret": {
+      "start": 21.647,
+      "end": 22.497,
+      "text": "Notre secret ?",
+      "group": "G06"
+    },
+    "p1": {
+      "start": 23.036,
+      "end": 24.921,
+      "text": "Des enseignants-chercheurs qualifiés,",
+      "group": "G07"
+    },
+    "p2": {
+      "start": 24.991,
+      "end": 26.351,
+      "text": "un matériel de pointe,",
+      "group": "G07"
+    },
+    "p3": {
+      "start": 26.421,
+      "end": 27.911,
+      "text": "et un suivi personnalisé,",
+      "group": "G07"
+    },
+    "lic": {
+      "start": 27.998,
+      "end": 30.808,
+      "text": "de la Licence Pro Journalisme et Culture numérique,",
+      "group": "G07"
+    },
+    "master": {
+      "start": 30.842,
+      "end": 31.737,
+      "text": "jusqu'au Master.",
+      "group": "G07"
+    },
+    "reuni": {
+      "start": 32.086,
+      "end": 33.966,
+      "text": "Tout est réuni pour faire la différence.",
+      "group": "G08"
+    },
+    "join_a": {
+      "start": 34.401,
+      "end": 35.606,
+      "text": "Rejoignez-nous à Dang,",
+      "group": "G09"
+    },
+    "join_b": {
+      "start": 35.641,
+      "end": 37.116,
+      "text": "à Ngaoundéré.",
+      "group": "G09"
+    },
+    "avenir": {
+      "start": 38.03,
+      "end": 39.78,
+      "text": "Votre avenir mérite l'excellence.",
+      "group": "G10"
+    },
+    "sig_a": {
+      "start": 40.171,
+      "end": 41.796,
+      "text": "Département de Communication :",
+      "group": "G11"
+    },
+    "sig_b": {
+      "start": 42.075,
+      "end": 43.5,
+      "text": "votre histoire commence ici.",
+      "group": "G11"
+    }
+  },
+  "voice": "temp-kokoro-ff_siwis"
+};

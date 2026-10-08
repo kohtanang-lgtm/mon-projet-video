@@ -1,0 +1,7 @@
+numpy
+scipy
+soundfile
+pyloudnorm
+pillow
+fonttools
+kokoro-onnx   # voix témoin uniquement (modèle : github.com/thewh1teagle/kokoro-onnx, release model-files-v1.0)

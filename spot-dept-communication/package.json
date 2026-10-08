@@ -1,0 +1,12 @@
+{
+  "name": "spot-dept-communication",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "audio": "python tools/audio/build_vo.py && python tools/audio/build_mix.py",
+    "check": "npx --yes hyperframes@0.8.141 check",
+    "render:16x9": "npx --yes hyperframes@0.8.141 render -c index.html -f 60 -q high -o output/spot-dc-45s-16x9.mp4",
+    "render:9x16": "npx --yes hyperframes@0.8.141 render -c vertical.html -f 60 -q high -o output/spot-dc-45s-9x16.mp4",
+    "render": "npm run render:16x9 && npm run render:9x16"
+  }
+}

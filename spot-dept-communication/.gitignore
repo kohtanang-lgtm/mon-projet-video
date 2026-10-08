@@ -1,0 +1,6 @@
+node_modules/
+snapshots/
+assets/audio/.tts_cache/
+.hyperframes/
+assets/audio/music_temp.wav
+assets/audio/sfx.wav

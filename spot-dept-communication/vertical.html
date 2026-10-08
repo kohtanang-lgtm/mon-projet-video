@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Département de Communication — spot 9:16</title>
+    <link rel="preload" href="assets/fonts/Syne-Bold.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="assets/fonts/Inter-Medium.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="stylesheet" href="src/styles.css" />
+    <style>html, body { width: 1080px; height: 1920px; }</style>
+    <script>window.DC_FORMAT = "portrait";</script>
+    <script src="assets/vendor/gsap.min.js"></script>
+    <!-- configuration (charte, textes, formats, médias, repères générés) -->
+    <script src="config/brand.js"></script>
+    <script src="config/script.fr.js"></script>
+    <script src="config/formats.js"></script>
+    <script src="config/media.js"></script>
+    <script src="config/timeline.js"></script>
+    <script src="config/logo-layers.js"></script>
+    <script src="config/map-cameroon.js"></script>
+    <!-- utilitaires et composants -->
+    <script src="src/utils/dom.js"></script>
+    <script src="src/utils/ease.js"></script>
+    <script src="src/utils/time.js"></script>
+    <script src="src/components/motifs.js"></script>
+    <script src="src/components/illustrations.js"></script>
+    <script src="src/components/brand.js"></script>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="45" data-width="1080" data-height="1920">
+      <audio id="mix" src="assets/audio/mix_master.wav" data-start="0" data-duration="45" data-volume="1"></audio>
+    </div>
+    <!-- scènes (dans l'ordre du film) puis chef d'orchestre -->
+    <script src="src/scenes/s01-signal.js"></script>
+    <script src="src/scenes/s02-pratique.js"></script>
+    <script src="src/scenes/s03-studios.js"></script>
+    <script src="src/scenes/s04-manifeste.js"></script>
+    <script src="src/scenes/s05-talents.js"></script>
+    <script src="src/scenes/s06-secret.js"></script>
+    <script src="src/scenes/s08-rendezvous.js"></script>
+    <script src="src/scenes/s09-avenir.js"></script>
+    <script src="src/scenes/s10-signature.js"></script>
+    <script src="src/main.js"></script>
+  </body>
+</html>
