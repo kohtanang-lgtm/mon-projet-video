@@ -1,0 +1,877 @@
+[
+{
+"text": "On",
+"start": 0.0,
+"end": 0.142
+},
+{
+"text": "dit",
+"start": 0.142,
+"end": 0.382
+},
+{
+"text": "souvent",
+"start": 0.382,
+"end": 0.862
+},
+{
+"text": "chez",
+"start": 0.862,
+"end": 1.182
+},
+{
+"text": "nous,",
+"start": 1.182,
+"end": 1.502
+},
+{
+"text": "dans",
+"start": 1.502,
+"end": 1.662
+},
+{
+"text": "le",
+"start": 1.662,
+"end": 1.822
+},
+{
+"text": "Moyen-Chari",
+"start": 1.822,
+"end": 2.508
+},
+{
+"text": "et",
+"start": 2.508,
+"end": 2.645
+},
+{
+"text": "le",
+"start": 2.645,
+"end": 2.782
+},
+{
+"text": "Mandoul,",
+"start": 2.782,
+"end": 3.262
+},
+{
+"text": "les",
+"start": 3.262,
+"end": 3.422
+},
+{
+"text": "racines",
+"start": 3.422,
+"end": 3.902
+},
+{
+"text": "n'ont",
+"start": 3.902,
+"end": 4.542
+},
+{
+"text": "jamais",
+"start": 4.542,
+"end": 4.942
+},
+{
+"text": "su",
+"start": 4.942,
+"end": 5.182
+},
+{
+"text": "la",
+"start": 5.182,
+"end": 5.342
+},
+{
+"text": "force",
+"start": 5.342,
+"end": 5.662
+},
+{
+"text": "de",
+"start": 5.662,
+"end": 5.742
+},
+{
+"text": "ses",
+"start": 5.742,
+"end": 5.902
+},
+{
+"text": "fruits.",
+"start": 5.902,
+"end": 6.302
+},
+{
+"text": "Moi,",
+"start": 6.302,
+"end": 6.542
+},
+{
+"text": "c'est",
+"start": 6.542,
+"end": 6.782
+},
+{
+"text": "Kohtanan",
+"start": 6.782,
+"end": 7.304
+},
+{
+"text": "Genia,",
+"start": 7.304,
+"end": 7.63
+},
+{
+"text": "28",
+"start": 7.63,
+"end": 8.11
+},
+{
+"text": "ans.",
+"start": 8.11,
+"end": 8.35
+},
+{
+"text": "Mes",
+"start": 8.35,
+"end": 8.59
+},
+{
+"text": "racines",
+"start": 8.59,
+"end": 9.07
+},
+{
+"text": "sont",
+"start": 9.07,
+"end": 9.23
+},
+{
+"text": "au",
+"start": 9.23,
+"end": 9.319
+},
+{
+"text": "Sud,",
+"start": 9.319,
+"end": 9.452
+},
+{
+"text": "mais",
+"start": 9.452,
+"end": 9.63
+},
+{
+"text": "mon",
+"start": 9.63,
+"end": 9.95
+},
+{
+"text": "terrain",
+"start": 9.95,
+"end": 10.27
+},
+{
+"text": "de",
+"start": 10.27,
+"end": 10.35
+},
+{
+"text": "jeu,",
+"start": 10.35,
+"end": 10.67
+},
+{
+"text": "c'est",
+"start": 10.67,
+"end": 10.734
+},
+{
+"text": "l'écran,",
+"start": 10.734,
+"end": 10.83
+},
+{
+"text": "le",
+"start": 10.83,
+"end": 10.99
+},
+{
+"text": "design",
+"start": 10.99,
+"end": 11.74
+},
+{
+"text": "et",
+"start": 11.95,
+"end": 12.19
+},
+{
+"text": "les",
+"start": 12.19,
+"end": 12.35
+},
+{
+"text": "plateformes",
+"start": 12.35,
+"end": 13.1
+},
+{
+"text": "digitales.",
+"start": 13.15,
+"end": 13.71
+},
+{
+"text": "Aujourd'hui,",
+"start": 13.71,
+"end": 14.238
+},
+{
+"text": "notre",
+"start": 14.238,
+"end": 14.638
+},
+{
+"text": "pays",
+"start": 14.638,
+"end": 14.958
+},
+{
+"text": "regorge",
+"start": 14.958,
+"end": 15.35
+},
+{
+"text": "d'histoires",
+"start": 15.35,
+"end": 15.91
+},
+{
+"text": "formidables",
+"start": 15.91,
+"end": 16.526
+},
+{
+"text": "et",
+"start": 16.526,
+"end": 16.638
+},
+{
+"text": "d'initiatives",
+"start": 16.638,
+"end": 17.278
+},
+{
+"text": "inspirantes,",
+"start": 17.278,
+"end": 18.028
+},
+{
+"text": "mais",
+"start": 18.078,
+"end": 18.238
+},
+{
+"text": "trop",
+"start": 18.238,
+"end": 18.478
+},
+{
+"text": "souvent,",
+"start": 18.478,
+"end": 18.798
+},
+{
+"text": "elles",
+"start": 18.798,
+"end": 19.038
+},
+{
+"text": "restent",
+"start": 19.038,
+"end": 19.278
+},
+{
+"text": "dans",
+"start": 19.278,
+"end": 19.438
+},
+{
+"text": "l'ombre,",
+"start": 19.438,
+"end": 19.918
+},
+{
+"text": "par",
+"start": 19.918,
+"end": 20.158
+},
+{
+"text": "manque",
+"start": 20.158,
+"end": 20.398
+},
+{
+"text": "de",
+"start": 20.398,
+"end": 20.478
+},
+{
+"text": "créativité",
+"start": 20.478,
+"end": 21.038
+},
+{
+"text": "et",
+"start": 21.038,
+"end": 21.102
+},
+{
+"text": "de",
+"start": 21.102,
+"end": 21.166
+},
+{
+"text": "visibilité.",
+"start": 21.166,
+"end": 21.486
+},
+{
+"text": "Mon",
+"start": 21.486,
+"end": 21.886
+},
+{
+"text": "talent,",
+"start": 21.886,
+"end": 22.286
+},
+{
+"text": "c'est",
+"start": 22.286,
+"end": 22.446
+},
+{
+"text": "d'attraper",
+"start": 22.446,
+"end": 23.086
+},
+{
+"text": "ces",
+"start": 23.086,
+"end": 23.326
+},
+{
+"text": "idées",
+"start": 23.326,
+"end": 23.555
+},
+{
+"text": "et",
+"start": 23.555,
+"end": 23.646
+},
+{
+"text": "de",
+"start": 23.646,
+"end": 23.806
+},
+{
+"text": "les",
+"start": 23.806,
+"end": 23.966
+},
+{
+"text": "transformer",
+"start": 23.966,
+"end": 24.526
+},
+{
+"text": "en",
+"start": 24.526,
+"end": 24.686
+},
+{
+"text": "visuels",
+"start": 24.686,
+"end": 25.166
+},
+{
+"text": "percutants,",
+"start": 25.166,
+"end": 25.806
+},
+{
+"text": "en",
+"start": 25.806,
+"end": 25.966
+},
+{
+"text": "vidéos",
+"start": 25.966,
+"end": 26.206
+},
+{
+"text": "d'impact",
+"start": 26.206,
+"end": 26.766
+},
+{
+"text": "et",
+"start": 26.766,
+"end": 26.926
+},
+{
+"text": "en",
+"start": 26.926,
+"end": 27.006
+},
+{
+"text": "campagnes",
+"start": 27.006,
+"end": 27.486
+},
+{
+"text": "qui",
+"start": 27.486,
+"end": 27.566
+},
+{
+"text": "touchent",
+"start": 27.566,
+"end": 27.806
+},
+{
+"text": "les",
+"start": 27.806,
+"end": 27.966
+},
+{
+"text": "cœurs.",
+"start": 27.966,
+"end": 28.366
+},
+{
+"text": "Du",
+"start": 28.366,
+"end": 28.526
+},
+{
+"text": "design",
+"start": 28.526,
+"end": 28.846
+},
+{
+"text": "graphique",
+"start": 28.846,
+"end": 29.246
+},
+{
+"text": "à",
+"start": 29.246,
+"end": 29.406
+},
+{
+"text": "la",
+"start": 29.406,
+"end": 29.486
+},
+{
+"text": "réalisation",
+"start": 29.486,
+"end": 29.966
+},
+{
+"text": "vidéo,",
+"start": 29.966,
+"end": 30.286
+},
+{
+"text": "en",
+"start": 30.286,
+"end": 30.446
+},
+{
+"text": "passant",
+"start": 30.446,
+"end": 30.686
+},
+{
+"text": "par",
+"start": 30.686,
+"end": 30.766
+},
+{
+"text": "l'intelligence",
+"start": 30.766,
+"end": 31.486
+},
+{
+"text": "artificielle",
+"start": 31.486,
+"end": 31.87
+},
+{
+"text": "et",
+"start": 31.87,
+"end": 32.11
+},
+{
+"text": "le",
+"start": 32.11,
+"end": 32.27
+},
+{
+"text": "community",
+"start": 32.27,
+"end": 32.67
+},
+{
+"text": "management,",
+"start": 32.67,
+"end": 33.23
+},
+{
+"text": "je",
+"start": 33.23,
+"end": 33.31
+},
+{
+"text": "ne",
+"start": 33.31,
+"end": 33.55
+},
+{
+"text": "crée",
+"start": 33.55,
+"end": 33.79
+},
+{
+"text": "pas",
+"start": 33.79,
+"end": 33.95
+},
+{
+"text": "juste",
+"start": 33.95,
+"end": 34.27
+},
+{
+"text": "du",
+"start": 34.27,
+"end": 34.43
+},
+{
+"text": "contenu,",
+"start": 34.43,
+"end": 34.99
+},
+{
+"text": "je",
+"start": 34.99,
+"end": 35.23
+},
+{
+"text": "donne",
+"start": 35.23,
+"end": 35.55
+},
+{
+"text": "une",
+"start": 35.55,
+"end": 35.71
+},
+{
+"text": "forte",
+"start": 35.71,
+"end": 36.27
+},
+{
+"text": "identité",
+"start": 36.27,
+"end": 36.67
+},
+{
+"text": "à",
+"start": 36.67,
+"end": 36.75
+},
+{
+"text": "notre",
+"start": 36.75,
+"end": 37.23
+},
+{
+"text": "jeunesse",
+"start": 37.23,
+"end": 37.63
+},
+{
+"text": "et",
+"start": 37.63,
+"end": 37.79
+},
+{
+"text": "un",
+"start": 37.79,
+"end": 37.95
+},
+{
+"text": "pont",
+"start": 37.95,
+"end": 38.27
+},
+{
+"text": "entre",
+"start": 38.27,
+"end": 38.59
+},
+{
+"text": "nos",
+"start": 38.59,
+"end": 38.904
+},
+{
+"text": "origines",
+"start": 38.904,
+"end": 39.654
+},
+{
+"text": "et",
+"start": 39.742,
+"end": 40.11
+},
+{
+"text": "l'avenir.",
+"start": 40.11,
+"end": 40.83
+},
+{
+"text": "Cette",
+"start": 40.83,
+"end": 41.43
+},
+{
+"text": "22e",
+"start": 41.43,
+"end": 41.79
+},
+{
+"text": "édition",
+"start": 41.79,
+"end": 42.11
+},
+{
+"text": "de",
+"start": 42.11,
+"end": 42.19
+},
+{
+"text": "la",
+"start": 42.19,
+"end": 42.27
+},
+{
+"text": "Fête",
+"start": 42.27,
+"end": 42.59
+},
+{
+"text": "nationale",
+"start": 42.59,
+"end": 42.83
+},
+{
+"text": "de",
+"start": 42.83,
+"end": 42.91
+},
+{
+"text": "la",
+"start": 42.91,
+"end": 43.15
+},
+{
+"text": "jeunesse",
+"start": 43.15,
+"end": 43.71
+},
+{
+"text": "est",
+"start": 43.71,
+"end": 43.87
+},
+{
+"text": "l'occasion",
+"start": 43.87,
+"end": 44.51
+},
+{
+"text": "de",
+"start": 44.51,
+"end": 44.67
+},
+{
+"text": "montrer",
+"start": 44.67,
+"end": 45.07
+},
+{
+"text": "ce",
+"start": 45.07,
+"end": 45.39
+},
+{
+"text": "dont",
+"start": 45.39,
+"end": 45.63
+},
+{
+"text": "nous",
+"start": 45.63,
+"end": 45.79
+},
+{
+"text": "sommes",
+"start": 45.79,
+"end": 46.03
+},
+{
+"text": "capables.",
+"start": 46.03,
+"end": 46.51
+},
+{
+"text": "Si",
+"start": 46.51,
+"end": 46.67
+},
+{
+"text": "vous",
+"start": 46.67,
+"end": 46.83
+},
+{
+"text": "croyez",
+"start": 46.83,
+"end": 47.15
+},
+{
+"text": "en",
+"start": 47.15,
+"end": 47.23
+},
+{
+"text": "la",
+"start": 47.23,
+"end": 47.31
+},
+{
+"text": "force",
+"start": 47.31,
+"end": 47.63
+},
+{
+"text": "de",
+"start": 47.63,
+"end": 47.79
+},
+{
+"text": "la",
+"start": 47.79,
+"end": 47.95
+},
+{
+"text": "création",
+"start": 47.95,
+"end": 48.43
+},
+{
+"text": "et",
+"start": 48.43,
+"end": 48.67
+},
+{
+"text": "de",
+"start": 48.67,
+"end": 48.75
+},
+{
+"text": "l'innovation",
+"start": 48.75,
+"end": 49.31
+},
+{
+"text": "tchadienne,",
+"start": 49.31,
+"end": 50.03
+},
+{
+"text": "aimez,",
+"start": 50.03,
+"end": 50.78
+},
+{
+"text": "commentez",
+"start": 50.83,
+"end": 51.47
+},
+{
+"text": "et",
+"start": 51.47,
+"end": 51.71
+},
+{
+"text": "partagez",
+"start": 51.71,
+"end": 52.27
+},
+{
+"text": "cette",
+"start": 52.27,
+"end": 52.43
+},
+{
+"text": "vidéo.",
+"start": 52.43,
+"end": 52.83
+},
+{
+"text": "Et",
+"start": 52.83,
+"end": 53.15
+},
+{
+"text": "on",
+"start": 53.15,
+"end": 53.39
+},
+{
+"text": "se",
+"start": 53.39,
+"end": 53.55
+},
+{
+"text": "donne",
+"start": 53.55,
+"end": 54.19
+},
+{
+"text": "rendez-vous",
+"start": 54.19,
+"end": 54.35
+},
+{
+"text": "à",
+"start": 54.35,
+"end": 54.51
+},
+{
+"text": "Pala.",
+"start": 54.51,
+"end": 54.933
+}
+]
