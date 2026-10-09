@@ -74,7 +74,7 @@ tout le film sans toucher aux scènes.
 Timecodes en **temps vidéo** (`mm:ss.cc`, VO décalée de +0,80 s). Image = n° de frame à 30 i/s.
 Les mots en **gras** dans la colonne Animation sont les déclencheurs synchronisés.
 
-### Séquence 1 — AMBITION (00:00.00 → 00:07.07)
+### Séquence 1 — AMBITION (00:00.00 → 00:07.49)
 
 | # | Timecode | Durée | Voix-off | Visuel associé | Animation (déclencheurs) | Transition |
 |---|---|---|---|---|---|---|
@@ -83,7 +83,7 @@ Les mots en **gras** dans la colonne Animation sont les déclencheurs synchronis
 | 2 | 00:02.63 → 00:03.59<br>img 79–108 | 0,96 s | « voir plus grand. » | « voir plus » + **GRAND** monumental (236 px), halo rouge | **voir** 2.63 : le manifeste recule et s'atténue ; l'horizon **se cabre en courbe de croissance** (morph de Bézier) ; **grand** 3.16 : « GRAND » se pose (interlettrage qui s'ouvre, défloutage) | — |
 | 3 | 00:04.03 → 00:06.84<br>img 121–205 | 2,81 s | « Et si la banque devenait enfin le reflet de vos ambitions ? » | Question en deux lignes, « ambitions ? » en rouge ; dalle de verre et **reflet miroir** du texte | **Et** 4.03 : « GRAND » s'évapore, la courbe s'atténue ; **reflet** 5.81 : la dalle de verre s'ouvre et le texte s'y reflète (symétrie exacte) ; **ambitions** 6.32 | **Match cut** 6.84 → 7.22 : texte aspiré vers le haut, la dalle glisse vers la gauche et cède la place au plateau isométrique |
 
-### Séquence 2 — PARTICULIERS (00:06.84 → 00:18.51)
+### Séquence 2 — PARTICULIERS (00:06.69 → 00:18.62)
 
 | # | Timecode | Durée | Voix-off | Visuel associé | Animation (déclencheurs) | Transition |
 |---|---|---|---|---|---|---|
@@ -92,7 +92,7 @@ Les mots en **gras** dans la colonne Animation sont les déclencheurs synchronis
 | 6 | 00:13.96 → 00:15.93<br>img 419–478 | 1,97 s | « des comptes adaptés à votre style de vie » | Titrage « des comptes adaptés / à votre style de vie » ; deux panneaux de verre en perspective : Compte courant, Compte épargne | **comptes** 14.14 : les panneaux pivotent depuis la droite (rotateY −38° → −14°), icônes tracées ; **style** 15.37 : liseré rouge lumineux + coches vertes « adapté » | Les panneaux filent vers la gauche avec flou |
 | 7 | 00:16.04 → 00:18.07<br>img 481–542 | 2,04 s | « et des cartes sécurisées pour chaque instant. » | **Carte bancaire UBA rouge en 3D** (puce, sans contact, VISA) devant une carte noire ; titrage « des cartes sécurisées / pour chaque instant » | **cartes** 16.45 : la carte arrive des profondeurs en pivotant (75° → −16°) ; **sécurisées** 16.56 : reflet lumineux qui balaie la carte + puce « Paiements sécurisés » (bouclier tracé) ; **chaque** 17.54 : puce « Acceptée dans +200 pays » | **Zoom-through** 17.97 → 18.5 : la carte fonce vers la caméra avec flou de mouvement |
 
-### Séquence 3 — BANQUE DIGITALE (00:18.02 → 00:31.89)
+### Séquence 3 — BANQUE DIGITALE (00:18.02 → 00:31.94)
 
 | # | Timecode | Durée | Voix-off | Visuel associé | Animation (déclencheurs) | Transition |
 |---|---|---|---|---|---|---|
@@ -103,7 +103,7 @@ Les mots en **gras** dans la colonne Animation sont les déclencheurs synchronis
 | 11b | 00:26.15 → 00:28.05<br>img 785–842 | 1,90 s | « et laissez Léo, votre banquier virtuel, » | Écran de chat **Léo** (avatar, « Banquier virtuel · en ligne ») ; titrage « Léo, » 140 px rouge + « votre banquier virtuel » | **Léo** 26.43 : nom géant ; l'avatar cligne des yeux ; **banquier** 27.11 : premier message de Léo | — |
 | 11c | 00:28.11 → 00:31.04<br>img 843–931 | 2,93 s | « simplifier vos paiements et transferts 24h/24. » | Bulles de conversation, indicateur de saisie, reçu de transfert ; badge flottant « 24h/24 · 7j/7 » | **simplifier** 28.11 : demande « Envoie 50 000 FCFA à Moussa » ; **paiements** 28.89 : Léo écrit… ; **transferts** 29.55 : « Transfert effectué ✓ » ; **24h/24** 29.87 : le badge horloge jaillit à 140 px en Z | **Match cut** 30.94 → 31.84 : le téléphone se rabat à plat en isométrie et se fond dans le sol où naissent les tours |
 
-### Séquence 4 — CORPORATE (00:30.99 → 00:41.80)
+### Séquence 4 — CORPORATE (00:30.89 → 00:41.33)
 
 | # | Timecode | Durée | Voix-off | Visuel associé | Animation (déclencheurs) | Transition |
 |---|---|---|---|---|---|---|

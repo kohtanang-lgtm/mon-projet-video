@@ -98,8 +98,10 @@ export const S1Ambition: React.FC = () => {
   const lineC = say("Et si la banque devenait enfin");
   const lineD = say("le reflet de vos ambitions ?").map((w) => ({ ...w, accent: /ambitions|\?/.test(w.text) }));
   const reflet = prog(t, CUE.reflet - 0.1, 1.0, EASE.out);
-  const sceneOut = CUE.ambitionsEnd + 0.02;
-  const slabOut = prog(t, sceneOut, 0.55, EASE.in);
+  // Sortie resserrée dans la pause de 0,38 s qui précède « Particuliers »
+  const sceneOut = CUE.ambitionsEnd - 0.02;
+  const OUT = 0.36;
+  const slabOut = prog(t, sceneOut, OUT, EASE.inOut);
 
   // Respiration de caméra : très lent travelling arrière sur toute la scène
   const camera = mix(1.06, 1, prog(t, 0, CUE.particuliers, EASE.linear));
@@ -157,9 +159,9 @@ export const S1Ambition: React.FC = () => {
 
       {/* — Bloc 2 : la question et son reflet — */}
       <div style={{ position: "absolute", top: QUESTION_TOP, width: 1920 }}>
-        <KineticLine t={t} words={lineC} size={80} weight={600} align="center" exitAt={sceneOut} />
+        <KineticLine t={t} words={lineC} size={80} weight={600} align="center" exitAt={sceneOut} exitDuration={OUT} />
         <div style={{ height: 10 }} />
-        <KineticLine t={t} words={lineD} size={80} weight={700} align="center" exitAt={sceneOut} />
+        <KineticLine t={t} words={lineD} size={80} weight={700} align="center" exitAt={sceneOut} exitDuration={OUT} />
       </div>
       {/* Dalle de verre : la ligne d'horizon devient une surface réfléchissante */}
       <div

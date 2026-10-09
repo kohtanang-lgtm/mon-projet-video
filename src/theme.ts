@@ -35,7 +35,7 @@ export const EASE = {
   /** Entrées : attaque franche, atterrissage très doux. */
   out: Easing.bezier(0.16, 1, 0.3, 1),
   /** Sorties : départ doux, accélération progressive. */
-  in: Easing.bezier(0.7, 0, 0.84, 0),
+  in: Easing.bezier(0.32, 0, 0.67, 0),
   /** Mouvements de caméra et transitions symétriques. */
   inOut: Easing.bezier(0.65, 0, 0.35, 1),
   /** Transitions « match cut » plus nerveuses. */
