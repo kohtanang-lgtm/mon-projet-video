@@ -97,7 +97,14 @@ npm run render:16x9    # → output/spot-dc-41s-16x9.mp4  (1920×1080, 60 i/s)
 npm run render:9x16    # → output/spot-dc-41s-9x16.mp4  (1080×1920, 60 i/s)
 ```
 
-Rendus : **en cours de génération** (`output/spot-dc-41s-16x9.mp4`, `output/spot-dc-41s-9x16.mp4`). Leurs caractéristiques vérifiées seront ajoutées ici avec les fichiers.
+Rendus livrés (vérifiés le 9 octobre 2026) :
+
+| Fichier | Format | Images | Audio |
+|---|---|---|---|
+| `output/spot-dc-41s-16x9.mp4` | H.264, 1920×1080, 60 i/s, 41,000 s, 25,6 Mo | 2 460 | AAC 48 kHz stéréo 256 kb/s, −14,0 LUFS, crête −1,7 dBTP |
+| `output/spot-dc-41s-9x16.mp4` | H.264, 1080×1920, 60 i/s, 41,000 s, 24,1 Mo | 2 460 | idem |
+
+Synchronisation contrôlée sur les fichiers finaux : décalage de 0,0 ms entre la voix du MP4 et la voix de référence (corrélation croisée), et image vérifiée sur 12 mots clés.
 
 Note : `hyperframes lint` signale `multiple_root_compositions`, car le projet a deux pages d'entrée. C'est volontaire : chaque rendu cible sa page avec `-c`, et l'audio n'est pas doublé.
 

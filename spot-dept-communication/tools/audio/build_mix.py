@@ -248,10 +248,12 @@ def main():
     mix = pan(vo, 0) * db(0) + music + sfx * db(-1.5)
     mix = eq(mix, "highpass", 28, q=0.7)
     mix = compressor(mix, threshold_db=-14, ratio=1.8, attack=0.02, release=0.2, knee_db=8)
+    # plafond à −2 dBFS : laisse la marge pour les crêtes inter-échantillons et l'encodage AAC
+    # (sinon le moteur de rendu abaisse lui-même l'audio pour rester sous −1 dBTP)
     for _ in range(3):
-        g = -14.0 - meter.integrated_loudness(limiter(mix, ceiling_db=-1.2))
+        g = -14.0 - meter.integrated_loudness(limiter(mix, ceiling_db=-2.0))
         mix *= db(g)
-    mix = limiter(mix, ceiling_db=-1.2)
+    mix = limiter(mix, ceiling_db=-2.0)
     mix = fade(mix, SR, 0.0, 0.25)
     sf.write(ROOT / "assets/audio/mix_master.wav", mix.astype(np.float32), SR, subtype="PCM_24")
     print(f"mix_master.wav : {meter.integrated_loudness(mix):.1f} LUFS · crête {20*np.log10(np.max(np.abs(mix))):.1f} dBFS")
