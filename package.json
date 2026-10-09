@@ -1,0 +1,32 @@
+{
+  "name": "uba-tchad-spot",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Spot institutionnel UBA Tchad — motion design Remotion synchronisé sur la voix-off",
+  "scripts": {
+    "studio": "remotion studio",
+    "render": "remotion render UbaTchadSpot out/uba-tchad-spot.mp4",
+    "render:draft": "remotion render UbaTchadSpot out/uba-tchad-spot-draft.mp4 --scale=0.5 --crf=28",
+    "stills": "node scripts/render-stills.mjs",
+    "align": "python3 scripts/align_voiceover.py public/audio/voix-off-uba-tchad.mp3 src/timeline/voiceover.json",
+    "sound": "python3 scripts/generate_sound_design.py",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write \"src/**/*.{ts,tsx}\" \"scripts/*.mjs\" remotion.config.ts"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.534",
+    "@remotion/fonts": "4.0.534",
+    "@remotion/paths": "4.0.534",
+    "@remotion/shapes": "4.0.534",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "remotion": "4.0.534"
+  },
+  "devDependencies": {
+    "@remotion/bundler": "4.0.534",
+    "@remotion/renderer": "4.0.534",
+    "@types/react": "19.1.8",
+    "prettier": "3.6.2",
+    "typescript": "5.8.3"
+  }
+}

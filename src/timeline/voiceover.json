@@ -1,0 +1,1010 @@
+{
+  "source": "voix-off-uba-tchad.mp3",
+  "duration": 46.4,
+  "method": "breath groups + punctuation micro-pauses + sibilant onsets + syllabic distribution",
+  "groups": [
+    {
+      "index": 0,
+      "text": "L'avenir se construit avec ceux qui osent",
+      "start": 0.05,
+      "end": 1.72,
+      "syllablesPerSecond": 6.77
+    },
+    {
+      "index": 1,
+      "text": "voir plus grand.",
+      "start": 1.83,
+      "end": 2.795,
+      "syllablesPerSecond": 3.58
+    },
+    {
+      "index": 2,
+      "text": "Et si la banque devenait enfin le reflet de vos ambitions ?",
+      "start": 3.23,
+      "end": 6.04,
+      "syllablesPerSecond": 6.67
+    },
+    {
+      "index": 3,
+      "text": "Particuliers, familles, bâtisseurs du quotidien...",
+      "start": 6.42,
+      "end": 9.18,
+      "syllablesPerSecond": 4.98
+    },
+    {
+      "index": 4,
+      "text": "UBA Tchad vous accompagne avec des solutions bancaires de proximité,",
+      "start": 9.525,
+      "end": 12.89,
+      "syllablesPerSecond": 6.55
+    },
+    {
+      "index": 5,
+      "text": "des comptes adaptés à votre style de vie",
+      "start": 13.155,
+      "end": 15.125,
+      "syllablesPerSecond": 5.38
+    },
+    {
+      "index": 6,
+      "text": "et des cartes sécurisées pour chaque instant.",
+      "start": 15.235,
+      "end": 17.275,
+      "syllablesPerSecond": 6.1
+    },
+    {
+      "index": 7,
+      "text": "Plus besoin d'attendre.",
+      "start": 17.61,
+      "end": 18.585,
+      "syllablesPerSecond": 5.59
+    },
+    {
+      "index": 8,
+      "text": "Prenez le contrôle de votre argent du bout des doigts.",
+      "start": 18.8,
+      "end": 20.915,
+      "syllablesPerSecond": 6.1
+    },
+    {
+      "index": 9,
+      "text": "Ouvrez votre compte en ligne en quelques minutes,",
+      "start": 21.2,
+      "end": 23.27,
+      "syllablesPerSecond": 5.68
+    },
+    {
+      "index": 10,
+      "text": "consultez vos soldes en temps réel et laissez Léo, votre banquier virtuel, simplifier vos paiements et transferts 24h/24.",
+      "start": 23.41,
+      "end": 30.24,
+      "syllablesPerSecond": 4.97
+    },
+    {
+      "index": 11,
+      "text": "Entrepreneurs,",
+      "start": 30.585,
+      "end": 31.42,
+      "syllablesPerSecond": 5.33
+    },
+    {
+      "index": 12,
+      "text": "PME, grandes organisations :",
+      "start": 31.54,
+      "end": 33.17,
+      "syllablesPerSecond": 5.89
+    },
+    {
+      "index": 13,
+      "text": "propulsez votre activité vers de nouveaux sommets grâce à notre expertise en Corporate Banking et nos solutions de financement sur-mesure.",
+      "start": 33.45,
+      "end": 40.085,
+      "syllablesPerSecond": 6.19
+    },
+    {
+      "index": 14,
+      "text": "UBA Tchad,",
+      "start": 40.505,
+      "end": 41.34,
+      "syllablesPerSecond": 4.97
+    },
+    {
+      "index": 15,
+      "text": "la banque globale de l'Afrique.",
+      "start": 41.515,
+      "end": 43.13,
+      "syllablesPerSecond": 5.85
+    },
+    {
+      "index": 16,
+      "text": "Rejoignez-nous dès aujourd'hui sur ubachad.com.",
+      "start": 43.405,
+      "end": 46.26,
+      "syllablesPerSecond": 5.01
+    }
+  ],
+  "words": [
+    {
+      "text": "L'avenir",
+      "start": 0.05,
+      "end": 0.475,
+      "group": 0,
+      "anchor": "pause"
+    },
+    {
+      "text": "se",
+      "start": 0.475,
+      "end": 0.64,
+      "group": 0,
+      "anchor": "sibilante"
+    },
+    {
+      "text": "construit",
+      "start": 0.64,
+      "end": 0.87,
+      "group": 0,
+      "anchor": "estimé"
+    },
+    {
+      "text": "avec",
+      "start": 0.87,
+      "end": 1.32,
+      "group": 0,
+      "anchor": "estimé"
+    },
+    {
+      "text": "ceux",
+      "start": 1.32,
+      "end": 1.46,
+      "group": 0,
+      "anchor": "sibilante"
+    },
+    {
+      "text": "qui",
+      "start": 1.46,
+      "end": 1.585,
+      "group": 0,
+      "anchor": "estimé"
+    },
+    {
+      "text": "osent",
+      "start": 1.585,
+      "end": 1.72,
+      "group": 0,
+      "anchor": "estimé"
+    },
+    {
+      "text": "voir",
+      "start": 1.83,
+      "end": 2.12,
+      "group": 1,
+      "anchor": "pause"
+    },
+    {
+      "text": "plus",
+      "start": 2.12,
+      "end": 2.355,
+      "group": 1,
+      "anchor": "estimé"
+    },
+    {
+      "text": "grand.",
+      "start": 2.355,
+      "end": 2.795,
+      "group": 1,
+      "anchor": "estimé"
+    },
+    {
+      "text": "Et",
+      "start": 3.23,
+      "end": 3.33,
+      "group": 2,
+      "anchor": "pause"
+    },
+    {
+      "text": "si",
+      "start": 3.33,
+      "end": 3.46,
+      "group": 2,
+      "anchor": "sibilante"
+    },
+    {
+      "text": "la",
+      "start": 3.46,
+      "end": 3.67,
+      "group": 2,
+      "anchor": "estimé"
+    },
+    {
+      "text": "banque",
+      "start": 3.67,
+      "end": 3.93,
+      "group": 2,
+      "anchor": "estimé"
+    },
+    {
+      "text": "devenait",
+      "start": 3.93,
+      "end": 4.415,
+      "group": 2,
+      "anchor": "estimé"
+    },
+    {
+      "text": "enfin",
+      "start": 4.415,
+      "end": 4.69,
+      "group": 2,
+      "anchor": "estimé"
+    },
+    {
+      "text": "le",
+      "start": 4.69,
+      "end": 5.01,
+      "group": 2,
+      "anchor": "estimé"
+    },
+    {
+      "text": "reflet",
+      "start": 5.01,
+      "end": 5.17,
+      "group": 2,
+      "anchor": "estimé"
+    },
+    {
+      "text": "de",
+      "start": 5.17,
+      "end": 5.39,
+      "group": 2,
+      "anchor": "estimé"
+    },
+    {
+      "text": "vos",
+      "start": 5.39,
+      "end": 5.52,
+      "group": 2,
+      "anchor": "estimé"
+    },
+    {
+      "text": "ambitions ?",
+      "start": 5.52,
+      "end": 6.04,
+      "group": 2,
+      "anchor": "estimé"
+    },
+    {
+      "text": "Particuliers,",
+      "start": 6.42,
+      "end": 7.24,
+      "group": 3,
+      "anchor": "pause"
+    },
+    {
+      "text": "familles,",
+      "start": 7.36,
+      "end": 8.145,
+      "group": 3,
+      "anchor": "ponctuation"
+    },
+    {
+      "text": "bâtisseurs",
+      "start": 8.165,
+      "end": 8.61,
+      "group": 3,
+      "anchor": "ponctuation"
+    },
+    {
+      "text": "du",
+      "start": 8.61,
+      "end": 8.74,
+      "group": 3,
+      "anchor": "estimé"
+    },
+    {
+      "text": "quotidien...",
+      "start": 8.74,
+      "end": 9.18,
+      "group": 3,
+      "anchor": "estimé"
+    },
+    {
+      "text": "UBA",
+      "start": 9.525,
+      "end": 9.92,
+      "group": 4,
+      "anchor": "pause"
+    },
+    {
+      "text": "Tchad",
+      "start": 9.92,
+      "end": 10.15,
+      "group": 4,
+      "anchor": "sibilante"
+    },
+    {
+      "text": "vous",
+      "start": 10.15,
+      "end": 10.33,
+      "group": 4,
+      "anchor": "estimé"
+    },
+    {
+      "text": "accompagne",
+      "start": 10.33,
+      "end": 10.915,
+      "group": 4,
+      "anchor": "estimé"
+    },
+    {
+      "text": "avec",
+      "start": 10.915,
+      "end": 11.23,
+      "group": 4,
+      "anchor": "estimé"
+    },
+    {
+      "text": "des",
+      "start": 11.23,
+      "end": 11.41,
+      "group": 4,
+      "anchor": "estimé"
+    },
+    {
+      "text": "solutions",
+      "start": 11.41,
+      "end": 11.775,
+      "group": 4,
+      "anchor": "sibilante"
+    },
+    {
+      "text": "bancaires",
+      "start": 11.775,
+      "end": 12.1,
+      "group": 4,
+      "anchor": "estimé"
+    },
+    {
+      "text": "de",
+      "start": 12.1,
+      "end": 12.27,
+      "group": 4,
+      "anchor": "estimé"
+    },
+    {
+      "text": "proximité,",
+      "start": 12.27,
+      "end": 12.89,
+      "group": 4,
+      "anchor": "estimé"
+    },
+    {
+      "text": "des",
+      "start": 13.155,
+      "end": 13.335,
+      "group": 5,
+      "anchor": "pause"
+    },
+    {
+      "text": "comptes",
+      "start": 13.335,
+      "end": 13.64,
+      "group": 5,
+      "anchor": "estimé"
+    },
+    {
+      "text": "adaptés",
+      "start": 13.64,
+      "end": 14.21,
+      "group": 5,
+      "anchor": "estimé"
+    },
+    {
+      "text": "à",
+      "start": 14.21,
+      "end": 14.345,
+      "group": 5,
+      "anchor": "estimé"
+    },
+    {
+      "text": "votre",
+      "start": 14.345,
+      "end": 14.565,
+      "group": 5,
+      "anchor": "estimé"
+    },
+    {
+      "text": "style",
+      "start": 14.565,
+      "end": 14.755,
+      "group": 5,
+      "anchor": "sibilante"
+    },
+    {
+      "text": "de",
+      "start": 14.755,
+      "end": 14.905,
+      "group": 5,
+      "anchor": "estimé"
+    },
+    {
+      "text": "vie",
+      "start": 14.905,
+      "end": 15.125,
+      "group": 5,
+      "anchor": "estimé"
+    },
+    {
+      "text": "et",
+      "start": 15.235,
+      "end": 15.47,
+      "group": 6,
+      "anchor": "pause"
+    },
+    {
+      "text": "des",
+      "start": 15.47,
+      "end": 15.65,
+      "group": 6,
+      "anchor": "estimé"
+    },
+    {
+      "text": "cartes",
+      "start": 15.65,
+      "end": 15.76,
+      "group": 6,
+      "anchor": "estimé"
+    },
+    {
+      "text": "sécurisées",
+      "start": 15.76,
+      "end": 16.49,
+      "group": 6,
+      "anchor": "sibilante"
+    },
+    {
+      "text": "pour",
+      "start": 16.49,
+      "end": 16.74,
+      "group": 6,
+      "anchor": "estimé"
+    },
+    {
+      "text": "chaque",
+      "start": 16.74,
+      "end": 16.88,
+      "group": 6,
+      "anchor": "sibilante"
+    },
+    {
+      "text": "instant.",
+      "start": 16.88,
+      "end": 17.275,
+      "group": 6,
+      "anchor": "estimé"
+    },
+    {
+      "text": "Plus",
+      "start": 17.61,
+      "end": 17.795,
+      "group": 7,
+      "anchor": "pause"
+    },
+    {
+      "text": "besoin",
+      "start": 17.795,
+      "end": 18.215,
+      "group": 7,
+      "anchor": "estimé"
+    },
+    {
+      "text": "d'attendre.",
+      "start": 18.215,
+      "end": 18.585,
+      "group": 7,
+      "anchor": "estimé"
+    },
+    {
+      "text": "Prenez",
+      "start": 18.8,
+      "end": 19.135,
+      "group": 8,
+      "anchor": "pause"
+    },
+    {
+      "text": "le",
+      "start": 19.135,
+      "end": 19.345,
+      "group": 8,
+      "anchor": "estimé"
+    },
+    {
+      "text": "contrôle",
+      "start": 19.345,
+      "end": 19.695,
+      "group": 8,
+      "anchor": "estimé"
+    },
+    {
+      "text": "de",
+      "start": 19.695,
+      "end": 19.91,
+      "group": 8,
+      "anchor": "estimé"
+    },
+    {
+      "text": "votre",
+      "start": 19.91,
+      "end": 19.985,
+      "group": 8,
+      "anchor": "estimé"
+    },
+    {
+      "text": "argent",
+      "start": 19.985,
+      "end": 20.17,
+      "group": 8,
+      "anchor": "estimé"
+    },
+    {
+      "text": "du",
+      "start": 20.17,
+      "end": 20.355,
+      "group": 8,
+      "anchor": "estimé"
+    },
+    {
+      "text": "bout",
+      "start": 20.355,
+      "end": 20.525,
+      "group": 8,
+      "anchor": "estimé"
+    },
+    {
+      "text": "des",
+      "start": 20.525,
+      "end": 20.675,
+      "group": 8,
+      "anchor": "estimé"
+    },
+    {
+      "text": "doigts.",
+      "start": 20.675,
+      "end": 20.915,
+      "group": 8,
+      "anchor": "estimé"
+    },
+    {
+      "text": "Ouvrez",
+      "start": 21.2,
+      "end": 21.6,
+      "group": 9,
+      "anchor": "pause"
+    },
+    {
+      "text": "votre",
+      "start": 21.6,
+      "end": 21.765,
+      "group": 9,
+      "anchor": "estimé"
+    },
+    {
+      "text": "compte",
+      "start": 21.765,
+      "end": 21.92,
+      "group": 9,
+      "anchor": "estimé"
+    },
+    {
+      "text": "en",
+      "start": 21.92,
+      "end": 22.1,
+      "group": 9,
+      "anchor": "estimé"
+    },
+    {
+      "text": "ligne",
+      "start": 22.1,
+      "end": 22.355,
+      "group": 9,
+      "anchor": "estimé"
+    },
+    {
+      "text": "en",
+      "start": 22.355,
+      "end": 22.515,
+      "group": 9,
+      "anchor": "estimé"
+    },
+    {
+      "text": "quelques",
+      "start": 22.515,
+      "end": 22.83,
+      "group": 9,
+      "anchor": "estimé"
+    },
+    {
+      "text": "minutes,",
+      "start": 22.83,
+      "end": 23.27,
+      "group": 9,
+      "anchor": "estimé"
+    },
+    {
+      "text": "consultez",
+      "start": 23.41,
+      "end": 24.09,
+      "group": 10,
+      "anchor": "pause"
+    },
+    {
+      "text": "vos",
+      "start": 24.09,
+      "end": 24.435,
+      "group": 10,
+      "anchor": "estimé"
+    },
+    {
+      "text": "soldes",
+      "start": 24.435,
+      "end": 24.565,
+      "group": 10,
+      "anchor": "sibilante"
+    },
+    {
+      "text": "en",
+      "start": 24.565,
+      "end": 24.75,
+      "group": 10,
+      "anchor": "estimé"
+    },
+    {
+      "text": "temps",
+      "start": 24.75,
+      "end": 24.985,
+      "group": 10,
+      "anchor": "estimé"
+    },
+    {
+      "text": "réel",
+      "start": 24.985,
+      "end": 25.085,
+      "group": 10,
+      "anchor": "estimé"
+    },
+    {
+      "text": "et",
+      "start": 25.085,
+      "end": 25.35,
+      "group": 10,
+      "anchor": "estimé"
+    },
+    {
+      "text": "laissez",
+      "start": 25.35,
+      "end": 25.625,
+      "group": 10,
+      "anchor": "estimé"
+    },
+    {
+      "text": "Léo,",
+      "start": 25.625,
+      "end": 25.91,
+      "group": 10,
+      "anchor": "estimé"
+    },
+    {
+      "text": "votre",
+      "start": 26.035,
+      "end": 26.31,
+      "group": 10,
+      "anchor": "ponctuation"
+    },
+    {
+      "text": "banquier",
+      "start": 26.31,
+      "end": 26.75,
+      "group": 10,
+      "anchor": "estimé"
+    },
+    {
+      "text": "virtuel,",
+      "start": 26.75,
+      "end": 27.29,
+      "group": 10,
+      "anchor": "estimé"
+    },
+    {
+      "text": "simplifier",
+      "start": 27.31,
+      "end": 27.815,
+      "group": 10,
+      "anchor": "ponctuation"
+    },
+    {
+      "text": "vos",
+      "start": 27.815,
+      "end": 28.09,
+      "group": 10,
+      "anchor": "estimé"
+    },
+    {
+      "text": "paiements",
+      "start": 28.09,
+      "end": 28.445,
+      "group": 10,
+      "anchor": "estimé"
+    },
+    {
+      "text": "et",
+      "start": 28.445,
+      "end": 28.755,
+      "group": 10,
+      "anchor": "estimé"
+    },
+    {
+      "text": "transferts",
+      "start": 28.755,
+      "end": 29.07,
+      "group": 10,
+      "anchor": "estimé"
+    },
+    {
+      "text": "24h/24.",
+      "start": 29.07,
+      "end": 30.24,
+      "group": 10,
+      "anchor": "estimé"
+    },
+    {
+      "text": "Entrepreneurs,",
+      "start": 30.585,
+      "end": 31.42,
+      "group": 11,
+      "anchor": "pause"
+    },
+    {
+      "text": "PME,",
+      "start": 31.54,
+      "end": 32.1,
+      "group": 12,
+      "anchor": "pause"
+    },
+    {
+      "text": "grandes",
+      "start": 32.17,
+      "end": 32.4,
+      "group": 12,
+      "anchor": "ponctuation"
+    },
+    {
+      "text": "organisations :",
+      "start": 32.4,
+      "end": 33.17,
+      "group": 12,
+      "anchor": "estimé"
+    },
+    {
+      "text": "propulsez",
+      "start": 33.45,
+      "end": 34.07,
+      "group": 13,
+      "anchor": "pause"
+    },
+    {
+      "text": "votre",
+      "start": 34.07,
+      "end": 34.255,
+      "group": 13,
+      "anchor": "estimé"
+    },
+    {
+      "text": "activité",
+      "start": 34.255,
+      "end": 34.865,
+      "group": 13,
+      "anchor": "estimé"
+    },
+    {
+      "text": "vers",
+      "start": 34.865,
+      "end": 34.99,
+      "group": 13,
+      "anchor": "estimé"
+    },
+    {
+      "text": "de",
+      "start": 34.99,
+      "end": 35.23,
+      "group": 13,
+      "anchor": "estimé"
+    },
+    {
+      "text": "nouveaux",
+      "start": 35.23,
+      "end": 35.39,
+      "group": 13,
+      "anchor": "estimé"
+    },
+    {
+      "text": "sommets",
+      "start": 35.39,
+      "end": 35.9,
+      "group": 13,
+      "anchor": "sibilante"
+    },
+    {
+      "text": "grâce",
+      "start": 35.9,
+      "end": 36.08,
+      "group": 13,
+      "anchor": "estimé"
+    },
+    {
+      "text": "à",
+      "start": 36.08,
+      "end": 36.31,
+      "group": 13,
+      "anchor": "estimé"
+    },
+    {
+      "text": "notre",
+      "start": 36.31,
+      "end": 36.47,
+      "group": 13,
+      "anchor": "estimé"
+    },
+    {
+      "text": "expertise",
+      "start": 36.47,
+      "end": 36.92,
+      "group": 13,
+      "anchor": "estimé"
+    },
+    {
+      "text": "en",
+      "start": 36.92,
+      "end": 37.095,
+      "group": 13,
+      "anchor": "estimé"
+    },
+    {
+      "text": "Corporate",
+      "start": 37.095,
+      "end": 37.53,
+      "group": 13,
+      "anchor": "estimé"
+    },
+    {
+      "text": "Banking",
+      "start": 37.53,
+      "end": 38.0,
+      "group": 13,
+      "anchor": "estimé"
+    },
+    {
+      "text": "et",
+      "start": 38.0,
+      "end": 38.08,
+      "group": 13,
+      "anchor": "estimé"
+    },
+    {
+      "text": "nos",
+      "start": 38.08,
+      "end": 38.235,
+      "group": 13,
+      "anchor": "estimé"
+    },
+    {
+      "text": "solutions",
+      "start": 38.235,
+      "end": 38.805,
+      "group": 13,
+      "anchor": "estimé"
+    },
+    {
+      "text": "de",
+      "start": 38.805,
+      "end": 38.99,
+      "group": 13,
+      "anchor": "estimé"
+    },
+    {
+      "text": "financement",
+      "start": 38.99,
+      "end": 39.49,
+      "group": 13,
+      "anchor": "estimé"
+    },
+    {
+      "text": "sur-mesure.",
+      "start": 39.49,
+      "end": 40.085,
+      "group": 13,
+      "anchor": "sibilante"
+    },
+    {
+      "text": "UBA",
+      "start": 40.505,
+      "end": 40.92,
+      "group": 14,
+      "anchor": "pause"
+    },
+    {
+      "text": "Tchad,",
+      "start": 40.92,
+      "end": 41.34,
+      "group": 14,
+      "anchor": "sibilante"
+    },
+    {
+      "text": "la",
+      "start": 41.515,
+      "end": 41.705,
+      "group": 15,
+      "anchor": "pause"
+    },
+    {
+      "text": "banque",
+      "start": 41.705,
+      "end": 42.05,
+      "group": 15,
+      "anchor": "estimé"
+    },
+    {
+      "text": "globale",
+      "start": 42.05,
+      "end": 42.33,
+      "group": 15,
+      "anchor": "estimé"
+    },
+    {
+      "text": "de",
+      "start": 42.33,
+      "end": 42.57,
+      "group": 15,
+      "anchor": "estimé"
+    },
+    {
+      "text": "l'Afrique.",
+      "start": 42.57,
+      "end": 43.13,
+      "group": 15,
+      "anchor": "estimé"
+    },
+    {
+      "text": "Rejoignez-nous",
+      "start": 43.405,
+      "end": 44.245,
+      "group": 16,
+      "anchor": "pause"
+    },
+    {
+      "text": "dès",
+      "start": 44.245,
+      "end": 44.515,
+      "group": 16,
+      "anchor": "estimé"
+    },
+    {
+      "text": "aujourd'hui",
+      "start": 44.515,
+      "end": 45.075,
+      "group": 16,
+      "anchor": "estimé"
+    },
+    {
+      "text": "sur",
+      "start": 45.075,
+      "end": 45.225,
+      "group": 16,
+      "anchor": "estimé"
+    },
+    {
+      "text": "ubachad.com.",
+      "start": 45.225,
+      "end": 46.26,
+      "group": 16,
+      "anchor": "estimé"
+    }
+  ]
+}
