@@ -32,12 +32,11 @@
   DC.hideWords(wl);
   const strike = DC.el("span", { style: { position: "absolute", left: "-2%", width: "104%", top: "47%", height: "0.1em", background: C.vertSignal, transformOrigin: "0% 50%" } }, words.NAISSENT);
   gsap.set(strike, { scaleX: 0 });
-  const pe = T("pros_a.end");
-  tl.to(words.NE, { yPercent: 0, duration: 0.45, ease: E.signalOut }, pe - 0.95);
-  tl.to(words.NAISSENT, { yPercent: 0, duration: 0.45, ease: E.signalOut }, pe - 0.82);
-  tl.to(words.PAS, { yPercent: 0, duration: 0.45, ease: E.signalOut }, pe - 0.48);
-  tl.to(strike, { scaleX: 1, duration: 0.2, ease: E.press }, pe - 0.35);
-  tl.to(words.NAISSENT, { color: "rgba(255,255,255,0.32)", duration: 0.25 }, pe - 0.2);
+  tl.to(words.NE, { yPercent: 0, duration: 0.4, ease: E.signalOut }, T("pros_a@ne naissent") - 0.1);
+  tl.to(words.NAISSENT, { yPercent: 0, duration: 0.4, ease: E.signalOut }, T("pros_a@naissent") - 0.08);
+  tl.to(words.PAS, { yPercent: 0, duration: 0.4, ease: E.signalOut }, T("pros_a@pas") - 0.08);
+  tl.to(strike, { scaleX: 1, duration: 0.2, ease: E.press }, T("pros_a@pas") + 0.05);
+  tl.to(words.NAISSENT, { color: "rgba(255,255,255,0.32)", duration: 0.25 }, T("pros_a@pas") + 0.2);
 
   // « ILS SE FORMENT. » — chaque lettre s'assemble en deux moitiés
   const pb = T("pros_b.start");

@@ -1,7 +1,7 @@
 /* S2 — LA PRATIQUE : jauge 100 % (l'Onde devient donnée) puis « le vide » qui se remplit. */
 (DC.sceneBuilders = DC.sceneBuilders || []).push(function s02(ctx) {
   const { tl, C, E, T, F, W, H, pick, txt } = ctx;
-  const sc = ctx.scene("s2", { bg: C.studio, post: 0.12 });
+  const sc = ctx.scene("s2", { post: 0.12 });   // fond transparent : la sortie de S1 reste visible dessous
   const t0 = sc.t0;
   ctx.chapter.label(tl, t0 + 0.1, txt.chapters.s2);
 
@@ -52,10 +52,23 @@
   const fill = DC.el("span", { text: txt.s2.hollow, style: { position: "absolute", left: "0", top: "0", color: C.vertSignal, clipPath: "inset(100% 0 0 0)" } }, hollowIn);
   const all = l1.words.concat(w2, [hollowIn]);
   DC.hideWords(all);
-  DC.reveal(tl, l1.words, pb + 0.02, { stagger: 0.08 });
-  DC.reveal(tl, w2, pb + 0.5, { stagger: 0.08 });
-  DC.reveal(tl, [hollowIn], pb + 0.62);
-  tl.to(fill, { clipPath: "inset(0% 0 0 0)", duration: 0.42, ease: E.glide }, T("prat_b.end") - 0.5);
+  DC.reveal(tl, l1.words, pb - 0.02, { stagger: 0.07 });
+  DC.reveal(tl, w2, T("prat_b@dans") - 0.08, { stagger: 0.07 });
+  DC.reveal(tl, [hollowIn], T("prat_b@vide") - 0.18);
+  tl.to(fill, { clipPath: "inset(0% 0 0 0)", duration: 0.36, ease: E.glide }, T("prat_b@vide") - 0.02);
+
+  // « Chaque année. » — cinq traits s'allument, un par année
+  const yr = DC.el("div", { style: { display: "flex", justifyContent: "center", alignItems: "center", gap: pick("26px", "20px"), marginTop: pick("34px", "28px") } }, blk);
+  const yl = DC.maskLine(yr, txt.s2.annee, { fontSize: pick(54, 50) + "px", color: C.vertSignal }, "syne");
+  yl.words.forEach((w) => (w.style.color = C.vertSignal));
+  DC.hideWords(yl.words);
+  const ticks = DC.el("div", { style: { display: "flex", gap: "10px", alignItems: "center" } }, yr);
+  const tk = [0, 1, 2, 3, 4].map(() => DC.el("span", { style: { width: "9px", height: pick("40px", "36px"), borderRadius: "5px", background: "rgba(255,255,255,0.18)", display: "inline-block" } }, ticks));
+  const an = T("annee.start");
+  gsap.set(ticks, { opacity: 0 });
+  tl.to(ticks, { opacity: 1, duration: 0.15 }, an - 0.1);
+  DC.reveal(tl, yl.words, an - 0.08, { stagger: 0.06, dur: 0.4 });
+  tk.forEach((t, i) => tl.to(t, { backgroundColor: C.jauneOnde, duration: 0.06 }, an + i * 0.08));
 
   // sortie : poussée vers la gauche (le split d'S3 entre par la droite)
   tl.to(blk, { x: -W * 0.35, opacity: 0, duration: 0.35, ease: E.press }, sc.t1 - 0.12);

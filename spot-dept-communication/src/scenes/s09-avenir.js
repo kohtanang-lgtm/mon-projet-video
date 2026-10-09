@@ -2,14 +2,14 @@
    « Votre avenir mérite l'excellence. » */
 (DC.sceneBuilders = DC.sceneBuilders || []).push(function s09(ctx) {
   const { tl, C, E, T, F, W, H, L, pick, txt } = ctx;
-  const sc = ctx.scene("s9", { bg: C.papier, pre: 0.25, post: 0.02 });
+  const sc = ctx.scene("s9", { bg: C.papier, pre: 0.08, post: 0.15 });
   const t0 = sc.t0;
   const pin = ctx.pin || { x: W / 2, y: H / 2 };
   const R = Math.hypot(Math.max(pin.x, W - pin.x), Math.max(pin.y, H - pin.y)) + 20;
-  tl.fromTo(sc.el, { clipPath: `circle(0px at ${pin.x}px ${pin.y}px)` }, { clipPath: `circle(${R}px at ${pin.x}px ${pin.y}px)`, duration: 0.45, ease: E.glide }, t0 - 0.25);
+  tl.fromTo(sc.el, { clipPath: `circle(0px at ${pin.x}px ${pin.y}px)` }, { clipPath: `circle(${R}px at ${pin.x}px ${pin.y}px)`, duration: 0.42, ease: E.glide }, t0 - 0.08);
 
   // habillage : le bandeau passe à l'encre, le grain s'allège, la vignette disparaît
-  ctx.chapter.hideLabel(tl, t0 - 0.2);
+  ctx.chapter.hideLabel(tl, t0 - 0.1);
   tl.to(ctx.chapter.quote.querySelectorAll("path"), { fill: C.encre, duration: 0.3 }, t0 - 0.05);
   tl.to(ctx.fx.grain, { opacity: 0.03, duration: 0.3 }, t0);
   tl.to(ctx.fx.vignette, { opacity: 0, duration: 0.3 }, t0 - 0.1);
@@ -28,7 +28,7 @@
   const a0 = T("avenir.start");
   const head = b.lines.slice(0, L ? 1 : 2).flatMap((l) => l.words);
   const tail = b.lines.slice(L ? 1 : 2).flatMap((l) => l.words).concat(extra);
-  DC.reveal(tl, head, a0 + 0.02, { stagger: 0.08 });
-  DC.reveal(tl, tail, a0 + 0.62, { stagger: 0.1 });
-  DC.exitUp(tl, b.words.concat(extra), sc.t1 - 0.25, { stagger: 0.02 });
+  DC.reveal(tl, head, a0 + 0.1, { stagger: 0.08 });
+  DC.reveal(tl, tail, T("avenir@mérite") - 0.06, { stagger: 0.1 });
+  DC.exitUp(tl, b.words.concat(extra), T("sig_a.start") - 0.28, { stagger: 0.02, dur: 0.26 });
 });

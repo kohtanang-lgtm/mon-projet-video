@@ -26,13 +26,14 @@ DC.script = {
   },
   s2: {
     gaugeLabel: "D'IMMERSION PRATIQUE",
-    lineA: "PAS DE THÉORIE",
+    lineA: "PAS UNE THÉORIE",
     lineB: "DANS LE",
     hollow: "VIDE.",
+    annee: "CHAQUE ANNÉE.",
   },
   s3: {
     left: { kicker: "DES", title: "AMPHIS", tag: "LA THÉORIE" },
-    right: { kicker: "AUX", title: "STUDIOS", tag: "LA PRATIQUE" },
+    right: { kicker: "AU", title: "MÉDIA LAB", tag: "LA PRATIQUE" },
     welcome: "BIENVENUE AU",
     nameA: "DÉPARTEMENT DE",
     nameB: "COMMUNICATION",
@@ -71,5 +72,6 @@ DC.script = {
     tagline: ["VOTRE", "HISTOIRE", "COMMENCE", "ICI."],
     endorsement: "FALSH · UNIVERSITÉ DE NGAOUNDÉRÉ",
     follow: "SUIVEZ-NOUS SUR NOS RÉSEAUX",
+    followersLine: "ABONNÉS",
   },
 };

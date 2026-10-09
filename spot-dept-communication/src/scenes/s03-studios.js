@@ -1,7 +1,7 @@
 /* S3 — DES AMPHIS AUX STUDIOS, puis le nom : « Bienvenue au Département de Communication ». */
 (DC.sceneBuilders = DC.sceneBuilders || []).push(function s03(ctx) {
   const { tl, C, E, T, F, W, H, L, pick, txt } = ctx;
-  const sc = ctx.scene("s3", { bg: C.studio, pre: 0.06, post: 0.02 });
+  const sc = ctx.scene("s3", { pre: 0.06, post: 0.08 });
   const t0 = sc.t0;
   const gap = 8;
 
@@ -28,9 +28,16 @@
     return b;
   };
   const la = lab(pA.el, txt.s3.left, pick(70, 70), pick(H - 230, half - 220));
-  const lb = lab(pB.el, txt.s3.right, pick(70, 70), pick(H - 230, 130));
-  DC.reveal(tl, la.words, T("studios.start") + 0.0, { stagger: 0.08 });
-  DC.reveal(tl, lb.words, T("studios.start") + 0.55, { stagger: 0.08 });
+  const lb = lab(pB.el, txt.s3.right, pick(70, 70), pick(130, 100));   // en haut : l'onde sonore occupe le bas du panneau
+  DC.reveal(tl, la.words, T("studios.start") - 0.04, { stagger: 0.08 });
+  DC.reveal(tl, lb.words, T("studios@au") - 0.06, { stagger: 0.08 });
+
+  // légende de la photo (bâtiment de la FALSH) en haut du panneau « amphis »
+  if (pA.photo) {
+    const cap = DC.el("div", { cls: "box inter", text: "FALSH · CAMPUS DE DANG", style: { left: "70px", top: pick("150px", "330px"), fontSize: "18px", color: "#fff", letterSpacing: "0.22em",
+      padding: "10px 16px", background: "rgba(0,104,55,0.85)", borderRadius: "4px" } }, pA.el);
+    tl.fromTo(cap, { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.4, ease: E.signalOut }, T("studios.start") + 0.1);
+  }
 
   // viseur caméra sur le panneau « studios »
   const vf = DC.el("div", { cls: "layer" }, pB.el);
@@ -45,7 +52,7 @@
   DC.el("span", { text: "REC" }, rec);
   const tc = DC.el("span", { text: "00:00:00:00", style: { marginLeft: "18px", fontVariantNumeric: "tabular-nums", color: "rgba(255,255,255,0.8)" } }, rec);
   const spec = DC.el("div", { cls: "box inter", text: "4K · 60 I/S", style: { right: ins + 30 + "px", top: ins + 30 + "px", fontSize: "18px", color: "rgba(255,255,255,0.7)" } }, vf);
-  const vfT = T("studios.start") + 0.5;
+  const vfT = T("studios@Média") - 0.08;
   corners.forEach(({ c, sx, sy }) => tl.fromTo(c, { x: -sx * 40, y: -sy * 40, opacity: 0 }, { x: 0, y: 0, opacity: 1, duration: 0.45, ease: E.land }, vfT));
   tl.fromTo([rec, spec], { opacity: 0 }, { opacity: 1, duration: 0.2 }, vfT + 0.1);
   for (let k = 0; k < 6; k++) tl.set(recDot, { opacity: k % 2 ? 1 : 0.15 }, vfT + 0.5 + k * 0.5);
@@ -56,7 +63,7 @@
   } }, vfT);
 
   // on entre dans les studios : le panneau droit prend tout le cadre
-  const pushT = T("welcome.start") - 0.32;
+  const pushT = T("welcome.start") - 0.3;
   tl.to(pA.el, L ? { x: -half, duration: 0.45, ease: E.glide } : { y: -half, duration: 0.45, ease: E.glide }, pushT);
   tl.to(divider, { opacity: 0, duration: 0.2 }, pushT);
   tl.to(pB.el, L ? { left: 0, width: W, duration: 0.45, ease: E.glide } : { top: 0, height: H, duration: 0.45, ease: E.glide }, pushT);
@@ -68,14 +75,14 @@
   const ws = T("welcome.start");
   const dots = DC.el("div", { cls: "box", style: { left: W / 2 - 110 + "px", top: H / 2 - 60 + "px", width: "220px", height: "120px", borderRadius: "60px", border: "4px solid rgba(255,255,255,0.9)", display: "flex", alignItems: "center", justifyContent: "center", gap: "22px" } }, sc.cam);
   const ds = [0, 1, 2].map(() => DC.el("span", { style: { width: "26px", height: "26px", borderRadius: "50%", background: C.jauneOnde, display: "inline-block" } }, dots));
-  tl.fromTo(dots, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: E.land }, ws - 0.08);
+  tl.fromTo(dots, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.25, ease: E.land }, ws - 0.14);
   ds.forEach((d, i) => {
-    tl.fromTo(d, { scale: 0 }, { scale: 1, duration: 0.2, ease: E.land }, ws + 0.02 + i * 0.14);
-    tl.to(d, { y: -12, duration: 0.12, ease: E.soft, yoyo: true, repeat: 1 }, ws + 0.3 + i * 0.07);
+    tl.fromTo(d, { scale: 0 }, { scale: 1, duration: 0.18, ease: E.land }, ws - 0.06 + i * 0.14);
+    tl.to(d, { y: -12, duration: 0.1, ease: E.soft, yoyo: true, repeat: 1 }, ws + 0.36 + i * 0.05);
   });
 
   // impact : l'aplat vert institution s'ouvre depuis la bulle, le nom s'écrit
-  const hit = T("welcome.start") + 0.62;
+  const hit = T("welcome@Département") - 0.02;
   const green = DC.layer(sc.cam, "", { background: C.vertInstitution, clipPath: `circle(0px at ${W / 2}px ${H / 2}px)` });
   tl.to(green, { clipPath: `circle(${Math.hypot(W, H)}px at ${W / 2}px ${H / 2}px)`, duration: 0.45, ease: E.glide }, hit - 0.12);
   tl.to(dots, { scale: 0, opacity: 0, duration: 0.2, ease: E.press }, hit - 0.1);
@@ -86,11 +93,11 @@
   ], { x: 0, y: pick(300, 760), gap: pick(14, 14), align: "center" });
   DC.reveal(tl, nm.lines[0].words, hit - 0.05, { stagger: 0.05 });
   DC.reveal(tl, nm.lines[1].words, hit + 0.02, { stagger: 0.07 });
-  DC.reveal(tl, nm.lines[2].words, T("welcome.start") + 1.2, { dur: 0.6 });
+  DC.reveal(tl, nm.lines[2].words, T("welcome@Communication") - 0.06, { dur: 0.5 });
   // la seule secousse du film, réservée au nom
   tl.to(sc.cam, { x: 6, duration: 0.03, ease: "none", yoyo: true, repeat: 5 }, hit);
   tl.set(sc.cam, { x: 0 }, hit + 0.2);
 
   // sortie : l'aplat vert se referme en iris
-  tl.to(green, { clipPath: `circle(0px at ${W / 2}px ${H / 2}px)`, duration: 0.3, ease: E.press }, sc.t1 - 0.28);
+  tl.to(green, { clipPath: `circle(0px at ${W / 2}px ${H / 2}px)`, duration: 0.3, ease: E.press }, sc.t1 - 0.2);
 });

@@ -8,6 +8,7 @@ Pour utiliser une musique sous licence : déposez-la dans assets/audio/music_lic
 (elle remplace la musique synthétisée ; le ducking sous la voix reste automatique).
 """
 import json
+import math
 import re
 import sys
 from pathlib import Path
@@ -29,9 +30,27 @@ TOTAL = TL["duration"]
 N = int(TOTAL * SR)
 
 
+def letters(s):
+    return sum(ch.isalnum() for ch in s)
+
+
+def word_time(cue_id, word):
+    """Instant estimé d'un mot dans une phrase (même règle que src/utils/time.js)."""
+    cue = CUES[cue_id]
+    i = cue["text"].lower().find(word.lower())
+    if i < 0:
+        raise ValueError(f"mot « {word} » absent de « {cue['text']} »")
+    before, total = letters(cue["text"][:i]) + 1.5, letters(cue["text"]) + 3
+    return cue["start"] + before / total * (cue["end"] - cue["start"])
+
+
 def at(expr):
+    """Nombre, "repère.start|end±x" ou "repère@mot±x" → secondes."""
     if isinstance(expr, (int, float)):
         return float(expr)
+    w = re.fullmatch(r"(\w+)@(.+?)([+-][\d.]+)?", expr.strip())
+    if w:
+        return word_time(w.group(1), w.group(2)) + float(w.group(3) or 0)
     m = re.fullmatch(r"(\w+)\.(start|end)([+-][\d.]+)?", expr.replace(" ", ""))
     if not m:
         raise ValueError(expr)
@@ -85,8 +104,9 @@ def build_music():
     perc = np.zeros((N, 2))
     kick_times = []
 
-    intro_end = off + 2 * bar          # ≈ 5,04 s
-    build_from = intro_end + 4 * bar   # les mallets entrent
+    groove_at = at(CFG["music"].get("groove_at", "prat_a.start-0.3"))
+    intro_end = off + math.ceil((groove_at - off) / bar) * bar   # première mesure après ce repère
+    build_from = intro_end + 2 * bar                            # les mallets entrent
     outro = at("sig_a.start") - 0.15
 
     def section(t):
@@ -210,7 +230,7 @@ def build_sfx():
 
 # ------------------------------------------------------------------ mix
 def main():
-    vo, sr = sf.read(ROOT / "assets/audio/vo_temp.wav")
+    vo, sr = sf.read(ROOT / TL.get("voice_file", "assets/audio/vo_temp.wav"))
     assert sr == SR
     vo = np.pad(vo, (0, max(0, N - len(vo))))[:N]
     music = build_music()

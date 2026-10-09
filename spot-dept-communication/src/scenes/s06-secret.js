@@ -108,22 +108,22 @@
   // --- S7. « Tout est réuni » : tout converge en un point, une onde part
   const r0 = T("reuni.start");
   const P = { x: W / 2, y: H / 2 };
-  const conv = r0 - 0.15;
+  const conv = r0 - 0.34;
   DC.exitUp(tl, licTb.words.concat(masTb.words), conv - 0.1, { stagger: 0.02 });
-  tl.to(cap.svg, { x: P.x - capX - capW / 2, y: P.y - capY - capW * 0.4, scale: 0, opacity: 0, duration: 0.5, ease: E.glide }, conv);
-  tl.to([nA, nB, ...mk, trail, base], { opacity: 0, duration: 0.2 }, conv + 0.32);
+  tl.to(cap.svg, { x: P.x - capX - capW / 2, y: P.y - capY - capW * 0.4, scale: 0, opacity: 0, duration: 0.4, ease: E.glide }, conv);
+  tl.to([nA, nB, ...mk, trail, base], { opacity: 0, duration: 0.15 }, conv + 0.3);
   [nA, nB, ...mk].forEach((n) => {
     const bb = n.tagName === "circle" ? { x: +n.getAttribute("cx"), y: +n.getAttribute("cy") } : null;
-    if (bb) tl.to(n, { x: P.x - bb.x, y: P.y - bb.y, duration: 0.45, ease: E.glide }, conv);
+    if (bb) tl.to(n, { x: P.x - bb.x, y: P.y - bb.y, duration: 0.4, ease: E.glide }, conv);
   });
   mk.forEach((m, i) => tl.to(m, { x: P.x - marks[i].x, y: P.y - marks[i].y, duration: 0.45, ease: E.glide }, conv));
-  tl.to(trail, { scaleX: 0, scaleY: 0, svgOrigin: `${P.x} ${P.y}`, duration: 0.45, ease: E.glide }, conv);
-  tl.to(base, { scaleX: 0, scaleY: 0, svgOrigin: `${P.x} ${P.y}`, duration: 0.45, ease: E.glide }, conv);
+  tl.to(trail, { scaleX: 0, scaleY: 0, svgOrigin: `${P.x} ${P.y}`, duration: 0.4, ease: E.glide }, conv);
+  tl.to(base, { scaleX: 0, scaleY: 0, svgOrigin: `${P.x} ${P.y}`, duration: 0.4, ease: E.glide }, conv);
 
   const ring = DC.svg("circle", { cx: P.x, cy: P.y, r: 60, fill: "none", stroke: C.jauneOnde, "stroke-width": 6, "vector-effect": "non-scaling-stroke" }, path);
   const core = DC.svg("circle", { cx: P.x, cy: P.y, r: 14, fill: "#fff" }, path);
-  const hit = r0 + 0.55;
-  tl.fromTo(core, { scale: 0, svgOrigin: `${P.x} ${P.y}` }, { scale: 1, duration: 0.25, ease: E.land }, conv + 0.35);
+  const hit = r0 + 0.1;
+  tl.fromTo(core, { scale: 0, svgOrigin: `${P.x} ${P.y}` }, { scale: 1, duration: 0.2, ease: E.land }, conv + 0.26);
   tl.to(core, { scale: 0, duration: 0.2, ease: E.press }, hit);
   tl.fromTo(ring, { scale: 0, opacity: 1, svgOrigin: `${P.x} ${P.y}` }, { scale: 12, opacity: 0, duration: 1.0, ease: E.signalOut }, hit);
   // 16:9 : « POUR FAIRE LA DIFFÉRENCE. » sur une ligne ; 9:16 : « DIFFÉRENCE. » sur sa propre ligne
@@ -141,6 +141,6 @@
   const head = re.lines.slice(0, L ? 1 : 2).flatMap((l) => l.words);
   const tail = re.lines.slice(L ? 1 : 2).flatMap((l) => l.words).concat(extra);
   DC.reveal(tl, head, hit, { stagger: 0.07 });
-  DC.reveal(tl, tail, r0 + 1.0, { stagger: 0.08 });
-  DC.exitUp(tl, re.words.concat(extra), ctx.S.s7[1] - 0.25, { stagger: 0.015 });
+  DC.reveal(tl, tail, T("reuni@pour") - 0.06, { stagger: 0.07 });
+  DC.exitUp(tl, re.words.concat(extra), ctx.S.s7[1] - 0.12, { stagger: 0.012, dur: 0.25 });
 });

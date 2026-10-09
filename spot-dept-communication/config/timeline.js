@@ -1,147 +1,131 @@
-/* Généré par tools/audio/build_vo.py — ne pas éditer à la main. */
+/* Généré par tools/audio/align_vo.py — ne pas éditer à la main. */
 window.DC = window.DC || {};
 DC.timeline = {
   "fps": 60,
-  "duration": 45.0,
+  "duration": 41.0,
+  "voice": "recording",
+  "voice_file": "assets/audio/vo_master.wav",
+  "voice_source": "assets/audio/source/voix_off.mp3",
   "cues": {
     "hook_a": {
-      "start": 0.55,
-      "end": 3.025,
-      "text": "À l'Université de Ngaoundéré,",
-      "group": "G01"
+      "start": 0.03,
+      "end": 1.61,
+      "text": "À l'Université de Ngaoundéré,"
     },
     "hook_b": {
-      "start": 3.025,
-      "end": 4.635,
-      "text": "un département fait parler de lui.",
-      "group": "G01"
+      "start": 1.77,
+      "end": 3.35,
+      "text": "un département fait parler de lui."
     },
     "prat_a": {
-      "start": 5.027,
-      "end": 6.852,
-      "text": "Cent pour cent d'immersion pratique :",
-      "group": "G02"
+      "start": 3.69,
+      "end": 5.33,
+      "text": "Cent pour cent d'immersion pratique."
     },
     "prat_b": {
-      "start": 6.974,
-      "end": 8.244,
-      "text": "pas de théorie dans le vide.",
-      "group": "G02"
+      "start": 5.63,
+      "end": 6.76,
+      "text": "Pas une théorie dans le vide."
+    },
+    "annee": {
+      "start": 7.0,
+      "end": 7.6,
+      "text": "Chaque année."
     },
     "studios": {
-      "start": 8.505,
-      "end": 9.71,
-      "text": "Des amphis aux studios,",
-      "group": "G03"
+      "start": 7.87,
+      "end": 9.28,
+      "text": "Des amphis au Média Lab,"
     },
     "welcome": {
-      "start": 9.866,
-      "end": 12.001,
-      "text": "bienvenue au Département de Communication.",
-      "group": "G03"
+      "start": 9.52,
+      "end": 11.46,
+      "text": "bienvenue au Département de Communication."
     },
     "pros_a": {
-      "start": 12.48,
-      "end": 14.715,
-      "text": "Ici, les professionnels de demain ne naissent pas :",
-      "group": "G04"
+      "start": 11.8,
+      "end": 14.12,
+      "text": "Ici, les professionnels de demain ne naissent pas,"
     },
     "pros_b": {
-      "start": 14.959,
-      "end": 15.749,
-      "text": "ils se forment.",
-      "group": "G04"
+      "start": 14.4,
+      "end": 15.18,
+      "text": "ils se forment."
     },
     "aud_a": {
-      "start": 16.141,
-      "end": 17.416,
-      "text": "Des étudiants aguerris,",
-      "group": "G05"
+      "start": 15.51,
+      "end": 16.72,
+      "text": "Des étudiants aguerris,"
     },
     "aud_b": {
-      "start": 17.468,
-      "end": 18.898,
-      "text": "et des partenaires rassurés,",
-      "group": "G05"
+      "start": 16.95,
+      "end": 18.16,
+      "text": "des partenaires rassurés"
     },
     "aud_c": {
-      "start": 18.933,
-      "end": 21.168,
-      "text": "qui savent leur communication entre de bonnes mains.",
-      "group": "G05"
+      "start": 18.39,
+      "end": 20.34,
+      "text": "qui savent leur communication entre de bonnes mains."
     },
     "secret": {
-      "start": 21.647,
-      "end": 22.497,
-      "text": "Notre secret ?",
-      "group": "G06"
+      "start": 20.66,
+      "end": 21.3,
+      "text": "Notre secret ?"
     },
     "p1": {
-      "start": 23.036,
-      "end": 24.921,
-      "text": "Des enseignants-chercheurs qualifiés,",
-      "group": "G07"
+      "start": 21.58,
+      "end": 23.21,
+      "text": "Des enseignants-chercheurs qualifiés,"
     },
     "p2": {
-      "start": 24.991,
-      "end": 26.351,
-      "text": "un matériel de pointe,",
-      "group": "G07"
+      "start": 23.4,
+      "end": 24.5,
+      "text": "un matériel de pointe"
     },
     "p3": {
-      "start": 26.421,
-      "end": 27.911,
-      "text": "et un suivi personnalisé,",
-      "group": "G07"
+      "start": 24.63,
+      "end": 26.05,
+      "text": "et un suivi personnalisé,"
     },
     "lic": {
-      "start": 27.998,
-      "end": 30.808,
-      "text": "de la Licence Pro Journalisme et Culture numérique,",
-      "group": "G07"
+      "start": 26.33,
+      "end": 28.81,
+      "text": "de la Licence Pro en Journalisme et Culture numérique"
     },
     "master": {
-      "start": 30.842,
-      "end": 31.737,
-      "text": "jusqu'au Master.",
-      "group": "G07"
+      "start": 28.91,
+      "end": 29.81,
+      "text": "jusqu'au Master."
     },
     "reuni": {
-      "start": 32.086,
-      "end": 33.966,
-      "text": "Tout est réuni pour faire la différence.",
-      "group": "G08"
+      "start": 30.08,
+      "end": 31.85,
+      "text": "Tout est réuni pour faire la différence."
     },
     "join_a": {
-      "start": 34.401,
-      "end": 35.606,
-      "text": "Rejoignez-nous à Dang,",
-      "group": "G09"
+      "start": 32.09,
+      "end": 33.2,
+      "text": "Rejoignez-nous à Dang,"
     },
     "join_b": {
-      "start": 35.641,
-      "end": 37.116,
-      "text": "à Ngaoundéré.",
-      "group": "G09"
+      "start": 33.33,
+      "end": 34.09,
+      "text": "à Ngaoundéré."
     },
     "avenir": {
-      "start": 38.03,
-      "end": 39.78,
-      "text": "Votre avenir mérite l'excellence.",
-      "group": "G10"
+      "start": 34.37,
+      "end": 36.08,
+      "text": "Votre avenir mérite l'excellence."
     },
     "sig_a": {
-      "start": 40.171,
-      "end": 41.796,
-      "text": "Département de Communication :",
-      "group": "G11"
+      "start": 36.3,
+      "end": 37.64,
+      "text": "Département de Communication."
     },
     "sig_b": {
-      "start": 42.075,
-      "end": 43.5,
-      "text": "votre histoire commence ici.",
-      "group": "G11"
+      "start": 37.92,
+      "end": 39.44,
+      "text": "Votre histoire commence ici."
     }
-  },
-  "voice": "temp-kokoro-ff_siwis"
+  }
 };

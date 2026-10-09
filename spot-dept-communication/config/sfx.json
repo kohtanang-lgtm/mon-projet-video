@@ -1,350 +1,82 @@
 {
-  "_doc": "Effets sonores calés sur les repères de la voix (config/timeline.json). 'at' accepte un nombre (s) ou 'repère.start|end±décalage'. Les mêmes repères pilotent les animations (src/scenes).",
+  "_doc": "Effets sonores calés sur la voix off enregistrée (config/timeline.json). 'at' accepte un nombre (s), 'repère.start|end±x' ou 'repère@mot±x' (instant estimé du mot). Les mêmes repères pilotent les animations (src/scenes).",
   "music": {
     "bpm": 120,
     "drop_at": "p1.start",
+    "groove_at": "prat_a.start-0.3",
     "break_from": "secret.start+0.1",
     "resolve_at": "sig_b.end"
   },
   "events": [
-    {
-      "at": 0.02,
-      "type": "subdrop",
-      "gain": -6
-    },
-    {
-      "at": 0.12,
-      "type": "rec",
-      "gain": -14
-    },
-    {
-      "at": 0.42,
-      "type": "rec",
-      "gain": -18
-    },
-    {
-      "at": 0.22,
-      "type": "ping",
-      "gain": -20,
-      "pitch": 1.0,
-      "pan": -0.2
-    },
-    {
-      "at": 0.34,
-      "type": "ping",
-      "gain": -23,
-      "pitch": 1.26,
-      "pan": 0.0
-    },
-    {
-      "at": 0.46,
-      "type": "ping",
-      "gain": -26,
-      "pitch": 1.5,
-      "pan": 0.2
-    },
-    {
-      "at": 0.62,
-      "type": "whoosh",
-      "gain": -20,
-      "dur": 0.45,
-      "bright": 1.3
-    },
-    {
-      "at": "prat_a.start-0.28",
-      "type": "whoosh",
-      "gain": -16,
-      "dur": 0.5
-    },
-    {
-      "at": "prat_a.start-0.15",
-      "type": "ticks",
-      "gain": -20,
-      "dur": 0.8
-    },
-    {
-      "at": "prat_a.start+0.66",
-      "type": "impact",
-      "gain": -10
-    },
-    {
-      "at": "prat_b.end-0.55",
-      "type": "riser",
-      "gain": -22,
-      "dur": 0.45
-    },
-    {
-      "at": "prat_b.end-0.1",
-      "type": "thud",
-      "gain": -14
-    },
-    {
-      "at": "studios.start-0.22",
-      "type": "whoosh",
-      "gain": -15,
-      "dur": 0.5
-    },
-    {
-      "at": "studios.start+0.05",
-      "type": "clap_sfx",
-      "gain": -16
-    },
-    {
-      "at": "studios.start+0.55",
-      "type": "rec",
-      "gain": -18
-    },
-    {
-      "at": "welcome.start+0.02",
-      "type": "click",
-      "gain": -18
-    },
-    {
-      "at": "welcome.start+0.16",
-      "type": "click",
-      "gain": -18
-    },
-    {
-      "at": "welcome.start+0.30",
-      "type": "click",
-      "gain": -18
-    },
-    {
-      "at": "welcome.start+0.62",
-      "type": "impact",
-      "gain": -8
-    },
-    {
-      "at": "welcome.start+0.62",
-      "type": "drum",
-      "gain": -10,
-      "glide": "up"
-    },
-    {
-      "at": "pros_a.start-0.2",
-      "type": "whoosh",
-      "gain": -17,
-      "dur": 0.45
-    },
-    {
-      "at": "pros_a.end-0.35",
-      "type": "scratch",
-      "gain": -16,
-      "dur": 0.25
-    },
-    {
-      "at": "pros_b.start+0.02",
-      "type": "tick_seq",
-      "gain": -18,
-      "n": 13,
-      "step": 0.045
-    },
-    {
-      "at": "pros_b.end-0.05",
-      "type": "thud",
-      "gain": -14
-    },
-    {
-      "at": "aud_a.start-0.15",
-      "type": "whoosh",
-      "gain": -17,
-      "dur": 0.4
-    },
-    {
-      "at": "aud_a.start+0.05",
-      "type": "thud",
-      "gain": -16
-    },
-    {
-      "at": "aud_b.start+0.05",
-      "type": "thud",
-      "gain": -16
-    },
-    {
-      "at": "aud_b.end-0.2",
-      "type": "sweep",
-      "gain": -22,
-      "dur": 0.6
-    },
-    {
-      "at": "aud_c.start+0.5",
-      "type": "whoosh",
-      "gain": -20,
-      "dur": 0.35,
-      "bright": 1.4
-    },
-    {
-      "at": "secret.start-0.25",
-      "type": "whoosh",
-      "gain": -14,
-      "dur": 0.55
-    },
-    {
-      "at": "secret.start+0.05",
-      "type": "scratch",
-      "gain": -20,
-      "dur": 0.55
-    },
-    {
-      "at": "p1.start-0.42",
-      "type": "reverse",
-      "gain": -14,
-      "dur": 0.42
-    },
-    {
-      "at": "p1.start",
-      "type": "impact",
-      "gain": -6
-    },
-    {
-      "at": "p1.start",
-      "type": "swipe",
-      "gain": -16,
-      "pitch": 1.0
-    },
-    {
-      "at": "p2.start",
-      "type": "swipe",
-      "gain": -16,
-      "pitch": 1.06
-    },
-    {
-      "at": "p3.start",
-      "type": "swipe",
-      "gain": -16,
-      "pitch": 1.12
-    },
-    {
-      "at": "lic.start",
-      "type": "sweep",
-      "gain": -20,
-      "dur": 2.6
-    },
-    {
-      "at": "lic.start+0.25",
-      "type": "thud",
-      "gain": -18
-    },
-    {
-      "at": "master.start+0.12",
-      "type": "drum",
-      "gain": -9,
-      "glide": "down"
-    },
-    {
-      "at": "master.start+0.12",
-      "type": "thud",
-      "gain": -14
-    },
-    {
-      "at": "reuni.start-0.15",
-      "type": "whoosh",
-      "gain": -16,
-      "dur": 0.6
-    },
-    {
-      "at": "reuni.start+0.55",
-      "type": "impact",
-      "gain": -11
-    },
-    {
-      "at": "join_a.start-0.2",
-      "type": "whoosh",
-      "gain": -15,
-      "dur": 0.7,
-      "bright": 0.7
-    },
-    {
-      "at": "join_a.start+0.95",
-      "type": "drop",
-      "gain": -14
-    },
-    {
-      "at": "join_a.start+1.05",
-      "type": "ping",
-      "gain": -18,
-      "pitch": 1.0
-    },
-    {
-      "at": "join_b.end+0.02",
-      "type": "ticks",
-      "gain": -19,
-      "dur": 0.75
-    },
-    {
-      "at": "join_b.end+0.8",
-      "type": "notif",
-      "gain": -15
-    },
-    {
-      "at": "avenir.start-0.25",
-      "type": "riser",
-      "gain": -18,
-      "dur": 0.35
-    },
-    {
-      "at": "avenir.start-0.05",
-      "type": "shimmer",
-      "gain": -16
-    },
-    {
-      "at": "sig_a.start-0.15",
-      "type": "whoosh",
-      "gain": -18,
-      "dur": 0.4
-    },
-    {
-      "at": "sig_a.start+0.05",
-      "type": "mallet",
-      "gain": -16,
-      "note": 74
-    },
-    {
-      "at": "sig_a.start+0.35",
-      "type": "mallet",
-      "gain": -17,
-      "note": 78
-    },
-    {
-      "at": "sig_a.start+0.65",
-      "type": "mallet",
-      "gain": -17,
-      "note": 81
-    },
-    {
-      "at": "sig_a.start+1.0",
-      "type": "thud",
-      "gain": -13
-    },
-    {
-      "at": "sig_a.start+1.3",
-      "type": "mallet",
-      "gain": -18,
-      "note": 86
-    },
-    {
-      "at": "sig_b.end+0.08",
-      "type": "mallet",
-      "gain": -12,
-      "note": 74
-    },
-    {
-      "at": "sig_b.end+0.26",
-      "type": "mallet",
-      "gain": -12,
-      "note": 78
-    },
-    {
-      "at": "sig_b.end+0.44",
-      "type": "mallet",
-      "gain": -11,
-      "note": 81
-    },
-    {
-      "at": "sig_b.end+0.08",
-      "type": "drum",
-      "gain": -10,
-      "glide": "up"
-    }
+    {"at": 0.0, "type": "subdrop", "gain": -7},
+    {"at": 0.04, "type": "rec", "gain": -15},
+    {"at": 0.12, "type": "ping", "gain": -21, "pitch": 1.0, "pan": -0.2},
+    {"at": 0.2, "type": "ping", "gain": -24, "pitch": 1.26, "pan": 0.0},
+    {"at": 0.28, "type": "ping", "gain": -27, "pitch": 1.5, "pan": 0.2},
+    {"at": 0.36, "type": "whoosh", "gain": -21, "dur": 0.4, "bright": 1.3},
+    {"at": "hook_a@Ngaoundéré-0.05", "type": "thud", "gain": -18},
+
+    {"at": "prat_a.start-0.28", "type": "whoosh", "gain": -17, "dur": 0.45},
+    {"at": "prat_a.start-0.15", "type": "ticks", "gain": -20, "dur": 0.8},
+    {"at": "prat_a.start+0.66", "type": "impact", "gain": -11},
+    {"at": "prat_b@vide-0.3", "type": "riser", "gain": -22, "dur": 0.3},
+    {"at": "prat_b@vide+0.3", "type": "thud", "gain": -15},
+    {"at": "annee.start", "type": "tick_seq", "gain": -19, "n": 5, "step": 0.08},
+
+    {"at": "studios.start-0.22", "type": "whoosh", "gain": -16, "dur": 0.45},
+    {"at": "studios.start+0.02", "type": "clap_sfx", "gain": -17},
+    {"at": "studios@Média-0.02", "type": "rec", "gain": -18},
+    {"at": "welcome.start-0.06", "type": "click", "gain": -18},
+    {"at": "welcome.start+0.08", "type": "click", "gain": -18},
+    {"at": "welcome.start+0.22", "type": "click", "gain": -18},
+    {"at": "welcome@Département-0.02", "type": "impact", "gain": -8},
+    {"at": "welcome@Département-0.02", "type": "drum", "gain": -10, "glide": "up"},
+
+    {"at": "pros_a.start-0.2", "type": "whoosh", "gain": -18, "dur": 0.4},
+    {"at": "pros_a@pas+0.05", "type": "scratch", "gain": -16, "dur": 0.22},
+    {"at": "pros_b.start+0.02", "type": "tick_seq", "gain": -18, "n": 13, "step": 0.045},
+    {"at": "pros_b.end-0.05", "type": "thud", "gain": -14},
+
+    {"at": "aud_a.start-0.15", "type": "whoosh", "gain": -18, "dur": 0.4},
+    {"at": "aud_a.start+0.02", "type": "thud", "gain": -17},
+    {"at": "aud_b.start+0.02", "type": "thud", "gain": -17},
+    {"at": "aud_b.end-0.2", "type": "sweep", "gain": -22, "dur": 0.5},
+    {"at": "aud_c.start+0.4", "type": "whoosh", "gain": -20, "dur": 0.35, "bright": 1.4},
+
+    {"at": "secret.start-0.25", "type": "whoosh", "gain": -15, "dur": 0.5},
+    {"at": "secret.start+0.02", "type": "scratch", "gain": -21, "dur": 0.45},
+    {"at": "p1.start-0.36", "type": "reverse", "gain": -14, "dur": 0.36},
+    {"at": "p1.start", "type": "impact", "gain": -7},
+    {"at": "p1.start", "type": "swipe", "gain": -16, "pitch": 1.0},
+    {"at": "p2.start", "type": "swipe", "gain": -16, "pitch": 1.06},
+    {"at": "p3.start", "type": "swipe", "gain": -16, "pitch": 1.12},
+    {"at": "lic.start", "type": "sweep", "gain": -21, "dur": 2.3},
+    {"at": "lic.start+0.05", "type": "thud", "gain": -18},
+    {"at": "master.start+0.1", "type": "drum", "gain": -9, "glide": "down"},
+    {"at": "master.start+0.1", "type": "thud", "gain": -14},
+
+    {"at": "reuni.start-0.2", "type": "whoosh", "gain": -16, "dur": 0.45},
+    {"at": "reuni.start+0.08", "type": "impact", "gain": -11},
+
+    {"at": "join_a.start-0.2", "type": "whoosh", "gain": -15, "dur": 0.55, "bright": 0.7},
+    {"at": "join_a@Dang-0.05", "type": "drop", "gain": -14},
+    {"at": "join_a@Dang+0.05", "type": "ping", "gain": -18, "pitch": 1.0},
+    {"at": "join_b.start+0.05", "type": "sweep", "gain": -22, "dur": 0.7},
+
+    {"at": "avenir.start-0.28", "type": "riser", "gain": -18, "dur": 0.3},
+    {"at": "avenir.start-0.05", "type": "shimmer", "gain": -16},
+
+    {"at": "sig_a.start-0.15", "type": "whoosh", "gain": -18, "dur": 0.35},
+    {"at": "sig_a.start+0.05", "type": "mallet", "gain": -16, "note": 74},
+    {"at": "sig_a.start+0.35", "type": "mallet", "gain": -17, "note": 78},
+    {"at": "sig_a.start+0.65", "type": "mallet", "gain": -17, "note": 81},
+    {"at": "sig_a.start+1.0", "type": "thud", "gain": -13},
+    {"at": "sig_a.start+1.3", "type": "mallet", "gain": -18, "note": 86},
+    {"at": "sig_b.end+0.08", "type": "mallet", "gain": -12, "note": 74},
+    {"at": "sig_b.end+0.26", "type": "mallet", "gain": -12, "note": 78},
+    {"at": "sig_b.end+0.44", "type": "mallet", "gain": -11, "note": 81},
+    {"at": "sig_b.end+0.08", "type": "drum", "gain": -10, "glide": "up"},
+    {"at": "sig_b.end+0.1", "type": "ticks", "gain": -24, "dur": 0.55},
+    {"at": "sig_b.end+0.66", "type": "notif", "gain": -19}
   ]
 }

@@ -5,3 +5,4 @@ pyloudnorm
 pillow
 fonttools
 kokoro-onnx   # voix témoin uniquement (modèle : github.com/thewh1teagle/kokoro-onnx, release model-files-v1.0)
+sherpa-onnx   # contrôle facultatif de l'alignement (VERIFY_ASR)

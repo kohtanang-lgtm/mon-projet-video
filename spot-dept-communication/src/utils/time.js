@@ -3,9 +3,25 @@
 (function () {
   const DC = (window.DC = window.DC || {});
 
+  const letters = (s) => (s.match(/[\p{L}\p{N}]/gu) || []).length;
+
+  /** Instant estimé d'un mot dans une phrase (débit supposé régulier au sein de la phrase). */
+  DC.wordTime = function (cueId, word) {
+    const cue = DC.timeline.cues[cueId];
+    if (!cue) throw new Error("Repère inconnu : " + cueId);
+    const i = cue.text.toLowerCase().indexOf(word.toLowerCase());
+    if (i < 0) throw new Error(`Mot « ${word} » absent de « ${cue.text} »`);
+    const before = letters(cue.text.slice(0, i)) + 1.5, total = letters(cue.text) + 3;
+    return cue.start + (before / total) * (cue.end - cue.start);
+  };
+
+  /** "cue.start|end±x" ou "cue@mot±x" → secondes. */
   DC.T = function (expr) {
     if (typeof expr === "number") return expr;
-    const m = String(expr).replace(/\s/g, "").match(/^(\w+)\.(start|end)([+-][\d.]+)?$/);
+    const s = String(expr).trim();
+    const w = s.match(/^(\w+)@(.+?)([+-][\d.]+)?$/u);
+    if (w) return DC.wordTime(w[1], w[2]) + parseFloat(w[3] || "0");
+    const m = s.replace(/\s/g, "").match(/^(\w+)\.(start|end)([+-][\d.]+)?$/);
     if (!m) throw new Error("Repère invalide : " + expr);
     const cue = DC.timeline.cues[m[1]];
     if (!cue) throw new Error("Repère inconnu : " + m[1]);

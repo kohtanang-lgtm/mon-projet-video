@@ -57,8 +57,8 @@
   const ici = DC.el("span", { cls: "inner", text: tg[3], style: { color: C.vertInstitution } }, DC.el("span", { cls: "mask" }, lastLine));
   DC.hideWords([ici]);
   const bW = T("sig_b.start");
-  const wordsT = [0.0, 0.22, 0.66, 1.06];
-  tb.words.concat([ici]).forEach((w, i) => DC.reveal(tl, [w], bW + wordsT[Math.min(i, 3)], { dur: 0.5 }));
+  const wordsT = ["Votre", "histoire", "commence", "ici"].map((w) => T("sig_b@" + w) - 0.06);
+  tb.words.concat([ici]).forEach((w, i) => DC.reveal(tl, [w], wordsT[Math.min(i, 3)], { dur: 0.45 }));
 
   // rangée d'endossement : Université + FALSH (seul fondu du film)
   const row = DC.el("div", { cls: "box", style: { left: "0px", width: W + "px", top: pick(850, 1250) + "px", display: "flex", alignItems: "center", justifyContent: "center", gap: pick("34px", "28px") } }, sc.cam);
@@ -68,5 +68,18 @@
   const tx = DC.el("div", { cls: "inter", style: { color: C.studio, fontSize: pick(19, 17) + "px", letterSpacing: "0.18em", lineHeight: "1.7" } }, row);
   DC.el("div", { text: txt.s10.endorsement, style: { fontWeight: 600 } }, tx);
   DC.el("div", { text: txt.s10.follow, style: { color: "rgba(13,17,23,0.65)" } }, tx);
-  tl.fromTo(row, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.6, ease: E.soft }, end + 0.05);
+  tl.fromTo(row, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.5, ease: E.soft }, end + 0.05);
+
+  // communauté : compteur d'abonnés (chiffre réglable dans config/script.fr.js)
+  const st = txt.stats;
+  const cnt = L
+    ? DC.el("div", { style: { display: "flex", alignItems: "center", gap: "34px" } }, row)
+    : DC.el("div", { cls: "box", style: { left: "0px", width: W + "px", top: "1385px", display: "flex", justifyContent: "center" } }, sc.cam);
+  if (L) DC.el("span", { style: { width: "2px", height: "80px", background: "rgba(0,0,0,0.18)" } }, cnt);
+  const cb = DC.el("div", { style: { display: "flex", alignItems: "baseline", gap: "12px" } }, cnt);
+  const num = DC.el("span", { cls: "syne", text: st.followersPrefix + "0", style: { color: C.vertInstitution, fontSize: pick(46, 44) + "px", letterSpacing: "-0.01em" } }, cb);
+  DC.el("span", { cls: "inter", text: st.followersLabel, style: { color: C.studio, fontSize: pick(18, 17) + "px", fontWeight: 600, letterSpacing: "0.2em" } }, cb);
+  if (!L) tl.fromTo(cnt, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.5, ease: E.soft }, end + 0.1);
+  const pc = { v: 0 };
+  tl.to(pc, { v: st.followers, duration: 0.6, ease: E.signalOut, onUpdate: () => (num.textContent = st.followersPrefix + DC.fmtThousands(pc.v)) }, end + 0.12);
 });

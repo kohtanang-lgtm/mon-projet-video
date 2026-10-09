@@ -22,7 +22,7 @@
   });
 
   const ca = T("aud_a.start"), cb = T("aud_b.start");
-  [[cols[0], ca, T("aud_a.end") - 0.55], [cols[1], cb, T("aud_b.end") - 0.6]].forEach(([c, t, tt]) => {
+  [[cols[0], ca, T("aud_a@aguerris") - 0.08], [cols[1], cb, T("aud_b@rassurés") - 0.08]].forEach(([c, t, tt]) => {
     tl.to(c.panel.el, { clipPath: c.full, duration: 0.55, ease: E.signalOut }, t - 0.05);
     c.panel.animate(tl, t + 0.05, 2.5);
     DC.reveal(tl, c.tb.lines[0].words, t, { stagger: 0.06 });
@@ -55,7 +55,7 @@
   const mm = DC.el("span", { cls: "mask" }, lastLine);
   const marche = DC.el("span", { cls: "inner", text: "MARCHÉ.", style: { color: C.jauneOnde } }, mm);
   DC.hideWords([marche]);
-  const sIn = T("aud_c.start") + 0.42;
+  const sIn = T("aud_c.start") + 0.38;
   DC.reveal(tl, st.lines[0].words, sIn, { dur: 0.6 });
   const rest = st.lines.slice(1).flatMap((l) => l.words).concat([marche]);
   DC.reveal(tl, rest, sIn + 0.45, { stagger: 0.09 });
