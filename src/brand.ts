@@ -1,14 +1,15 @@
 /**
- * Ressources de marque.
- * Le film fonctionne sans fichier externe grâce à des substituts vectoriels fidèles à la charte.
- * Pour la version de diffusion, déposer les fichiers officiels fournis par UBA dans
- * public/brand/ et renseigner leur chemin ci-dessous (ex. "brand/uba-logo.svg").
+ * Ressources de marque officielles (fournies par le client, dossier public/brand/).
+ *  • Logo : vectorisé depuis l'icône officielle → src/brand/ubaLogo.ts (scripts/vectorize_logo.py)
+ *  • Léo : détouré depuis le visuel officiel → public/brand/leo-cutout.png (scripts/prepare_leo.py)
+ * Les cartes Débit / Prépayée sont redessinées en vectoriel d'après les visuels fournis,
+ * avec des données fictives (numéro masqué, titulaire inventé).
  */
 export const BRAND = {
-  /** Logo officiel UBA (SVG/PNG fond transparent, version blanche ou rouge). */
-  logo: null as string | null,
-  /** Avatar officiel de Léo, le banquier virtuel. */
-  leoAvatar: null as string | null,
+  leoCutout: "brand/leo-cutout.png",
+  /** Taille du détourage de Léo (px) et repères du visage, en fraction de l'image. */
+  leoSize: { width: 507, height: 695 },
+  leoFace: { x: 0.47, top: 0, chin: 0.83 },
   name: "United Bank for Africa",
   country: "Tchad",
   url: "ubachad.com",

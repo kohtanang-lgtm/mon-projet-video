@@ -3,9 +3,9 @@ import { AbsoluteFill } from "remotion";
 import { Chip } from "../components/Glass";
 import { Icon, IconName } from "../components/Icons";
 import { KineticLine } from "../components/KineticText";
-import { LeoAvatar } from "../components/LeoAvatar";
+import { LeoAvatar, LeoPresenter } from "../components/LeoAvatar";
 import { Phone, PHONE, SCREEN } from "../components/Phone";
-import { UbaMark } from "../components/UbaLogo";
+import { UbaLockup } from "../components/UbaLogo";
 import { fcfa, float, mix, prog, rise, useTime } from "../lib/motion";
 import { CUE, end, say } from "../timeline/cues";
 import { COLORS, EASE, FONTS } from "../theme";
@@ -17,6 +17,8 @@ import { COLORS, EASE, FONTS } from "../theme";
  */
 
 const PHONE_POS = { x: 1300, y: 540 };
+/** Léo en buste, à gauche du téléphone (centre horizontal, hauteur du détourage). */
+const LEO = { x: 470, height: 650 };
 const INK = "#15171B";
 const GREY = "#6B7079";
 const PANEL = "#F3F4F6";
@@ -58,7 +60,7 @@ const ScreenWelcome: React.FC<{ t: number }> = ({ t }) => {
             />
           ))}
         </svg>
-        <UbaMark size={64} inverted />
+        <UbaLockup height={62} />
         <div
           style={{
             fontFamily: FONTS.display,
@@ -102,7 +104,7 @@ const ScreenWelcome: React.FC<{ t: number }> = ({ t }) => {
             alignItems: "center",
             justifyContent: "center",
             transform: `scale(${1 - press * 0.04})`,
-            boxShadow: "0 16px 30px rgba(227,23,32,0.35)",
+            boxShadow: "0 16px 30px rgba(214,27,12,0.35)",
             overflow: "visible",
           }}
         >
@@ -311,7 +313,7 @@ const ScreenDashboard: React.FC<{ t: number }> = ({ t }) => {
           padding: "26px 26px 24px",
           background: `linear-gradient(140deg, ${COLORS.redGlow} 0%, ${COLORS.red} 45%, ${COLORS.redDeep} 100%)`,
           color: "white",
-          boxShadow: "0 22px 40px rgba(227,23,32,0.3)",
+          boxShadow: "0 22px 40px rgba(214,27,12,0.3)",
         }}
       >
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
@@ -385,7 +387,11 @@ const ScreenDashboard: React.FC<{ t: number }> = ({ t }) => {
                 boxShadow: "0 8px 18px rgba(0,0,0,0.06)",
               }}
             >
-              <Icon name={a.icon} size={32} color={COLORS.red} strokeWidth={2} />
+              {a.label === "Léo" ? (
+                <LeoAvatar size={50} online={false} />
+              ) : (
+                <Icon name={a.icon} size={32} color={COLORS.red} strokeWidth={2} />
+              )}
             </div>
             <div style={{ fontFamily: FONTS.ui, fontWeight: 600, fontSize: 16, color: INK }}>{a.label}</div>
           </div>
@@ -486,7 +492,7 @@ const ScreenLeo: React.FC<{ t: number }> = ({ t }) => {
         }}
       >
         <div style={{ fontFamily: FONTS.ui, fontSize: 30, color: INK }}>‹</div>
-        <LeoAvatar size={60} t={t} />
+        <LeoAvatar size={60} />
         <div>
           <div style={{ fontFamily: FONTS.display, fontWeight: 800, fontSize: 26, color: INK }}>Léo</div>
           <div style={{ fontFamily: FONTS.ui, fontWeight: 600, fontSize: 16, color: "#16A35A" }}>
@@ -684,32 +690,45 @@ export const S3Digital: React.FC = () => {
         />
       </div>
       <div style={{ position: "absolute", left: 140, top: 400, width: 920 }}>
-        <KineticLine t={t} words={say("Consultez vos soldes")} size={80} weight={800} exitAt={T.chatIn - 0.05} />
+        <KineticLine
+          t={t}
+          words={say("Consultez vos soldes")}
+          size={80}
+          weight={800}
+          exitAt={T.chatIn - 0.03}
+          exitDuration={0.32}
+        />
         <KineticLine
           t={t}
           words={say("en temps réel")}
           size={80}
           weight={800}
           color={COLORS.red}
-          exitAt={T.chatIn - 0.05}
+          exitAt={T.chatIn - 0.03}
+          exitDuration={0.32}
         />
       </div>
-      <div style={{ position: "absolute", left: 140, top: 330, width: 820 }}>
-        <KineticLine t={t} words={say("Léo,")} size={140} weight={800} color={COLORS.red} exitAt={T.exit - 0.15} />
-        <KineticLine t={t} words={say("votre banquier virtuel")} size={60} weight={700} exitAt={T.exit - 0.15} />
-        <div style={{ height: 26 }} />
-        <KineticLine
+      {/* ——— Léo, le banquier virtuel (visuel officiel) ——— */}
+      <div style={{ position: "absolute", left: LEO.x - LEO.height / 2.74, top: 1080 - LEO.height }}>
+        <LeoPresenter
           t={t}
-          words={[...say("paiements"), { text: "&", at: CUE.transferts - 0.15 }, ...say("transferts")].map((w) => ({
-            ...w,
-            text: w.text[0].toUpperCase() + w.text.slice(1),
-          }))}
-          size={46}
-          weight={600}
-          color={COLORS.silver}
-          exitAt={T.exit - 0.15}
+          height={LEO.height}
+          enter={prog(t, T.chatIn + 0.14, 0.95, EASE.out)}
+          bubble={prog(t, CUE.leo - 0.12, 0.65, EASE.out)}
+          line2={prog(t, say("votre banquier virtuel", CUE.leo)[0].at - 0.08, 0.6, EASE.out)}
+          exit={prog(t, T.exit - 0.15, 0.6, EASE.in)}
         />
       </div>
+      {[
+        { label: "Paiements", icon: "card" as IconName, at: CUE.paiements, x: 735, y: 640 },
+        { label: "Transferts", icon: "send" as IconName, at: CUE.transferts, x: 775, y: 735 },
+      ].map((c) => (
+        <div key={c.label} style={{ position: "absolute", left: c.x, top: c.y }}>
+          <div style={rise(prog(t, c.at - 0.1, 0.7), chipsOut, 26)}>
+            <Chip icon={c.icon} label={c.label} size={30} iconProgress={prog(t, c.at, 0.8, EASE.inOut)} />
+          </div>
+        </div>
+      ))}
 
       {/* ——— Anneau « attente → instantané » ——— */}
       <svg

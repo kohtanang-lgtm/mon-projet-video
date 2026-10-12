@@ -1,13 +1,15 @@
 import { Easing } from "remotion";
+import { UBA_RED } from "./brand/ubaLogo";
 
 /**
  * Charte UBA appliquée au film.
  * Rouge UBA = dominante / accents · Noir profond & anthracite = fonds · Blanc = lisibilité.
  */
 export const COLORS = {
-  red: "#E31720", // Rouge UBA (référence logo)
-  redDeep: "#A80F16", // ombres et dégradés de carte
-  redGlow: "#FF2A33", // halos lumineux uniquement
+  red: UBA_RED, // Rouge UBA officiel (mesuré sur l'icône fournie : #D61B0C)
+  redDeep: "#9A1206", // ombres et dégradés
+  redGlow: "#F2361F", // halos lumineux uniquement
+  burgundy: "#7E0F1C", // carte prépayée
   black: "#060607",
   ink: "#0D0E10",
   anthracite: "#16181C",
@@ -27,7 +29,7 @@ export const FONTS = {
 export const VIDEO = {
   width: 1920,
   height: 1080,
-  defaultFps: 30,
+  defaultFps: 60,
 } as const;
 
 /** Courbes d'animation : zéro saccade, décélérations longues et « premium ». */

@@ -1,77 +1,111 @@
 import React from "react";
 import { COLORS, FONTS } from "../theme";
-import { UbaMark } from "./UbaLogo";
+import { UbaLockup } from "./UbaLogo";
 
 /** Format ISO/IEC 7810 ID-1 (85,60 × 53,98 mm). */
 export const CARD_RATIO = 85.6 / 53.98;
 
-const Chip: React.FC<{ w: number }> = ({ w }) => (
-  <div
-    style={{
-      width: w,
-      height: w * 0.76,
-      borderRadius: w * 0.16,
-      background: "linear-gradient(135deg, #F5DFA0 0%, #C9A44C 40%, #E8CB7A 60%, #A9832E 100%)",
-      position: "relative",
-      boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.18)",
-    }}
-  >
-    {[0.33, 0.66].map((p) => (
-      <div
-        key={p}
-        style={{
-          position: "absolute",
-          left: 0,
-          right: 0,
-          top: `${p * 100}%`,
-          height: 1.5,
-          background: "rgba(80,60,20,0.45)",
-        }}
-      />
-    ))}
-    <div
-      style={{ position: "absolute", top: 0, bottom: 0, left: "50%", width: 1.5, background: "rgba(80,60,20,0.45)" }}
-    />
-  </div>
-);
+export type CardVariant = "debit" | "prepaid";
 
-const Contactless: React.FC<{ size: number; color: string }> = ({ size, color }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round">
-    <path d="M7 8.5a5 5 0 0 1 0 7" />
-    <path d="M10.5 6a8.5 8.5 0 0 1 0 12" />
-    <path d="M14 3.5a12 12 0 0 1 0 17" />
+/**
+ * Cartes UBA Visa redessinées en vectoriel d'après les visuels fournis (Débit, Prépayée).
+ * Disposition fidèle : mention de gamme en haut à gauche, signature UBA en haut à droite,
+ * puce, sans contact, numéro, validité, VISA en bas à droite.
+ * Données fictives : numéro masqué, titulaire inventé — aucune donnée réelle n'est reproduite.
+ */
+const DESIGN: Record<
+  CardVariant,
+  { label: string; background: string; edge: string; facets: number; number: string; expiry: string }
+> = {
+  debit: {
+    label: "Debit",
+    background: `linear-gradient(125deg, #F0262A 0%, #E01B22 42%, #C9141B 100%)`,
+    edge: "#6E0A0E",
+    facets: 0.07,
+    number: "4512 •••• •••• 2026",
+    expiry: "12/29",
+  },
+  prepaid: {
+    label: "Prepaid",
+    background: `linear-gradient(100deg, #5E0A16 0%, ${COLORS.burgundy} 30%, #A8152A 72%, #C21B30 100%)`,
+    edge: "#3A050C",
+    facets: 0.035,
+    number: "4572 •••• •••• 0626",
+    expiry: "02/29",
+  },
+};
+
+/** Facettes « low-poly » très discrètes du fond de carte (repère 100 × 63). */
+const FACETS = [
+  "0,0 38,0 22,30",
+  "38,0 70,0 52,24",
+  "22,30 52,24 40,63",
+  "52,24 100,10 78,48",
+  "70,0 100,0 100,10 52,24",
+  "0,30 22,30 0,63",
+  "40,63 78,48 100,63",
+  "78,48 100,10 100,63",
+];
+
+const Chip: React.FC<{ w: number }> = ({ w }) => (
+  <svg width={w} height={w * 0.8} viewBox="0 0 50 40">
+    <defs>
+      <linearGradient id="chipGold" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stopColor="#F3DA9C" />
+        <stop offset="0.45" stopColor="#C9A250" />
+        <stop offset="0.7" stopColor="#E6C579" />
+        <stop offset="1" stopColor="#9C7629" />
+      </linearGradient>
+    </defs>
+    <rect x="0.5" y="0.5" width="49" height="39" rx="7" fill="url(#chipGold)" stroke="rgba(70,50,10,0.45)" />
+    <g fill="none" stroke="rgba(80,58,15,0.6)" strokeWidth="1.1">
+      <path d="M0.5 13.5h14M0.5 26.5h14M35.5 13.5h14M35.5 26.5h14" />
+      <path d="M14.5 0.5v39M35.5 0.5v39" />
+      <rect x="14.5" y="9" width="21" height="22" rx="4" />
+    </g>
   </svg>
 );
 
-/**
- * Carte bancaire UBA (rendu vectoriel). `sheen` 0 → 1 fait glisser un reflet lumineux.
- * Les données affichées (numéro masqué, titulaire) sont fictives.
- */
+const Contactless: React.FC<{ size: number }> = ({ size }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth={2} strokeLinecap="round">
+    <path d="M6.5 8.5a5 5 0 0 1 0 7" />
+    <path d="M10 6a8.5 8.5 0 0 1 0 12" />
+    <path d="M13.5 3.5a12 12 0 0 1 0 17" />
+    <path d="M17 1.5a15 15 0 0 1 0 21" />
+  </svg>
+);
+
 export const BankCard: React.FC<{
   width: number;
-  variant?: "red" | "black";
+  variant?: CardVariant;
+  /** Position du reflet lumineux qui balaie la carte (-1 → 2). */
   sheen?: number;
   holder?: string;
   style?: React.CSSProperties;
-}> = ({ width, variant = "red", sheen = -1, holder = "A. MAHAMAT", style }) => {
+}> = ({ width, variant = "debit", sheen = -1, holder = "AMINA MAHAMAT", style }) => {
+  const design = DESIGN[variant];
   const h = width / CARD_RATIO;
-  const u = width / 100; // unité relative
-  const bg =
-    variant === "red"
-      ? `linear-gradient(130deg, ${COLORS.redGlow} 0%, ${COLORS.red} 38%, ${COLORS.redDeep} 78%, #6E080D 100%)`
-      : "linear-gradient(130deg, #3A3E46 0%, #1A1C21 45%, #0B0C0E 100%)";
+  const u = width / 100; // unité relative (largeur = 100 u, hauteur = 63 u)
+  const text = (size: number, weight = 600): React.CSSProperties => ({
+    position: "absolute",
+    fontFamily: FONTS.ui,
+    fontWeight: weight,
+    fontSize: u * size,
+    color: "rgba(255,255,255,0.96)",
+    whiteSpace: "nowrap",
+  });
   return (
     <div style={{ position: "relative", width, height: h, transformStyle: "preserve-3d", ...style }}>
-      {/* tranche */}
-      {[1, 2, 3].map((i) => (
+      {/* tranche : épaisseur visible quand la carte pivote */}
+      {[1, 2, 3, 4].map((i) => (
         <div
           key={i}
           style={{
             position: "absolute",
             inset: 0,
-            borderRadius: u * 4.6,
-            background: variant === "red" ? "#5E070B" : "#08090A",
-            transform: `translateZ(${-i * 1.2}px)`,
+            borderRadius: u * 4.4,
+            background: design.edge,
+            transform: `translateZ(${-i * 0.9}px)`,
           }}
         />
       ))}
@@ -79,27 +113,26 @@ export const BankCard: React.FC<{
         style={{
           position: "absolute",
           inset: 0,
-          borderRadius: u * 4.6,
-          background: bg,
+          borderRadius: u * 4.4,
+          background: design.background,
           overflow: "hidden",
-          boxShadow: "inset 0 1px 0 rgba(255,255,255,0.35), 0 40px 80px rgba(0,0,0,0.45)",
+          boxShadow:
+            "inset 0 1px 0 rgba(255,255,255,0.32), inset 0 -1px 0 rgba(0,0,0,0.25), 0 40px 80px rgba(0,0,0,0.45)",
         }}
       >
-        {/* motif d'ondes */}
         <svg
           width={width}
           height={h}
           viewBox="0 0 100 63"
           preserveAspectRatio="none"
-          style={{ position: "absolute", inset: 0, opacity: 0.16 }}
+          style={{ position: "absolute", inset: 0 }}
         >
-          {Array.from({ length: 9 }, (_, i) => (
-            <path
-              key={i}
-              d={`M ${-10 + i * 3} 70 C ${30 + i * 4} ${40 - i * 3}, ${55 + i * 2} ${55 - i * 5}, ${110} ${8 + i * 4}`}
-              fill="none"
-              stroke="white"
-              strokeWidth={0.25}
+          {FACETS.map((pts, i) => (
+            <polygon
+              key={pts}
+              points={pts}
+              fill={i % 2 ? "black" : "white"}
+              opacity={design.facets * (i % 3 === 0 ? 1 : 0.6)}
             />
           ))}
         </svg>
@@ -108,61 +141,88 @@ export const BankCard: React.FC<{
           style={{
             position: "absolute",
             inset: "-40%",
-            background: `linear-gradient(105deg, rgba(255,255,255,0) ${sheen * 100 + 5}%, rgba(255,255,255,0.38) ${sheen * 100 + 15}%, rgba(255,255,255,0) ${sheen * 100 + 25}%)`,
+            background: `linear-gradient(105deg, rgba(255,255,255,0) ${sheen * 100 + 5}%, rgba(255,255,255,0.42) ${sheen * 100 + 15}%, rgba(255,255,255,0) ${sheen * 100 + 25}%)`,
             mixBlendMode: "overlay",
           }}
         />
-        <div style={{ position: "absolute", left: u * 7, top: u * 6.5 }}>
-          <UbaMark size={u * 8.5} inverted={variant === "red"} />
+        {/* gamme */}
+        <div
+          style={{
+            ...text(variant === "debit" ? 4.2 : 3.4, 600),
+            left: u * (variant === "debit" ? 11 : 15),
+            top: u * 6.4,
+          }}
+        >
+          {design.label}
         </div>
-        <div style={{ position: "absolute", right: u * 7, top: u * 7, opacity: 0.9 }}>
-          <Contactless size={u * 7} color="white" />
+        {/* signature UBA officielle */}
+        <div style={{ position: "absolute", right: u * 5.5, top: u * 3.6 }}>
+          <UbaLockup height={u * 9.8} />
         </div>
-        <div style={{ position: "absolute", left: u * 7, top: u * 24 }}>
-          <Chip w={u * 12} />
+        <div style={{ position: "absolute", left: u * 11, top: u * 21 }}>
+          <Chip w={u * 13} />
+        </div>
+        <div style={{ position: "absolute", right: u * 5, top: u * 20 }}>
+          <Contactless size={u * 7.5} />
         </div>
         <div
           style={{
-            position: "absolute",
-            left: u * 7,
-            top: u * 39,
-            fontFamily: FONTS.ui,
-            fontWeight: 500,
-            fontSize: u * 5.2,
-            letterSpacing: "0.14em",
-            color: "rgba(255,255,255,0.94)",
+            ...text(6.3, 500),
+            left: u * 11,
+            top: u * 33,
+            letterSpacing: "0.1em",
             fontVariantNumeric: "tabular-nums",
-            textShadow: "0 1px 1px rgba(0,0,0,0.25)",
+            textShadow: "0 1px 0 rgba(0,0,0,0.18)",
           }}
         >
-          5399 •••• •••• 2026
+          {design.number}
         </div>
+        {/* validité */}
         <div
           style={{
             position: "absolute",
-            left: u * 7,
-            bottom: u * 6,
-            fontFamily: FONTS.ui,
-            fontWeight: 600,
-            fontSize: u * 3.2,
-            letterSpacing: "0.16em",
-            color: "rgba(255,255,255,0.85)",
+            left: u * 39,
+            top: u * 45,
+            display: "flex",
+            alignItems: "center",
+            gap: u * 1.2,
           }}
         >
-          {holder}
-          <span style={{ marginLeft: u * 5, opacity: 0.8 }}>12/29</span>
+          <div style={{ ...text(1.9, 600), position: "static", lineHeight: 1.1, letterSpacing: "0.04em" }}>
+            EXPIRES
+            <br />
+            END OF
+          </div>
+          <div style={{ ...text(1.6, 700), position: "static" }}>▸</div>
+          <div style={{ ...text(4.2, 500), position: "static", fontVariantNumeric: "tabular-nums" }}>
+            {design.expiry}
+          </div>
         </div>
+        {variant === "debit" ? (
+          <div style={{ ...text(3.4, 600), left: u * 14, bottom: u * 4.2, letterSpacing: "0.06em" }}>{holder}</div>
+        ) : (
+          <svg
+            width={u * 3.4}
+            height={u * 3.4}
+            viewBox="0 0 10 10"
+            style={{ position: "absolute", left: u * 6, bottom: u * 8 }}
+          >
+            <path d="M5 1 L9.2 9 L0.8 9 Z" fill="white" />
+          </svg>
+        )}
         <div
           style={{
             position: "absolute",
-            right: u * 7,
-            bottom: u * 5,
+            right: u * 5.5,
+            bottom: u * 4.2,
             fontFamily: FONTS.display,
             fontStyle: "italic",
             fontWeight: 800,
-            fontSize: u * 7.5,
+            fontSize: u * 8.6,
+            lineHeight: 1,
             color: "white",
-            letterSpacing: "-0.02em",
+            letterSpacing: "-0.01em",
+            transform: "skewX(-6deg)",
           }}
         >
           VISA

@@ -81,7 +81,7 @@ export const S4Corporate: React.FC = () => {
               height: 640,
               borderRadius: 40,
               background:
-                "radial-gradient(60% 60% at 50% 50%, rgba(227,23,32,0.10), rgba(227,23,32,0) 70%), repeating-linear-gradient(0deg, rgba(255,255,255,0.035) 0 1px, transparent 1px 80px), repeating-linear-gradient(90deg, rgba(255,255,255,0.035) 0 1px, transparent 1px 80px)",
+                "radial-gradient(60% 60% at 50% 50%, rgba(214,27,12,0.10), rgba(214,27,12,0) 70%), repeating-linear-gradient(0deg, rgba(255,255,255,0.035) 0 1px, transparent 1px 80px), repeating-linear-gradient(90deg, rgba(255,255,255,0.035) 0 1px, transparent 1px 80px)",
               border: "1px solid rgba(255,255,255,0.06)",
             }}
           />
@@ -99,7 +99,7 @@ export const S4Corporate: React.FC = () => {
                 opacity={Math.min(1, p * 3)}
                 shadow={0.55}
                 topStyle={{
-                  boxShadow: `inset 0 0 0 2px rgba(227,23,32,${0.8 * p}), inset 0 0 50px rgba(227,23,32,0.3)`,
+                  boxShadow: `inset 0 0 0 2px rgba(214,27,12,${0.8 * p}), inset 0 0 50px rgba(214,27,12,0.3)`,
                 }}
               />
             );
@@ -128,7 +128,7 @@ export const S4Corporate: React.FC = () => {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    boxShadow: "0 14px 30px rgba(227,23,32,0.35)",
+                    boxShadow: "0 14px 30px rgba(214,27,12,0.35)",
                   }}
                 >
                   <Icon name={tw.icon} size={36} strokeWidth={1.9} progress={prog(t, tw.at, 1.0, EASE.inOut)} />
@@ -339,7 +339,7 @@ export const S4Corporate: React.FC = () => {
                       width: `${mix(18, row.to, row.p)}%`,
                       borderRadius: 5,
                       background: `linear-gradient(90deg, ${COLORS.redDeep}, ${COLORS.redGlow})`,
-                      boxShadow: "0 0 18px rgba(227,23,32,0.6)",
+                      boxShadow: "0 0 18px rgba(214,27,12,0.6)",
                     }}
                   />
                   <div

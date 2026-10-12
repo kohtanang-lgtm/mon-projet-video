@@ -5,6 +5,7 @@ import { Chip, Glass } from "../components/Glass";
 import { Icon, IconName } from "../components/Icons";
 import { IsoBox, IsoWorld, isoProject } from "../components/Iso";
 import { KineticLine } from "../components/KineticText";
+import { UbaGlyph } from "../components/UbaLogo";
 import { float, mix, prog, rise, springAt, useTime } from "../lib/motion";
 import { CUE, say } from "../timeline/cues";
 import { COLORS, EASE, FONTS } from "../theme";
@@ -55,7 +56,7 @@ const ProfileTile: React.FC<{ t: number; profile: (typeof PROFILES)[number]; exi
       opacity={p * (1 - exit)}
       shadow={0.5}
       topStyle={{
-        boxShadow: `inset 0 0 0 2px rgba(227,23,32,${0.65 * p}), inset 0 0 40px rgba(227,23,32,${0.25 * p})`,
+        boxShadow: `inset 0 0 0 2px rgba(214,27,12,${0.65 * p}), inset 0 0 40px rgba(214,27,12,${0.25 * p})`,
       }}
     >
       <div
@@ -64,7 +65,7 @@ const ProfileTile: React.FC<{ t: number; profile: (typeof PROFILES)[number]; exi
           height: 120,
           borderRadius: "50%",
           border: "1px solid rgba(255,255,255,0.12)",
-          boxShadow: `0 0 0 ${mix(0, 22, p)}px rgba(227,23,32,0.06)`,
+          boxShadow: `0 0 0 ${mix(0, 22, p)}px rgba(214,27,12,0.06)`,
         }}
       />
     </IsoBox>
@@ -255,18 +256,8 @@ export const S2Particuliers: React.FC = () => {
             shadow={0.6 * hub}
             topStyle={{ opacity: Math.min(1, hub * 1.5) }}
           >
-            <div style={{ transform: "rotate(42deg)", opacity: prog(t, CUE.uba + 0.2, 0.6) }}>
-              <span
-                style={{
-                  fontFamily: FONTS.display,
-                  fontWeight: 800,
-                  fontSize: 64,
-                  color: "white",
-                  letterSpacing: "-0.03em",
-                }}
-              >
-                UBA
-              </span>
+            <div style={{ transform: "rotate(42deg)" }}>
+              <UbaGlyph size={150} build={prog(t, CUE.uba + 0.1, 0.8, EASE.out)} />
             </div>
           </IsoBox>
         </IsoWorld>
@@ -314,7 +305,7 @@ export const S2Particuliers: React.FC = () => {
             width: 320,
             height: 320,
             borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(227,23,32,0.35) 0%, rgba(227,23,32,0) 70%)",
+            background: "radial-gradient(circle, rgba(214,27,12,0.35) 0%, rgba(214,27,12,0) 70%)",
             opacity: hub,
           }}
         />
@@ -392,7 +383,7 @@ export const S2Particuliers: React.FC = () => {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  boxShadow: "0 16px 30px rgba(227,23,32,0.35)",
+                  boxShadow: "0 16px 30px rgba(214,27,12,0.35)",
                 }}
               >
                 <Icon name={a.icon} size={54} strokeWidth={1.9} progress={prog(t, CUE.comptes + i * 0.3, 1)} />
@@ -459,40 +450,51 @@ export const S2Particuliers: React.FC = () => {
           exitAt={CUE.instantEnd - 0.15}
         />
       </div>
+      {/* Carte Prépayée (arrière-plan) puis carte Débit (premier plan) — designs officiels */}
       <AbsoluteFill style={{ perspective: 2000 }}>
         <div
           style={{
             position: "absolute",
-            left: 1010,
-            top: 300,
+            left: 1000,
+            top: 330,
             transformStyle: "preserve-3d",
-            transform: `translateZ(${mix(-700, -120, card2) + cardOut * 500}px) translateX(${mix(300, 120, card2)}px) translateY(${mix(-60, -90, card2)}px) rotateY(${mix(70, -20, card2)}deg) rotateZ(${mix(-14, -9, card2)}deg)`,
+            transform: `translateZ(${mix(-700, -170, card2) + cardOut * 500}px) translateX(${mix(320, 190, card2)}px) translateY(${mix(-40, -175, card2)}px) rotateY(${mix(70, -24, card2)}deg) rotateX(${mix(14, 5, card2)}deg) rotateZ(${mix(-14, -7, card2)}deg)`,
             opacity: card2 * (1 - cardOut),
           }}
         >
-          <BankCard width={560} variant="black" />
+          <BankCard width={560} variant="prepaid" sheen={sheen - 0.25} />
         </div>
         <div
           style={{
             position: "absolute",
-            left: 1010,
-            top: 330,
+            left: 960,
+            top: 390,
             transformStyle: "preserve-3d",
             transform: `translateZ(${mix(-800, 0, card) + cardOut * 1300}px) translateX(${mix(420, 0, card) - cardOut * 120}px) rotateY(${mix(75, -16, card) - cardOut * 30}deg) rotateX(${mix(18, 6, card) + float(t, 1.5, 5)}deg) rotateZ(${mix(10, 3, card)}deg)`,
             opacity: card * (1 - prog(t, CUE.instantEnd + 0.15, 0.3, EASE.in)),
             filter: cardOut > 0 ? `blur(${cardOut * 14}px)` : undefined,
           }}
         >
-          <BankCard width={600} variant="red" sheen={sheen} />
+          <BankCard width={600} variant="debit" sheen={sheen} />
         </div>
       </AbsoluteFill>
-      <div
-        style={{ position: "absolute", left: 980, top: 770, ...rise(prog(t, CUE.securisees + 0.05, 0.8), cardOut, 30) }}
-      >
-        <Chip icon="shield" label="Paiements sécurisés" iconProgress={prog(t, CUE.securisees + 0.1, 0.9, EASE.inOut)} />
+      <div style={{ position: "absolute", left: 930, top: 820 }}>
+        <div style={rise(prog(t, CUE.securisees + 0.05, 0.8), cardOut, 30)}>
+          <Chip
+            icon="shield"
+            label="Débit · paiements sécurisés"
+            iconProgress={prog(t, CUE.securisees + 0.1, 0.9, EASE.inOut)}
+          />
+        </div>
       </div>
-      <div style={{ position: "absolute", left: 1290, top: 190, ...rise(prog(t, CUE.chaque - 0.1, 0.8), cardOut, 30) }}>
-        <Chip icon="globe" label="Acceptée dans +200 pays" iconProgress={prog(t, CUE.chaque, 0.9, EASE.inOut)} />
+      <div style={{ position: "absolute", left: 1240, top: 120 }}>
+        <div style={rise(prog(t, CUE.chaque - 0.1, 0.8), cardOut, 30)}>
+          <Chip
+            icon="globe"
+            label="Prépayée · acceptée dans +200 pays"
+            iconProgress={prog(t, CUE.chaque, 0.9, EASE.inOut)}
+          />
+        </div>
       </div>
     </AbsoluteFill>
   );

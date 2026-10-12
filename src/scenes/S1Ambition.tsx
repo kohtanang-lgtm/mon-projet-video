@@ -151,7 +151,7 @@ export const S1Ambition: React.FC = () => {
           opacity: grand * (1 - grandOut),
           transform: `scale(${mix(0.86, 1, grand) + grandOut * 0.08})`,
           filter: grand < 1 || grandOut > 0 ? `blur(${(1 - grand) * 18 + grandOut * 16}px)` : undefined,
-          textShadow: "0 0 80px rgba(227,23,32,0.45)",
+          textShadow: "0 0 80px rgba(214,27,12,0.45)",
         }}
       >
         GRAND
@@ -183,7 +183,7 @@ export const S1Ambition: React.FC = () => {
           style={{
             height: 2,
             background: `linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.75) 35%, ${COLORS.redGlow} 50%, rgba(255,255,255,0.75) 65%, rgba(255,255,255,0) 100%)`,
-            boxShadow: `0 0 24px rgba(227,23,32,0.55)`,
+            boxShadow: `0 0 24px rgba(214,27,12,0.55)`,
           }}
         />
       </div>

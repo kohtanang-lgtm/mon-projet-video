@@ -1,10 +1,10 @@
 import React from "react";
 import { AbsoluteFill } from "remotion";
-import { BRAND } from "../brand";
 import { Globe } from "../components/Globe";
 import { Icon } from "../components/Icons";
 import { KineticLine } from "../components/KineticText";
-import { UbaLockup } from "../components/UbaLogo";
+import { UbaSignature } from "../components/UbaLogo";
+import { BRAND } from "../brand";
 import { mix, prog, rise, useTime } from "../lib/motion";
 import { CUE, TOTAL_DURATION, say } from "../timeline/cues";
 import { COLORS, EASE, FONTS } from "../theme";
@@ -13,21 +13,25 @@ import { COLORS, EASE, FONTS } from "../theme";
  * S5 · SIGNATURE — « UBA Tchad, la banque globale de l'Afrique.
  * Rejoignez-nous dès aujourd'hui sur ubachad.com. »
  *
- * Le fil rouge se condense en bloc-marque, la signature se déploie, puis le globe
- * relie N'Djaména aux places financières du groupe. Pack-shot tenu jusqu'au fondu final.
+ * Le fil rouge s'épaissit en icône officielle UBA, les deux formes de la marque glissent
+ * l'une contre l'autre et se verrouillent, « UBA » monte, puis la signature se déploie.
+ * Le globe relie ensuite N'Djaména aux places financières du groupe. Pack-shot tenu
+ * jusqu'au fondu final.
  */
 
-const LOGO_SIZE = 140;
-const LOGO_Y = 330;
-/** Décalage initial : le bloc rouge naît au centre exact de l'écran, puis la signature s'ouvre. */
-const LOCKUP_SHIFT = 300;
+const LOGO_SIZE = 180;
+const LOGO_Y = 268;
+/** Décalage initial : l'icône naît au centre exact de l'écran, puis la signature s'ouvre. */
+const LOCKUP_SHIFT = 306;
 
 export const S5Signature: React.FC = () => {
   const t = useTime();
 
   const line = prog(t, CUE.surMesureEnd - 0.05, CUE.ubaFinal - CUE.surMesureEnd + 0.05, EASE.inOut);
-  const reveal = prog(t, CUE.ubaFinal - 0.05, 0.9, EASE.out);
-  const name = prog(t, CUE.ubaFinal + 0.3, 1.1, EASE.inOut);
+  const reveal = prog(t, CUE.ubaFinal - 0.05, 0.55, EASE.out); // trait → carré
+  const mark = prog(t, CUE.ubaFinal + 0.15, 0.85, EASE.out); // assemblage de la marque
+  const word = prog(t, CUE.ubaFinal + 0.38, 0.6, EASE.out); // « UBA » sur « Tchad »
+  const name = prog(t, CUE.ubaFinal + 0.42, 1.0, EASE.inOut);
   const globe = prog(t, CUE.banqueGlobale - 0.4, 1.6, EASE.out);
   const links = prog(t, CUE.banqueGlobale + 0.3, 2.4, EASE.inOut);
   const facing = 15 + (t - CUE.afriqueEnd) * 4; // l'Afrique passe face caméra sur « l'Afrique »
@@ -55,7 +59,7 @@ export const S5Signature: React.FC = () => {
       {/* voile pour détacher la signature du globe */}
       <AbsoluteFill
         style={{
-          background: "radial-gradient(30% 16% at 50% 37%, rgba(6,6,7,0.8) 0%, rgba(6,6,7,0) 100%)",
+          background: "radial-gradient(32% 20% at 50% 34%, rgba(6,6,7,0.82) 0%, rgba(6,6,7,0) 100%)",
           opacity: globe,
         }}
       />
@@ -65,13 +69,13 @@ export const S5Signature: React.FC = () => {
         <div
           style={{
             position: "absolute",
-            left: 960 - (LOGO_SIZE * 1.62 * line) / 2,
-            top: LOGO_Y + LOGO_SIZE / 2 - LOGO_SIZE * 0.025,
-            width: LOGO_SIZE * 1.62 * line,
-            height: LOGO_SIZE * 0.05,
-            borderRadius: 4,
+            left: 960 - (LOGO_SIZE * line) / 2,
+            top: LOGO_Y + LOGO_SIZE / 2 - LOGO_SIZE * 0.016,
+            width: LOGO_SIZE * line,
+            height: LOGO_SIZE * 0.032,
+            borderRadius: 3,
             background: COLORS.red,
-            boxShadow: `0 0 30px ${COLORS.red}, 0 0 80px rgba(227,23,32,0.6)`,
+            boxShadow: `0 0 30px ${COLORS.red}, 0 0 80px rgba(214,27,12,0.6)`,
             opacity: Math.min(1, line * 3),
           }}
         />
@@ -89,8 +93,8 @@ export const S5Signature: React.FC = () => {
           visibility: reveal > 0 ? "visible" : "hidden",
         }}
       >
-        <div style={{ transform: `translateX(${BRAND.logo ? 0 : (1 - name) * LOCKUP_SHIFT}px)`, position: "relative" }}>
-          <UbaLockup size={LOGO_SIZE} reveal={reveal} nameReveal={name} />
+        <div style={{ transform: `translateX(${(1 - name) * LOCKUP_SHIFT}px)`, position: "relative" }}>
+          <UbaSignature size={LOGO_SIZE} square={reveal} mark={mark} word={word} nameReveal={name} />
           {/* reflet final sur la signature */}
           <div
             style={{
@@ -170,7 +174,7 @@ export const S5Signature: React.FC = () => {
               alignItems: "center",
               gap: 14,
               background: `linear-gradient(135deg, ${COLORS.redGlow}, ${COLORS.red} 50%, ${COLORS.redDeep})`,
-              boxShadow: `0 24px 50px rgba(227,23,32,${0.35 + 0.15 * Math.sin(t * 3)})`,
+              boxShadow: `0 24px 50px rgba(214,27,12,${0.35 + 0.15 * Math.sin(t * 3)})`,
               fontFamily: FONTS.ui,
               fontWeight: 700,
               fontSize: 32,

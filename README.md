@@ -3,7 +3,7 @@ Projet de création et montage vidéo automatisé (Remotion / HyperFrames) pour 
 
 ## Spot institutionnel UBA Tchad — « Voir plus grand »
 
-Film de motion design de **51 s** (1920 × 1080), entièrement généré par code avec [Remotion](https://www.remotion.dev/)
+Film de motion design de **51 s** (1920 × 1080, 60 i/s), entièrement généré par code avec [Remotion](https://www.remotion.dev/)
 et **synchronisé mot à mot sur la voix-off**.
 
 - 📋 **Découpage synchro, analyse du site et direction artistique** : [`docs/DECOUPAGE.md`](docs/DECOUPAGE.md)
@@ -15,15 +15,15 @@ et **synchronisé mot à mot sur la voix-off**.
 ```bash
 npm install
 npm run studio        # prévisualisation interactive (timeline, scrubbing image par image)
-npm run render        # rendu final → out/uba-tchad-spot.mp4 (H.264 CRF 16, AAC 320k)
+npm run render        # master 60 i/s → out/uba-tchad-spot.mp4 (PNG sans perte → H.264 slow CRF 14, BT.709)
 npm run render:draft  # brouillon rapide en demi-résolution
 npm run stills        # images de contrôle aux repères clés → out/stills/
 ```
 
-Rendu en 60 i/s (le montage est écrit en secondes, aucune retouche nécessaire) :
+Rendu à une autre cadence (le montage est écrit en secondes, aucune retouche nécessaire) :
 
 ```bash
-npx remotion render UbaTchadSpot out/uba-tchad-spot-60fps.mp4 --props='{"fps":60,"soundDesign":true}'
+npx remotion render UbaTchadSpot out/uba-tchad-spot-30fps.mp4 --props='{"fps":30,"soundDesign":true}'
 ```
 
 Sur une machine sans accès au téléchargement de Chrome, pointer vers un Chromium existant :
@@ -50,7 +50,8 @@ voix-off.mp3 ──► scripts/align_voiceover.py ──► src/timeline/voiceov
 ```
 src/
   theme.ts            charte : couleurs UBA, polices, courbes d'animation, verre
-  brand.ts            ressources de marque (logo officiel, avatar Léo, URL, signature)
+  brand.ts            ressources de marque (Léo, URL, signature)
+  brand/ubaLogo.ts    logo officiel vectorisé (généré)
   fonts.ts            chargement bloquant des polices (Montserrat, Inter — OFL)
   timeline/           voiceover.json (généré) + cues.ts (repères, fenêtres de scènes)
   lib/motion.ts       primitives d'animation (progressions, ressorts, révélations)
@@ -60,12 +61,21 @@ src/
 scripts/
   align_voiceover.py      alignement mot à mot de la voix-off
   generate_sound_design.py habillage sonore procédural
+  vectorize_logo.py       vectorisation du logo officiel
+  prepare_leo.py          détourage de Léo
   render-stills.mjs       images de contrôle (QA)
 ```
 
-### Avant diffusion
+### Ressources de marque
 
-Le film fonctionne sans fichier externe grâce à des substituts vectoriels fidèles à la charte. Pour la
-version finale, déposer dans `public/brand/` le **logo officiel UBA** et l'**avatar de Léo**, puis renseigner
-leurs chemins dans `src/brand.ts`. Voir la liste complète des points à valider dans
-[`docs/DECOUPAGE.md`](docs/DECOUPAGE.md#5-points-à-valider-avant-diffusion).
+Les ressources officielles fournies sont dans `public/brand/` et sont traitées par deux scripts
+(Python 3 + `pip install pillow scipy potracer`) :
+
+- `npm run brand:logo` — vectorise le logo officiel (`uba-logo-icon.jpg` → `src/brand/ubaLogo.ts`) :
+  marque reconstruite géométriquement, mot « UBA » tracé — net à toutes les tailles.
+- `npm run brand:leo` — détoure Léo (`leo-source.jpg` → `leo-cutout.png`), bulle anglaise retirée.
+
+Les cartes Débit et Prépayée sont redessinées en vectoriel d'après les photos fournies, **avec des données
+fictives** : les photos (vrais numéros de carte, nom du titulaire) ne sont ni versionnées ni reproduites.
+
+Points restant à valider : voir [`docs/DECOUPAGE.md`](docs/DECOUPAGE.md#5-ressources-de-marque-et-points-à-valider).

@@ -63,7 +63,7 @@ export const Background: React.FC = () => {
       <AbsoluteFill
         style={{
           opacity: light.power,
-          background: `radial-gradient(42% 46% at ${light.x}% ${light.y}%, rgba(227,23,32,0.34) 0%, rgba(227,23,32,0.10) 45%, rgba(227,23,32,0) 75%)`,
+          background: `radial-gradient(42% 46% at ${light.x}% ${light.y}%, rgba(214,27,12,0.34) 0%, rgba(214,27,12,0.10) 45%, rgba(214,27,12,0) 75%)`,
         }}
       />
       {/* Contre-jour froid, très discret, pour la profondeur */}

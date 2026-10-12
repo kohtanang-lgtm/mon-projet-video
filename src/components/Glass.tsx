@@ -19,7 +19,7 @@ export const Glass: React.FC<{
       borderRadius: radius,
       background: GLASS.background,
       border: GLASS.border,
-      boxShadow: `${GLASS.shadow}${accent > 0 ? `, 0 0 ${48 * accent}px rgba(227,23,32,${0.45 * accent}), inset 0 0 0 ${1.5 * accent}px rgba(227,23,32,${0.9 * accent})` : ""}`,
+      boxShadow: `${GLASS.shadow}${accent > 0 ? `, 0 0 ${48 * accent}px rgba(214,27,12,${0.45 * accent}), inset 0 0 0 ${1.5 * accent}px rgba(214,27,12,${0.9 * accent})` : ""}`,
       backdropFilter: frosted ? GLASS.blur : undefined,
       WebkitBackdropFilter: frosted ? GLASS.blur : undefined,
       overflow: "hidden",

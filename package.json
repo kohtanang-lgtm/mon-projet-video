@@ -10,6 +10,8 @@
     "stills": "node scripts/render-stills.mjs",
     "align": "python3 scripts/align_voiceover.py public/audio/voix-off-uba-tchad.mp3 src/timeline/voiceover.json",
     "sound": "python3 scripts/generate_sound_design.py",
+    "brand:logo": "python3 scripts/vectorize_logo.py",
+    "brand:leo": "python3 scripts/prepare_leo.py",
     "typecheck": "tsc --noEmit",
     "format": "prettier --write \"src/**/*.{ts,tsx}\" \"scripts/*.mjs\" remotion.config.ts"
   },
