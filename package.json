@@ -1,0 +1,33 @@
+{
+  "name": "mon-projet-video",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Vidéos motion design (Remotion) – proposition créative Tahwiil « Astuce Tahwiil »",
+  "scripts": {
+    "studio": "remotion studio",
+    "carte": "node scripts/generer-carte-tchad.mjs",
+    "rendu:vertical": "remotion render AstuceTahwiil-9x16 rendus/astuce-tahwiil-3-points-9x16.mp4",
+    "rendu:carre": "remotion render AstuceTahwiil-1x1 rendus/astuce-tahwiil-3-points-1x1.mp4",
+    "rendu": "npm run rendu:vertical && npm run rendu:carre",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.532",
+    "@remotion/fonts": "4.0.532",
+    "@remotion/transitions": "4.0.532",
+    "lucide-react": "0.460.0",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
+    "remotion": "4.0.532"
+  },
+  "devDependencies": {
+    "@fontsource/baloo-bhaijaan-2": "5.1.0",
+    "@fontsource/montserrat": "5.1.0",
+    "@fontsource/nunito": "5.1.0",
+    "@types/react": "19.1.12",
+    "d3-geo": "3.1.1",
+    "topojson-client": "3.1.0",
+    "typescript": "5.6.3",
+    "world-atlas": "2.0.2"
+  }
+}
