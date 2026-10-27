@@ -11,7 +11,7 @@ Proposition créative (non sollicitée) pour **Tahwiil Transfert d'argent**. La 
 | Durée | environ 48 s |
 | Formats | 9:16 (1080 × 1920) pour Reels, TikTok et statut WhatsApp · 1:1 (1080 × 1080) pour le fil Facebook / Instagram |
 | Langue | français, sous-titres incrustés (voix off à ajouter) |
-| Rendus | `rendus/astuce-tahwiil-3-points-9x16.mp4` et `rendus/astuce-tahwiil-3-points-1x1.mp4` |
+| Rendus | `rendus/astuce-tahwiil-3-points-9x16.mp4` et `rendus/astuce-tahwiil-3-points-1x1.mp4` (haute qualité) · `rendus/astuce-tahwiil-3-points-9x16-leger.mp4` (720p, environ 4 Mo, pour l'envoi sur WhatsApp) |
 
 ### Déroulé
 
