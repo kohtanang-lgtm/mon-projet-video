@@ -1,6 +1,52 @@
 # Script de voix off – « Tahwiil. Un transfert, un sourire. »
 
-Campagne : **#AstuceTahwiil** · Film motion design de 50 s (9:16 et 1:1) · Voix off en français (version arabe tchadien à adapter).
+Campagne : **#AstuceTahwiil** · Film motion design de 59,5 s (9:16 et 1:1) · Voix off en français (version arabe tchadien à adapter).
+
+## Version enregistrée (ElevenLabs)
+
+La voix finale dure 57,2 s ; elle démarre à 0,4 s dans la vidéo (durée totale 59,5 s). Les temps ci-dessous sont ceux de la vidéo. Ils ont été relevés automatiquement par `scripts/aligner-voix-off.py` et pilotent toutes les animations (`src/data/voixOff.json`).
+
+| Vidéo | Voix off |
+|---|---|
+| 0,4 – 1,68 s | Quand on envoie de l'argent… |
+| 2,12 – 3,35 s | on envoie bien plus. |
+| 3,97 – 5,29 s | Avez-vous pensé à ces 3 points ? |
+| 5,71 – 7,52 s | Ahmat, lui, y pense. |
+| 7,97 – 9,46 s | À chaque envoi pour sa maman, |
+| 9,69 – 10,16 s | à Abéché. |
+| 10,74 – 10,9 s | Un : |
+| 11,39 – 13,86 s | il vérifie le nom et le numéro du bénéficiaire. |
+| 14,43 – 16,02 s | Car un seul chiffre de travers… |
+| 16,43 – 17,4 s | et tout peut se bloquer. |
+| 17,98 – 18,53 s | Vérifié. |
+| 18,88 – 19,29 s | Validé. |
+| 19,73 – 20,67 s | L'esprit tranquille. |
+| 21,21 – 21,46 s | Deux : |
+| 21,87 – 22,87 s | il pose ses questions. |
+| 23,34 – 23,61 s | Frais ? |
+| 23,94 – 24,29 s | Délais ? |
+| 24,68 – 25,37 s | Pièce d'identité ? |
+| 25,7 – 26,25 s | Lieu de retrait ? |
+| 26,69 – 27,99 s | Un agent Tahwiil lui répond. |
+| 28,42 – 31,61 s | En agence ou sur WhatsApp, jour et nuit, 7 jours sur 7. |
+| 32,07 – 32,33 s | Trois : |
+| 32,76 – 34,56 s | il garde précieusement son reçu… |
+| 34,92 – 35,64 s | jusqu'au retrait. |
+| 36,1 – 38,05 s | Et si un inconnu lui réclame son code PIN ? |
+| 38,32 – 38,78 s | JAMAIS. |
+| 39,21 – 40,91 s | Un code PIN, ça ne se partage pas. |
+| 41,32 – 41,99 s | À Abéché, |
+| 42,34 – 43,42 s | maman reçoit son argent. |
+| 43,97 – 44,62 s | Un transfert… |
+| 45,15 – 45,5 s | un sourire. |
+| 46,11 – 46,62 s | Tahwiil. |
+| 46,88 – 48,84 s | Simple. Rapide. Sécurisé. |
+| 49,21 – 52,23 s | Envoyez, payez, retirez… depuis votre téléphone. |
+| 52,59 – 54,66 s | Un service agréé, toujours à vos côtés. |
+| 55,02 – 55,85 s | Faites comme Ahmat : |
+| 56,12 – 57,26 s | téléchargez Tahwiil ! |
+
+Les temps du tableau « Le script » plus bas étaient ceux de la préparation ; c'est l'enregistrement ci-dessus qui fait foi.
 
 ## L'idée
 
@@ -124,11 +170,12 @@ Chaque argument de la voix off vient des supports publics de Tahwiil :
 
 Aucune promesse chiffrée n'est avancée : ni frais, ni délai, ni « le moins cher », ni « numéro 1 ». La ville d'Abéché reste à confirmer avec Tahwiil.
 
-## Ajustements de la vidéo pour intégrer la voix
+## Intégration dans la vidéo (réalisée)
 
-1. **Écran de fin prolongé de 3 s.** Dans `src/histoire.ts`, `DUREES.fin` passe de 230 à 320, et la durée totale à 50,6 s.
-2. **Sous-titres :** remplacer le texte de `SOUS_TITRES` (même fichier) par celui de la voix off, phrase par phrase.
-3. **Option :** une petite pulsation des badges App Store et Google Play à 47,9 s, sur « téléchargez Tahwiil ».
+- Toute la vidéo a été recalée sur l'enregistrement : durée totale 59,5 s.
+- Les sous-titres reprennent le texte de la voix, mot à mot.
+- L'écran de fin suit les phrases de la voix : promesses, verbes, appli, mention agréée, contacts et appel à l'action.
+- Musique et bruitages suivent les repères listés plus haut.
 
 ## Fiche technique d'enregistrement
 

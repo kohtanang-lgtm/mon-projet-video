@@ -6,9 +6,11 @@
   "scripts": {
     "studio": "remotion studio",
     "carte": "node scripts/generer-carte-tchad.mjs",
-    "rendu:vertical": "remotion render AstuceTahwiil-9x16 rendus/astuce-tahwiil-3-points-9x16.mp4",
-    "rendu:carre": "remotion render AstuceTahwiil-1x1 rendus/astuce-tahwiil-3-points-1x1.mp4",
-    "rendu": "npm run rendu:vertical && npm run rendu:carre",
+    "bande-son": "python3 scripts/bande-son.py",
+    "rendu:vertical": "remotion render AstuceTahwiil-9x16 out/brut/astuce-tahwiil-3-points-9x16.mp4",
+    "rendu:carre": "remotion render AstuceTahwiil-1x1 out/brut/astuce-tahwiil-3-points-1x1.mp4",
+    "finaliser": "python3 scripts/finaliser.py",
+    "rendu": "npm run bande-son && npm run rendu:vertical && npm run rendu:carre && npm run finaliser",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

@@ -1,4 +1,5 @@
 import { C } from './theme';
+import { R } from './voixOff';
 
 // Tous les textes de la vidéo, au même endroit pour les modifier facilement.
 // Les données du scénario (noms, numéro, référence) sont fictives.
@@ -25,23 +26,6 @@ export const CONTACTS = {
   mentionLegale: 'Service de paiement mobile agréé · Supervision COBAC et BEAC',
 } as const;
 
-// Durées des scènes (images, 30 i/s). Les transitions se chevauchent avec les scènes.
-export const FPS = 30;
-export const DUREE_TRANSITION = 28;
-export const DUREES = {
-  accroche: 150,
-  trajet: 150,
-  verifier: 300,
-  agent: 285,
-  justificatif: 315,
-  sourire: 165,
-  fin: 230,
-} as const;
-
-export const DUREE_TOTALE =
-  Object.values(DUREES).reduce((a, b) => a + b, 0) -
-  (Object.keys(DUREES).length - 1) * DUREE_TRANSITION;
-
 // Décalage d'entrée : laisse passer le balayage avant d'animer le contenu d'une scène.
 export const ENTREE = 16;
 
@@ -49,15 +33,21 @@ const B = C.bleu;
 const W = C.blanc;
 
 export const TITRES = {
-  accroche: [
-    { segments: [{ t: 'AVANT', c: B }, { t: 'UN TRANSFERT,', c: W }], taille: 74 },
-    { segments: [{ t: 'AVEZ-VOUS PENSÉ À CES', c: B }], taille: 66 },
+  // Accroche en deux temps, exactement comme la voix off.
+  accrocheA: [
+    { segments: [{ t: 'QUAND ON ENVOIE', c: W }], taille: 84 },
+    { segments: [{ t: "DE L'ARGENT…", c: W }], taille: 84 },
+    { segments: [{ t: 'ON ENVOIE', c: B }], taille: 84 },
+    { segments: [{ t: 'BIEN PLUS.', c: W }], taille: 132 },
+  ],
+  accrocheB: [
+    { segments: [{ t: 'AVEZ-VOUS PENSÉ', c: B }], taille: 80 },
+    { segments: [{ t: 'À CES', c: B }], taille: 80 },
     { segments: [{ t: '3 POINTS ?', c: W }], taille: 190 },
   ],
   trajet: [
-    { segments: [{ t: `${HISTOIRE.expediteur.toUpperCase()} ENVOIE`, c: W }], taille: 78 },
-    { segments: [{ t: "DE L'ARGENT À SA MAMAN,", c: W }], taille: 64 },
-    { segments: [{ t: `À ${HISTOIRE.nomVilleArrivee.toUpperCase()}.`, c: B }], taille: 78 },
+    { segments: [{ t: `${HISTOIRE.expediteur.toUpperCase()}, LUI,`, c: W }], taille: 104 },
+    { segments: [{ t: 'Y PENSE.', c: B }], taille: 124 },
   ],
   verifier: [
     { segments: [{ t: 'VÉRIFIER LES', c: W }], taille: 76 },
@@ -78,19 +68,41 @@ export const TITRES = {
   ],
 } as const;
 
-// Sous-titres (images locales à chaque scène). Ils servent aussi de texte pour la voix off.
-export const SOUS_TITRES = {
-  verifier: [
-    { de: ENTREE + 34, a: 168, texte: 'Vérifiez le nom et le numéro de votre bénéficiaire.' },
-    { de: 172, a: 300, texte: 'Une seule erreur peut retarder ou bloquer votre transfert.' },
+// Sous-titres calés sur la voix off (temps en secondes de la voix).
+// Chaque morceau correspond à une prise de parole ; le mot prononcé s'allume en jaune.
+// Les phrases déjà écrites à l'écran (accroche, bulles, « JAMAIS », « Un transfert, un sourire », fin) n'en ont pas.
+export type MorceauSousTitre = { readonly texte: string; readonly de: number; readonly a: number };
+export const SOUS_TITRES: readonly (readonly MorceauSousTitre[])[] = [
+  [
+    { texte: 'À chaque envoi pour sa maman,', de: R.aChaqueEnvoi, a: 9.06 },
+    { texte: `à ${HISTOIRE.nomVilleArrivee}.`, de: R.aAbeche, a: R.finTrajet },
   ],
-  agent: [
-    { de: ENTREE + 34, a: 165, texte: 'Frais, délais, pièces à fournir : un agent vous explique tout.' },
-    { de: 169, a: 285, texte: 'En agence ou sur WhatsApp, 24h/7j.' },
+  [{ texte: 'Il vérifie le nom et le numéro du bénéficiaire.', de: R.ilVerifie, a: R.finVerifie }],
+  [{ texte: 'Car un seul chiffre de travers…', de: R.carUnSeul, a: R.finTravers }],
+  [{ texte: '… et tout peut se bloquer.', de: R.toutBloquer, a: R.finBloquer }],
+  [
+    { texte: 'Vérifié.', de: R.verifie, a: R.finVerifieMot },
+    { texte: 'Validé.', de: R.valide, a: R.finValide },
+    { texte: 'L’esprit tranquille.', de: R.espritTranquille, a: R.finPoint1 },
   ],
-  justificatif: [
-    { de: ENTREE + 34, a: 168, texte: 'Gardez votre justificatif jusqu’au retrait.' },
-    { de: 172, a: 315, texte: 'Et votre code PIN ne se partage jamais. Avec personne.' },
+  [{ texte: 'Il pose ses questions.', de: R.poseQuestions, a: R.finQuestions }],
+  [{ texte: 'Un agent Tahwiil lui répond.', de: R.agentRepond, a: R.finRepond }],
+  [
+    { texte: 'En agence ou sur WhatsApp,', de: R.enAgence, a: R.finWhatsapp },
+    { texte: 'jour et nuit,', de: R.jourEtNuit, a: R.finJourNuit },
+    { texte: '7 jours sur 7.', de: R.septJours, a: R.finPoint2 },
   ],
-  sourire: [{ de: ENTREE + 10, a: 165, texte: `À ${HISTOIRE.nomVilleArrivee}, maman reçoit son argent.` }],
-} as const;
+  [
+    { texte: 'Il garde précieusement son reçu…', de: R.garde, a: R.finRecu },
+    { texte: 'jusqu’au retrait.', de: R.jusquauRetrait, a: R.finRetrait },
+  ],
+  [{ texte: 'Et si un inconnu lui réclame son code PIN ?', de: R.etSiInconnu, a: R.finInconnu }],
+  [
+    { texte: 'Un code PIN,', de: R.unCodePin, a: R.finUnCodePin },
+    { texte: 'ça ne se partage pas.', de: R.partage, a: R.finPoint3 },
+  ],
+  [
+    { texte: `À ${HISTOIRE.nomVilleArrivee},`, de: R.aAbecheFin, a: 41.59 },
+    { texte: 'maman reçoit son argent.', de: R.mamanRecoit, a: R.finMamanRecoit },
+  ],
+];

@@ -3,19 +3,28 @@ import { Banknote, Check, Clock, IdCard, MapPin, MessageCircle } from 'lucide-re
 import { AbsoluteFill, useCurrentFrame, useVideoConfig } from 'remotion';
 import { Fond } from '../components/Fond';
 import { Entete, LogoAnime } from '../components/Logo';
-import { SousTitres } from '../components/SousTitre';
+import { Son } from '../components/Son';
 import { BlocTitre } from '../components/Texte';
 import { ressort } from '../components/anim';
-import { CONTACTS, ENTREE, SOUS_TITRES, TITRES } from '../histoire';
+import { CONTACTS, TITRES } from '../histoire';
 import { useMiseEnPage, Zone } from '../miseEnPage';
 import { BOITE_ILLU, BOITE_TITRE, C, F } from '../theme';
+import { loc, R } from '../voixOff';
 
+const f = (t: number) => loc('agent', t);
+
+// « Deux : il pose ses questions. / Frais ? Délais ? Pièce d'identité ? Lieu de retrait ? /
+//   Un agent Tahwiil lui répond. / En agence ou sur WhatsApp, jour et nuit, 7 jours sur 7. »
 const T = {
-  guichet: ENTREE + 8,
-  agent: ENTREE + 26,
-  bulles: ENTREE + 50,
-  reponses: ENTREE + 128,
-  whatsapp: ENTREE + 168,
+  titre: Math.max(f(R.deux), 18),
+  guichet: 20,
+  agent: f(R.poseQuestions),
+  bulles: [f(R.frais), f(R.delais), f(R.piece), f(R.lieu)].map((x) => x - 2),
+  reponses: f(R.luiRepond),
+  agence: f(R.enAgence),
+  whatsapp: f(R.whatsapp) - 4,
+  jourNuit: f(R.jourEtNuit),
+  septJours: f(R.septJours),
 };
 
 const QUESTIONS = [
@@ -61,8 +70,8 @@ const AgentIllustration: React.FC<{ frame: number }> = ({ frame }) => {
 const Bulle: React.FC<{ q: (typeof QUESTIONS)[number]; i: number }> = ({ q, i }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const p = ressort(frame, fps, T.bulles + i * 16, { damping: 11, stiffness: 150 });
-  const pRep = ressort(frame, fps, T.reponses + i * 7, { damping: 9, stiffness: 180 });
+  const p = ressort(frame, fps, T.bulles[i], { damping: 11, stiffness: 150 });
+  const pRep = ressort(frame, fps, T.reponses + i * 6, { damping: 9, stiffness: 180 });
   const gauche = q.x < 500;
   const flotte = Math.sin(frame / 16 + i * 1.3) * 5;
   const { Icone } = q;
@@ -149,20 +158,23 @@ export const S4Agent: React.FC = () => {
   const pGuichet = ressort(frame, fps, T.guichet, { damping: 15, stiffness: 100 });
   const pAgent = ressort(frame, fps, T.agent, { damping: 12, stiffness: 110 });
   const pWa = ressort(frame, fps, T.whatsapp, { damping: 13, stiffness: 130 });
+  const pNuit = ressort(frame, fps, T.jourNuit, { damping: 9, stiffness: 170 });
+  const pulse7 = Math.sin(Math.min(1, ressort(frame, fps, T.septJours, { damping: 200 }, 12)) * Math.PI);
+  const bosseAgence = Math.sin(Math.min(1, ressort(frame, fps, T.agence, { damping: 200 }, 14)) * Math.PI) * 0.035;
 
   return (
     <AbsoluteFill>
       <Fond />
       <Entete y={mp.entete.y} largeur={mp.entete.largeur} />
       <Zone placement={mp.titre} l={BOITE_TITRE.l} h={BOITE_TITRE.h}>
-        <BlocTitre numero="2" lignes={TITRES.agent} debut={ENTREE} />
+        <BlocTitre numero="2" lignes={TITRES.agent} debut={T.titre} />
       </Zone>
       <Zone placement={mp.illu} l={BOITE_ILLU.l} h={BOITE_ILLU.h}>
         <div
           style={{
             position: 'absolute',
             inset: 0,
-            transform: `translateY(${(1 - pGuichet) * 500}px)`,
+            transform: `translateY(${(1 - pGuichet) * 500}px) scale(${1 + bosseAgence})`,
             opacity: Math.min(1, pGuichet * 2),
           }}
         >
@@ -291,13 +303,44 @@ export const S4Agent: React.FC = () => {
           >
             <MessageCircle size={50} color={C.vertWhatsapp} strokeWidth={2.8} />
           </div>
-          <div style={{ fontFamily: F.titre, lineHeight: 1.1 }}>
-            <div style={{ fontWeight: 800, fontSize: 28, opacity: 0.95 }}>Une question ? WhatsApp · 24h/7j</div>
+          <div style={{ fontFamily: F.titre, lineHeight: 1.1, flex: 1 }}>
+            <div style={{ fontWeight: 800, fontSize: 28, opacity: 0.95 }}>Une question ? Écrivez sur WhatsApp</div>
             <div style={{ fontWeight: 900, fontSize: 46, letterSpacing: '0.01em' }}>{CONTACTS.whatsapp}</div>
+          </div>
+          {/* « jour et nuit, 7 jours sur 7 » */}
+          <div
+            style={{
+              position: 'absolute',
+              right: -10,
+              top: -46,
+              padding: '10px 22px',
+              borderRadius: 30,
+              background: C.orangeVif,
+              border: `4px solid ${C.blanc}`,
+              fontFamily: F.titre,
+              fontWeight: 900,
+              fontSize: 30,
+              color: C.blanc,
+              boxShadow: '0 10px 24px rgba(110, 30, 0, 0.3)',
+              transform: `scale(${pNuit * (1 + pulse7 * 0.1)}) rotate(${(1 - pNuit) * 15 + 4}deg)`,
+              opacity: Math.min(1, pNuit * 2),
+              whiteSpace: 'nowrap',
+            }}
+          >
+            24h/24 · 7j/7
           </div>
         </div>
       </Zone>
-      <SousTitres items={SOUS_TITRES.agent} />
+      <Son a={T.guichet} nom="souffle-doux" volume={0.28} />
+      <Son a={T.agent} nom="pop-1" volume={0.3} />
+      {T.bulles.map((b, i) => (
+        <Son key={`b${i}`} a={b} nom={`pop-${i + 1}`} volume={0.42} />
+      ))}
+      {[0, 1, 2, 3].map((i) => (
+        <Son key={`r${i}`} a={T.reponses + i * 6} nom="tic" volume={0.3} />
+      ))}
+      <Son a={T.whatsapp} nom="message" volume={0.4} />
+      <Son a={T.jourNuit} nom="pop-4" volume={0.38} />
     </AbsoluteFill>
   );
 };

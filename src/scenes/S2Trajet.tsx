@@ -4,11 +4,27 @@ import { Fond } from '../components/Fond';
 import { Entete } from '../components/Logo';
 import { BlocTitre } from '../components/Texte';
 import { prog, ressort, INOUT } from '../components/anim';
+import { Son } from '../components/Son';
 import { cheminFleche } from '../components/fleche';
 import { CARTE_TCHAD } from '../data/carteTchad';
-import { ENTREE, HISTOIRE, TITRES } from '../histoire';
+import { HISTOIRE, TITRES } from '../histoire';
 import { useMiseEnPage, Zone } from '../miseEnPage';
 import { BOITE_ILLU, BOITE_TITRE, C, F } from '../theme';
+import { loc, R } from '../voixOff';
+
+const f = (t: number) => loc('trajet', t);
+
+// « Ahmat, lui, y pense. / À chaque envoi pour sa maman, / à Abéché. »
+const T = {
+  titre: Math.max(f(R.ahmat), 20),
+  titre2: f(R.yPense),
+  trace: 12,
+  depart: Math.max(f(R.ahmat), 20),
+  villes: 36,
+  arc: f(R.aChaqueEnvoi),
+  maman: f(R.maman),
+  arrivee: f(R.aAbeche),
+};
 
 type CleVille = keyof typeof CARTE_TCHAD.villes;
 
@@ -44,13 +60,13 @@ export const S2Trajet: React.FC = () => {
   );
 
   const echelleCarte = 0.7;
-  const pTrace = prog(frame, ENTREE + 4, ENTREE + 42, INOUT);
-  const pRemplissage = prog(frame, ENTREE + 28, ENTREE + 56);
-  const pDepart = ressort(frame, fps, ENTREE + 36, { damping: 10, stiffness: 160 });
-  const pEtiquetteDepart = ressort(frame, fps, ENTREE + 40, { damping: 12, stiffness: 150 });
-  const pArc = prog(frame, ENTREE + 46, ENTREE + 82, INOUT);
-  const pArrivee = ressort(frame, fps, ENTREE + 80, { damping: 8, stiffness: 160 });
-  const pEtiquetteArrivee = ressort(frame, fps, ENTREE + 84, { damping: 12, stiffness: 150 });
+  const pTrace = prog(frame, T.trace, T.trace + 40, INOUT);
+  const pRemplissage = prog(frame, T.trace + 24, T.trace + 54);
+  const pDepart = ressort(frame, fps, T.depart, { damping: 10, stiffness: 160 });
+  const pEtiquetteDepart = ressort(frame, fps, T.depart + 4, { damping: 12, stiffness: 150 });
+  const pArc = prog(frame, T.arc, T.arrivee, INOUT);
+  const pArrivee = ressort(frame, fps, T.maman, { damping: 8, stiffness: 160 });
+  const pEtiquetteArrivee = ressort(frame, fps, T.maman + 3, { damping: 12, stiffness: 150 });
 
   // Arc entre les deux villes (courbe de Bézier quadratique).
   const P0 = [depart.x, depart.y];
@@ -63,18 +79,22 @@ export const S2Trajet: React.FC = () => {
   const dy = 2 * (1 - t) * (P1[1] - P0[1]) + 2 * t * (P2[1] - P1[1]);
   const angle = (Math.atan2(dy, dx) * 180) / Math.PI + 90;
   const arc = `M ${P0[0]} ${P0[1]} Q ${P1[0]} ${P1[1]} ${P2[0]} ${P2[1]}`;
-  const tailleFleche = interpolate(frame, [ENTREE + 44, ENTREE + 50, ENTREE + 80, ENTREE + 86], [0, 70, 70, 0], {
+  const tailleFleche = interpolate(frame, [T.arc - 2, T.arc + 4, T.arrivee - 2, T.arrivee + 4], [0, 70, 70, 0], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
   });
-  const onde = (frame - (ENTREE + 86)) / 30;
+  const onde = (frame - (T.arrivee + 2)) / 30;
 
   return (
     <AbsoluteFill>
       <Fond />
       <Entete y={mp.entete.y} largeur={mp.entete.largeur} />
       <Zone placement={mp.titre} l={BOITE_TITRE.l} h={BOITE_TITRE.h}>
-        <BlocTitre lignes={TITRES.trajet} debut={ENTREE} align="center" />
+        <BlocTitre
+          lignes={[{ ...TITRES.trajet[0], de: T.titre }, { ...TITRES.trajet[1], de: T.titre2 }]}
+          debut={T.titre}
+          align="center"
+        />
       </Zone>
       <Zone placement={mp.illu} l={BOITE_ILLU.l} h={BOITE_ILLU.h}>
         <svg
@@ -104,7 +124,7 @@ export const S2Trajet: React.FC = () => {
           />
           {autres.map((k, i) => {
             const v = villes[k];
-            const p = ressort(frame, fps, ENTREE + 30 + i * 4, { damping: 10, stiffness: 160 });
+            const p = ressort(frame, fps, T.villes + i * 4, { damping: 10, stiffness: 160 });
             return <circle key={k} cx={v.x} cy={v.y} r={9 * p} fill="rgba(255,255,255,0.8)" />;
           })}
           <path d={arc} stroke={C.blanc} strokeWidth={9} fill="none" strokeDasharray="2 22" strokeLinecap="round" mask="url(#revele-arc)" />
@@ -127,6 +147,11 @@ export const S2Trajet: React.FC = () => {
           <Etiquette x={arrivee.x} y={arrivee.y - 110} nom="Maman" ville={arrivee.nom} p={pEtiquetteArrivee} fond={C.bleu} texte={C.blanc} />
         </svg>
       </Zone>
+      <Son a={T.trace} nom="souffle-doux" volume={0.25} />
+      <Son a={T.depart} nom="pop-2" volume={0.35} />
+      <Son a={T.arc} nom="glissement" volume={0.32} />
+      <Son a={T.maman} nom="pop-3" volume={0.35} />
+      <Son a={T.arrivee} nom="validation" volume={0.4} />
     </AbsoluteFill>
   );
 };

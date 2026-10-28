@@ -11,6 +11,7 @@ type Props = {
   slogan?: boolean;
   couleurSlogan?: string;
   statique?: boolean;
+  sansFleche?: boolean; // la flèche est alors dessinée à part (raccord sourire → logo)
 };
 
 // Logo Tahwiil reconstruit pièce par pièce : les lettres tombent en place,
@@ -22,6 +23,7 @@ export const LogoAnime: React.FC<Props> = ({
   slogan = true,
   couleurSlogan,
   statique = false,
+  sansFleche = false,
 }) => {
   const frameBrut = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -56,6 +58,7 @@ export const LogoAnime: React.FC<Props> = ({
           />
         );
       })}
+      {sansFleche ? null : (
       <Img
         src={staticFile(`brand/${variante}-fleche.png`)}
         style={{
@@ -68,6 +71,7 @@ export const LogoAnime: React.FC<Props> = ({
           transform: `translateY(${(1 - pFleche) * hauteurLogo * 1.1}px)`,
         }}
       />
+      )}
       <Img
         src={staticFile(`brand/${variante}-arabe.png`)}
         style={{

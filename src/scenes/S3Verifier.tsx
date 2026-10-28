@@ -1,29 +1,36 @@
 import React from 'react';
-import { CircleCheck } from 'lucide-react';
+import { Ban, CircleCheck } from 'lucide-react';
 import { AbsoluteFill, interpolate, useCurrentFrame, useVideoConfig } from 'remotion';
 import { Avatar, ChampApp, Curseur, EnteteApp, EtatChamp, Loupe } from '../components/App';
 import { Fond } from '../components/Fond';
 import { Entete } from '../components/Logo';
-import { SousTitres } from '../components/SousTitre';
+import { Son } from '../components/Son';
 import { ECRAN_MARGE, Telephone } from '../components/Telephone';
 import { BlocTitre } from '../components/Texte';
 import { prog, ressort, DOUX, INOUT } from '../components/anim';
-import { ENTREE, HISTOIRE, SOUS_TITRES, TITRES } from '../histoire';
+import { HISTOIRE, TITRES } from '../histoire';
 import { useMiseEnPage, Zone } from '../miseEnPage';
 import { BOITE_ILLU, BOITE_TITRE, C, F } from '../theme';
+import { loc, R } from '../voixOff';
 
+const f = (t: number) => loc('verifier', t);
+
+// « Un : il vérifie le nom et le numéro du bénéficiaire. / Car un seul chiffre de travers… / et tout peut se bloquer. /
+//   Vérifié. / Validé. / L'esprit tranquille. »
 const T = {
-  telephone: ENTREE + 8,
-  champs: ENTREE + 18,
-  nom: ENTREE + 34,
-  numero: ENTREE + 62,
-  loupe: ENTREE + 96,
-  erreur: ENTREE + 136,
-  correction: ENTREE + 180,
-  valide: ENTREE + 194,
-  badge: ENTREE + 204,
-  bouton: ENTREE + 210,
-  appui: ENTREE + 236,
+  titre: Math.max(f(R.un), 18),
+  telephone: 22,
+  champs: 30,
+  nom: f(R.leNom) - 4,
+  numero: f(R.leNumero),
+  loupe: f(R.carUnSeul),
+  erreur: f(R.travers),
+  bloque: f(R.toutBloquer),
+  correction: f(R.verifie) - 4,
+  valide: f(R.verifie) + 8,
+  badge: f(R.valide),
+  bouton: f(R.espritTranquille) - 4,
+  appui: f(R.espritTranquille) + 12,
 };
 
 const PHONE = { x: 220, y: 20, l: 560, h: 840 };
@@ -35,17 +42,20 @@ export const S3Verifier: React.FC = () => {
 
   const pTel = ressort(frame, fps, T.telephone, { damping: 16, stiffness: 90, mass: 1 });
   const nom = HISTOIRE.beneficiaire;
-  const nbNom = Math.floor(interpolate(frame, [T.nom, T.nom + 24], [0, nom.length], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }));
+  const nbNom = Math.floor(interpolate(frame, [T.nom, T.nom + 16], [0, nom.length], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }));
   const { debut, erreur, fin } = HISTOIRE.numeroFaux;
   const numero = debut + erreur + fin;
-  const nbNum = Math.floor(interpolate(frame, [T.numero, T.numero + 30], [0, numero.length], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }));
+  const nbNum = Math.floor(interpolate(frame, [T.numero, T.numero + 24], [0, numero.length], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }));
 
   const enErreur = frame >= T.erreur && frame < T.valide;
   const estValide = frame >= T.valide;
   const etatNumero: EtatChamp = enErreur ? 'erreur' : estValide ? 'valide' : 'normal';
   const etatNom: EtatChamp = frame >= T.valide + 8 ? 'valide' : 'normal';
-  const secousse =
-    frame >= T.erreur && frame < T.erreur + 16 ? Math.sin((frame - T.erreur) * 1.9) * 12 * (1 - (frame - T.erreur) / 16) : 0;
+  const secousseA = (debutS: number) =>
+    frame >= debutS && frame < debutS + 16 ? Math.sin((frame - debutS) * 1.9) * 12 * (1 - (frame - debutS) / 16) : 0;
+  const secousse = secousseA(T.erreur) + secousseA(T.bloque) * 0.7;
+  const bloque = frame >= T.bloque && frame < T.correction;
+  const pBloque = ressort(frame, fps, T.bloque, { damping: 12, stiffness: 180 });
   const pFlip = prog(frame, T.correction, T.correction + 12, INOUT);
 
   // Loupe : entre, balaie le numéro, s'arrête sur l'erreur, puis repart.
@@ -99,7 +109,7 @@ export const S3Verifier: React.FC = () => {
       <Fond />
       <Entete y={mp.entete.y} largeur={mp.entete.largeur} />
       <Zone placement={mp.titre} l={BOITE_TITRE.l} h={BOITE_TITRE.h}>
-        <BlocTitre numero="1" lignes={TITRES.verifier} debut={ENTREE} />
+        <BlocTitre numero="1" lignes={TITRES.verifier} debut={T.titre} />
       </Zone>
       <Zone placement={mp.illu} l={BOITE_ILLU.l} h={BOITE_ILLU.h}>
         <Telephone
@@ -141,21 +151,28 @@ export const S3Verifier: React.FC = () => {
                 marginTop: 8,
                 height: 88,
                 borderRadius: 24,
-                background: C.bleu,
+                background: bloque ? C.rouge : C.bleu,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
+                gap: 14,
                 fontFamily: F.titre,
                 fontWeight: 900,
                 fontSize: 34,
                 color: C.blanc,
                 position: 'relative',
                 overflow: 'hidden',
-                filter: `saturate(${0.25 + 0.75 * pBouton})`,
-                boxShadow: pBouton > 0 ? `0 0 0 ${6 + Math.sin(frame / 5) * 3}px rgba(8,108,176,${0.25 * pBouton})` : 'none',
+                filter: bloque ? 'none' : `saturate(${0.25 + 0.75 * pBouton})`,
+                transform: bloque ? `scale(${0.94 + 0.06 * pBloque})` : undefined,
+                boxShadow: bloque
+                  ? '0 0 0 6px rgba(224,53,43,0.2)'
+                  : pBouton > 0
+                    ? `0 0 0 ${6 + Math.sin(frame / 5) * 3}px rgba(8,108,176,${0.25 * pBouton})`
+                    : 'none',
               }}
             >
-              <span style={{ opacity: 0.55 + 0.45 * pBouton }}>Envoyer</span>
+              {bloque ? <Ban size={36} color={C.blanc} strokeWidth={3} /> : null}
+              <span style={{ opacity: bloque ? 1 : 0.55 + 0.45 * pBouton }}>{bloque ? 'Transfert bloqué' : 'Envoyer'}</span>
               {appui > 0 && appui < 20 ? (
                 <div
                   style={{
@@ -197,7 +214,20 @@ export const S3Verifier: React.FC = () => {
           Informations vérifiées
         </div>
       </Zone>
-      <SousTitres items={SOUS_TITRES.verifier} />
+      <Son a={T.telephone} nom="souffle-doux" volume={0.28} />
+      {Array.from({ length: 7 }, (_, i) => (
+        <Son key={`n${i}`} a={T.nom + 1 + i * 2.2} nom={`touche-${(i % 3) + 1}`} volume={0.22} />
+      ))}
+      {Array.from({ length: 10 }, (_, i) => (
+        <Son key={`c${i}`} a={T.numero + 1 + i * 2.3} nom={`touche-${(i % 3) + 1}`} volume={0.22} />
+      ))}
+      <Son a={T.loupe} nom="souffle-doux" volume={0.22} />
+      <Son a={T.erreur} nom="erreur" volume={0.45} />
+      <Son a={T.bloque} nom="bloque" volume={0.42} />
+      <Son a={T.correction} nom="tic" volume={0.35} />
+      <Son a={T.valide} nom="succes" volume={0.42} />
+      <Son a={T.badge} nom="pop-3" volume={0.35} />
+      <Son a={T.appui} nom="tape" volume={0.4} />
     </AbsoluteFill>
   );
 };

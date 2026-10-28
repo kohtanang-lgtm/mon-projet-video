@@ -1,6 +1,6 @@
 import React from 'react';
 import { cancelRender, Composition, continueRender, delayRender } from 'remotion';
-import { DUREE_TOTALE, FPS } from './histoire';
+import { DUREE_TOTALE, FPS } from './voixOff';
 import { chargerPolices } from './polices';
 import { AstuceTahwiil } from './Video';
 

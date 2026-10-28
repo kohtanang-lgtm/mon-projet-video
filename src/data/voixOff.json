@@ -1,0 +1,257 @@
+{
+ "_commentaire": "Repères (en secondes, horloge de la voix off) relevés sur l'enregistrement ElevenLabs par scripts/aligner-voix-off.py. La voix démarre à `decalage` secondes dans la vidéo.",
+ "fichier": "audio/voix-off.wav",
+ "fps": 30,
+ "decalage": 0.4,
+ "duree": 57.156,
+ "dureeTotale": 1785,
+ "transition": 28,
+ "fondu": 8,
+ "scenes": {
+  "accroche": 0,
+  "trajet": 160,
+  "verifier": 306,
+  "agent": 622,
+  "justificatif": 950,
+  "sourire": 1229,
+  "fin": 1380
+ },
+ "reperes": {
+  "quandOnEnvoie": 0.0,
+  "bienPlus": 1.72,
+  "avezVous": 3.57,
+  "troisPoints": 4.35,
+  "finAccroche": 4.89,
+  "ahmat": 5.31,
+  "yPense": 6.55,
+  "aChaqueEnvoi": 7.57,
+  "maman": 8.69,
+  "aAbeche": 9.29,
+  "finTrajet": 9.76,
+  "un": 10.34,
+  "ilVerifie": 10.99,
+  "leNom": 11.6,
+  "leNumero": 12.13,
+  "finVerifie": 13.46,
+  "carUnSeul": 14.03,
+  "travers": 15.2,
+  "finTravers": 15.63,
+  "toutBloquer": 16.03,
+  "finBloquer": 17.0,
+  "verifie": 17.58,
+  "finVerifieMot": 18.13,
+  "valide": 18.49,
+  "finValide": 18.89,
+  "espritTranquille": 19.33,
+  "finPoint1": 20.27,
+  "deux": 20.81,
+  "poseQuestions": 21.47,
+  "finQuestions": 22.47,
+  "frais": 22.94,
+  "delais": 23.54,
+  "piece": 24.28,
+  "lieu": 25.3,
+  "finLieu": 25.85,
+  "agentRepond": 26.29,
+  "luiRepond": 27.0,
+  "finRepond": 27.59,
+  "enAgence": 28.02,
+  "whatsapp": 28.85,
+  "finWhatsapp": 29.22,
+  "jourEtNuit": 29.64,
+  "finJourNuit": 30.12,
+  "septJours": 30.47,
+  "finPoint2": 31.21,
+  "trois": 31.67,
+  "garde": 32.36,
+  "recu": 33.8,
+  "finRecu": 34.16,
+  "jusquauRetrait": 34.52,
+  "finRetrait": 35.24,
+  "etSiInconnu": 35.7,
+  "codePin": 37.3,
+  "finInconnu": 37.64,
+  "jamais": 37.92,
+  "finJamais": 38.38,
+  "unCodePin": 38.81,
+  "finUnCodePin": 39.45,
+  "partage": 39.68,
+  "pas": 40.4,
+  "finPoint3": 40.51,
+  "aAbecheFin": 40.92,
+  "mamanRecoit": 41.94,
+  "finMamanRecoit": 43.02,
+  "unTransfert": 43.57,
+  "finUnTransfert": 44.22,
+  "unSourire": 44.75,
+  "finSourire": 45.1,
+  "tahwiil": 45.71,
+  "simple": 46.48,
+  "rapide": 47.1,
+  "securise": 47.8,
+  "finPromesses": 48.44,
+  "envoyez": 48.81,
+  "payez": 49.55,
+  "retirez": 50.04,
+  "depuisTelephone": 50.72,
+  "finTelephone": 51.84,
+  "serviceAgree": 52.19,
+  "toujoursCotes": 53.48,
+  "finCotes": 54.26,
+  "faitesComme": 54.62,
+  "finFaites": 55.45,
+  "telechargez": 55.72,
+  "tahwiilFinal": 56.44,
+  "finVO": 56.86
+ },
+ "parole": [
+  [
+   0.0,
+   1.28
+  ],
+  [
+   1.717,
+   2.95
+  ],
+  [
+   3.57,
+   4.892
+  ],
+  [
+   5.307,
+   7.123
+  ],
+  [
+   7.572,
+   9.062
+  ],
+  [
+   9.294,
+   9.761
+  ],
+  [
+   10.343,
+   10.502
+  ],
+  [
+   10.986,
+   13.463
+  ],
+  [
+   14.032,
+   15.625
+  ],
+  [
+   16.026,
+   17.003
+  ],
+  [
+   17.581,
+   18.13
+  ],
+  [
+   18.485,
+   18.888
+  ],
+  [
+   19.326,
+   20.274
+  ],
+  [
+   20.81,
+   21.056
+  ],
+  [
+   21.466,
+   22.469
+  ],
+  [
+   22.939,
+   23.208
+  ],
+  [
+   23.543,
+   23.893
+  ],
+  [
+   24.284,
+   24.974
+  ],
+  [
+   25.301,
+   25.853
+  ],
+  [
+   26.289,
+   27.593
+  ],
+  [
+   28.016,
+   31.213
+  ],
+  [
+   31.67,
+   31.925
+  ],
+  [
+   32.361,
+   34.157
+  ],
+  [
+   34.521,
+   35.238
+  ],
+  [
+   35.7,
+   37.645
+  ],
+  [
+   37.923,
+   38.382
+  ],
+  [
+   38.809,
+   40.511
+  ],
+  [
+   40.919,
+   41.59
+  ],
+  [
+   41.94,
+   43.023
+  ],
+  [
+   43.569,
+   44.218
+  ],
+  [
+   44.752,
+   45.097
+  ],
+  [
+   45.71,
+   46.219
+  ],
+  [
+   46.481,
+   48.439
+  ],
+  [
+   48.807,
+   51.835
+  ],
+  [
+   52.187,
+   54.255
+  ],
+  [
+   54.619,
+   55.45
+  ],
+  [
+   55.722,
+   56.863
+  ]
+ ]
+}

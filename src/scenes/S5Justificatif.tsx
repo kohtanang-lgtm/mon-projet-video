@@ -3,28 +3,34 @@ import { ArrowLeft, Check, Download, FolderCheck, Lock, LockOpen, ShieldCheck } 
 import { AbsoluteFill, interpolate, useCurrentFrame, useVideoConfig } from 'remotion';
 import { Fond } from '../components/Fond';
 import { Entete } from '../components/Logo';
-import { SousTitres } from '../components/SousTitre';
+import { Son } from '../components/Son';
 import { Telephone } from '../components/Telephone';
 import { BlocTitre } from '../components/Texte';
 import { prog, ressort, INOUT } from '../components/anim';
-import { ENTREE, HISTOIRE, SOUS_TITRES, TITRES } from '../histoire';
+import { HISTOIRE, TITRES } from '../histoire';
 import { useMiseEnPage, Zone } from '../miseEnPage';
 import { BOITE_ILLU, BOITE_TITRE, C, F } from '../theme';
+import { loc, R } from '../voixOff';
 
+const f = (t: number) => loc('justificatif', t);
+
+// « Trois : il garde précieusement son reçu… jusqu'au retrait. / Et si un inconnu lui réclame son code PIN ? /
+//   JAMAIS. / Un code PIN, ça ne se partage pas. »
 const T = {
-  telephone: ENTREE + 8,
-  coche: ENTREE + 24,
-  lignes: ENTREE + 40,
-  bouton: ENTREE + 62,
-  appui: ENTREE + 98,
-  enregistre: ENTREE + 104,
-  dossier: ENTREE + 110,
-  bascule: 152,
-  ecrit: 166,
-  message: 182,
-  tampon: 224,
-  pin: 238,
-  verrou: 258,
+  titre: Math.max(f(R.trois), 18),
+  telephone: 20,
+  coche: f(R.garde),
+  lignes: f(R.garde) + 12,
+  bouton: f(R.garde) + 26,
+  appui: f(R.recu) - 2,
+  enregistre: f(R.recu) + 4,
+  dossier: f(R.jusquauRetrait) - 4,
+  bascule: f(R.etSiInconnu) - 6,
+  ecrit: f(R.etSiInconnu) + 8,
+  message: f(R.etSiInconnu) + 22,
+  tampon: f(R.jamais),
+  pin: f(R.unCodePin),
+  verrou: f(R.partage) + 6,
 };
 
 const PHONE = { x: 220, y: 20, l: 560, h: 840 };
@@ -305,7 +311,7 @@ export const S5Justificatif: React.FC = () => {
       <Fond />
       <Entete y={mp.entete.y} largeur={mp.entete.largeur} />
       <Zone placement={mp.titre} l={BOITE_TITRE.l} h={BOITE_TITRE.h}>
-        <BlocTitre numero="3" lignes={TITRES.justificatif} debut={ENTREE} />
+        <BlocTitre numero="3" lignes={TITRES.justificatif} debut={T.titre} />
       </Zone>
       <Zone placement={mp.illu} l={BOITE_ILLU.l} h={BOITE_ILLU.h} style={{ transform: `scale(${mp.illu.echelle}) translateX(${secousse}px)` }}>
         <Telephone
@@ -324,8 +330,8 @@ export const S5Justificatif: React.FC = () => {
         <div
           style={{
             position: 'absolute',
-            left: 650,
-            top: 470,
+            left: 640,
+            top: 128,
             display: 'flex',
             alignItems: 'center',
             gap: 14,
@@ -378,7 +384,17 @@ export const S5Justificatif: React.FC = () => {
           JAMAIS !
         </div>
       </Zone>
-      <SousTitres items={SOUS_TITRES.justificatif} />
+      <Son a={T.telephone} nom="souffle-doux" volume={0.28} />
+      <Son a={T.coche} nom="succes" volume={0.4} />
+      <Son a={T.appui} nom="tape" volume={0.4} />
+      <Son a={T.enregistre} nom="tic" volume={0.35} />
+      <Son a={T.dossier} nom="pop-2" volume={0.38} />
+      <Son a={T.bascule} nom="glissement" volume={0.28} />
+      <Son a={T.message} nom="message" volume={0.42} />
+      <Son a={T.tampon} nom="tampon" volume={0.85} />
+      <Son a={T.pin} nom="souffle-doux" volume={0.24} />
+      <Son a={T.verrou} nom="verrou" volume={0.5} />
+      <Son a={T.verrou + 8} nom="tic" volume={0.3} />
     </AbsoluteFill>
   );
 };

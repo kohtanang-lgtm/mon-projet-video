@@ -3,28 +3,33 @@ import { Check } from 'lucide-react';
 import { AbsoluteFill, interpolate, random, useCurrentFrame, useVideoConfig } from 'remotion';
 import { Fond } from '../components/Fond';
 import { Entete } from '../components/Logo';
-import { SousTitres } from '../components/SousTitre';
+import { Son } from '../components/Son';
 import { TexteCinetique } from '../components/Texte';
 import { prog, ressort, DOUX, INOUT } from '../components/anim';
 import { cheminFleche, Point, pointsFleche } from '../components/fleche';
-import { ENTREE, HISTOIRE, SOUS_TITRES } from '../histoire';
+import { HISTOIRE } from '../histoire';
 import { useMiseEnPage, Zone } from '../miseEnPage';
 import { BOITE_CONTENU, C, F } from '../theme';
+import { loc, R } from '../voixOff';
 
+const f = (t: number) => loc('sourire', t);
+
+// « À Abéché, maman reçoit son argent. / Un transfert… / un sourire. »
 const T = {
-  notif: ENTREE,
-  visage: ENTREE + 10,
-  yeux: ENTREE + 22,
-  vol: ENTREE + 26,
-  rotation: ENTREE + 44,
-  morph: ENTREE + 60,
-  eclat: ENTREE + 78,
-  texte: ENTREE + 76,
-  arabe: ENTREE + 96,
+  notif: Math.max(f(R.aAbecheFin), 16),
+  visage: f(R.mamanRecoit) - 6,
+  yeux: f(R.mamanRecoit) + 6,
+  vol: f(R.mamanRecoit) + 16,
+  rotation: f(R.unTransfert) - 2,
+  morph: f(R.unSourire) - 18,
+  eclat: f(R.unSourire) - 2,
+  texte: f(R.unTransfert),
+  texte2: f(R.unSourire),
+  arabe: f(R.unSourire) + 6,
 };
 
-const VISAGE = { x: 500, y: 560, r: 260 };
-const BOUCHE = { x: 500, y: 655 };
+export const VISAGE = { x: 500, y: 560, r: 260 };
+export const BOUCHE = { x: 500, y: 655 };
 const H_FLECHE = 170;
 
 type Segment = [Point, Point, Point]; // c1, c2, fin
@@ -53,8 +58,8 @@ const SO_SEGMENTS: Segment[] = [
   [[-70, 45], [-128, 18], [-175, -25]],
 ];
 
-const mix = (a: Point, b: Point, t: number): Point => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t];
-const cheminMorph = (t: number) => {
+export const mix = (a: Point, b: Point, t: number): Point => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t];
+export const cheminMorph = (t: number) => {
   const d = mix(FL_DEPART, SO_DEPART, t);
   const segs = FL_SEGMENTS.map((s, i) => s.map((p, j) => mix(p, SO_SEGMENTS[i][j], t)));
   return `M ${d[0]} ${d[1]} ${segs.map((s) => `C ${s.map((p) => `${p[0].toFixed(1)} ${p[1].toFixed(1)}`).join(' ')}`).join(' ')} Z`;
@@ -78,12 +83,12 @@ export const S6Sourire: React.FC = () => {
   const pVol = ressort(frame, fps, T.vol, { damping: 13, stiffness: 110 });
   const pRot = ressort(frame, fps, T.rotation, { damping: 12, stiffness: 120 });
   const pMorph = prog(frame, T.morph, T.morph + 20, INOUT);
-  const pEclat = prog(frame, T.eclat, T.eclat + 40, DOUX);
+  const pEclat = prog(frame, T.eclat, T.eclat + 30, DOUX);
   const pArabe = prog(frame, T.arabe, T.arabe + 22, DOUX);
-  const cligne = frame > T.morph + 50 && frame < T.morph + 56 ? 0.12 : 1;
+  const cligne = frame > T.yeux + 26 && frame < T.yeux + 31 ? 0.12 : 1;
 
   const yFleche = interpolate(pVol, [0, 1], [1250, BOUCHE.y]);
-  const rebond = 1 + Math.sin(prog(frame, T.morph + 14, T.morph + 30) * Math.PI) * 0.12;
+  const rebond = 1 + Math.sin(prog(frame, T.morph + 16, T.morph + 30) * Math.PI) * 0.12;
 
   return (
     <AbsoluteFill>
@@ -180,8 +185,8 @@ export const S6Sourire: React.FC = () => {
         <div style={{ position: 'absolute', top: 860, left: 0, right: 0, display: 'flex', justifyContent: 'center' }}>
           <TexteCinetique
             lignes={[
-              { segments: [{ t: 'UN TRANSFERT,', c: C.blanc }], taille: 96 },
-              { segments: [{ t: 'UN SOURIRE.', c: C.bleu }], taille: 124 },
+              { segments: [{ t: 'UN TRANSFERT,', c: C.blanc }], taille: 96, de: T.texte },
+              { segments: [{ t: 'UN SOURIRE.', c: C.bleu }], taille: 124, de: T.texte2 },
             ]}
             debut={T.texte}
             align="center"
@@ -207,7 +212,11 @@ export const S6Sourire: React.FC = () => {
           تحويل… ابتسامة
         </div>
       </Zone>
-      <SousTitres items={SOUS_TITRES.sourire} />
+      <Son a={T.notif} nom="notification" volume={0.42} />
+      <Son a={T.visage} nom="pop-2" volume={0.32} />
+      <Son a={T.vol} nom="glissement" volume={0.28} />
+      <Son a={T.rotation} nom="tic" volume={0.25} />
+      <Son a={T.eclat} nom="scintillement" volume={0.4} />
     </AbsoluteFill>
   );
 };

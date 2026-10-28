@@ -4,18 +4,21 @@ import { C, F, OMBRE_TEXTE } from '../theme';
 import { ressort } from './anim';
 
 export type Segment = { readonly t: string; readonly c?: string };
-export type LigneTexte = { readonly segments: readonly Segment[]; readonly taille: number };
+// `de` : image d'apparition propre à la ligne (sinon, enchaînement automatique depuis `debut`).
+export type LigneTexte = { readonly segments: readonly Segment[]; readonly taille: number; readonly de?: number };
 
 // Texte cinétique : chaque mot remonte derrière un masque, ligne après ligne.
+// `sortie` : image à partir de laquelle les mots ressortent par le haut.
 export const TexteCinetique: React.FC<{
   lignes: readonly LigneTexte[];
   debut: number;
+  sortie?: number;
   align?: 'left' | 'center';
   interligne?: number;
   ecart?: number;
   police?: string;
   poids?: number;
-}> = ({ lignes, debut, align = 'left', interligne = 0.98, ecart = 2.4, police = F.titre, poids = 900 }) => {
+}> = ({ lignes, debut, sortie, align = 'left', interligne = 0.98, ecart = 2.4, police = F.titre, poids = 900 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   let index = 0;
@@ -25,6 +28,7 @@ export const TexteCinetique: React.FC<{
         const mots = ligne.segments.flatMap((seg) =>
           seg.t.split(' ').map((mot) => ({ mot, couleur: seg.c ?? C.blanc })),
         );
+        const departLigne = ligne.de;
         return (
           <div
             key={li}
@@ -44,7 +48,10 @@ export const TexteCinetique: React.FC<{
             }}
           >
             {mots.map((m, mi) => {
-              const p = ressort(frame, fps, debut + index++ * ecart + li * 2, { damping: 200, stiffness: 120 }, 20);
+              const i = index++;
+              const depart = departLigne !== undefined ? departLigne + mi * ecart : debut + i * ecart + li * 2;
+              const p = ressort(frame, fps, depart, { damping: 200, stiffness: 120 }, 20);
+              const q = sortie === undefined ? 0 : ressort(frame, fps, sortie + i * 1.2, { damping: 200, stiffness: 140 }, 14);
               return (
                 <span
                   key={mi}
@@ -52,8 +59,8 @@ export const TexteCinetique: React.FC<{
                     display: 'inline-block',
                     color: m.couleur,
                     marginRight: mi < mots.length - 1 ? '0.24em' : 0,
-                    transform: `translateY(${interpolate(p, [0, 1], [115, 0])}%) rotate(${interpolate(p, [0, 1], [6, 0])}deg)`,
-                    opacity: interpolate(p, [0, 0.4], [0, 1], { extrapolateRight: 'clamp' }),
+                    transform: `translateY(${interpolate(p, [0, 1], [115, 0]) - q * 115}%) rotate(${interpolate(p, [0, 1], [6, 0])}deg)`,
+                    opacity: interpolate(p, [0, 0.4], [0, 1], { extrapolateRight: 'clamp' }) * (1 - q),
                     textShadow: OMBRE_TEXTE,
                   }}
                 >
