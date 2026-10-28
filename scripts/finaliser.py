@@ -2,7 +2,7 @@
 """Finalise les rendus Remotion pour la diffusion sur les réseaux sociaux.
 
 Pour chaque vidéo de out/brut/ :
-  - son normalisé à -14 LUFS, crête vraie -1 dB (norme Instagram, TikTok, Facebook, YouTube)
+  - son normalisé à -14 LUFS, crête vraie ≤ -1 dBTP (norme Instagram, TikTok, Facebook, YouTube)
   - image H.264 yuv420p plage TV, lecture immédiate en ligne (faststart)
   - écrit le résultat dans rendus/ ; la version 9:16 est aussi déclinée en 720p légère (WhatsApp)
 
@@ -19,14 +19,14 @@ RENDUS = RACINE / 'rendus'
 
 def mesure(source):
     r = subprocess.run(['ffmpeg', '-hide_banner', '-nostats', '-i', str(source), '-vn', '-af',
-                        'loudnorm=I=-14:TP=-1:LRA=11:print_format=json', '-f', 'null', '-'],
+                        'loudnorm=I=-14:TP=-1.6:LRA=11:print_format=json', '-f', 'null', '-'],
                        capture_output=True, text=True, check=True)
     return json.loads(r.stderr[r.stderr.rindex('{'):r.stderr.rindex('}') + 1])
 
 
 def finaliser(source, cible, largeur=None, crf=17, audio='192k'):
     m = mesure(source)
-    norme = (f"loudnorm=I=-14:TP=-1:LRA=11:measured_I={m['input_i']}:measured_TP={m['input_tp']}"
+    norme = (f"loudnorm=I=-14:TP=-1.6:LRA=11:measured_I={m['input_i']}:measured_TP={m['input_tp']}"
              f":measured_LRA={m['input_lra']}:measured_thresh={m['input_thresh']}:offset={m['target_offset']}"
              ":linear=true,aresample=48000")
     image = 'scale=in_range=pc:out_range=tv' + (f',scale={largeur}:-2:flags=lanczos' if largeur else '') + ',format=yuv420p'
