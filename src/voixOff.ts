@@ -9,6 +9,9 @@ export const DUREE_TOTALE = data.dureeTotale;
 export const DUREE_TRANSITION = data.transition;
 export const DUREE_FONDU = data.fondu;
 
+// Marge de mixage avant la normalisation finale à -14 LUFS (scripts/finaliser.py).
+export const MASTER = 0.85;
+
 export const R = data.reperes;
 export type Repere = keyof typeof R;
 

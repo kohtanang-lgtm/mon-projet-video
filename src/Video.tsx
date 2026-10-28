@@ -16,7 +16,7 @@ import { S6Sourire } from './scenes/S6Sourire';
 import { S7Fin } from './scenes/S7Fin';
 import { C } from './theme';
 import { balayageFleche } from './transitions/balayageFleche';
-import { CleScene, DEBUT, DUREE_TOTALE, DUREES, FICHIER_VO, img, ORDRE, PAROLE, R, transitionApres } from './voixOff';
+import { CleScene, DEBUT, DUREE_TOTALE, DUREES, FICHIER_VO, img, MASTER, ORDRE, PAROLE, R, transitionApres } from './voixOff';
 
 const COMPOSANTS: Record<CleScene, React.FC> = {
   accroche: S1Accroche,
@@ -29,8 +29,8 @@ const COMPOSANTS: Record<CleScene, React.FC> = {
 };
 
 // --- Mixage de la musique : elle s'efface sous la voix et se coupe net sur « JAMAIS ».
-const MUSIQUE_PAUSE = 0.5; // niveau entre les phrases
-const MUSIQUE_VOIX = 0.24; // niveau sous la voix
+const MUSIQUE_PAUSE = 0.65 * MASTER; // niveau entre les phrases
+const MUSIQUE_VOIX = 0.38 * MASTER; // niveau sous la voix (environ 11 LU sous la voix)
 const COUPURE = [img(R.jamais) - 2, img(R.unCodePin) - 4] as const;
 
 const activiteVoix = new Float32Array(DUREE_TOTALE + 1);
@@ -84,7 +84,7 @@ export const AstuceTahwiil: React.FC<{ filigrane: boolean }> = ({ filigrane }) =
     {/* Bande-son */}
     <Html5Audio src={staticFile('audio/musique.wav')} volume={volumeMusique} />
     <Sequence from={img(0)} layout="none" name="voix off">
-      <Html5Audio src={staticFile(FICHIER_VO)} volume={1} />
+      <Html5Audio src={staticFile(FICHIER_VO)} volume={MASTER} />
     </Sequence>
     {ORDRE.slice(1, -1).map((cle) => (
       <Son key={`souffle-${cle}`} a={DEBUT[cle]} nom="souffle" volume={0.42} />
