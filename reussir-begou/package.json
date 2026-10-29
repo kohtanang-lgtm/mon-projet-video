@@ -1,0 +1,25 @@
+{
+  "name": "reussir-begou-video",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Vidéo motion design — REUSS!R BÉ-GOU Conférence 3 (20-21 nov. 2026, Radisson Blu)",
+  "scripts": {
+    "studio": "remotion studio",
+    "render:16x9": "remotion render Teaser16x9 out/reussir-begou-16x9.mp4",
+    "render:9x16": "remotion render Teaser9x16 out/reussir-begou-9x16.mp4",
+    "render": "npm run render:16x9 && npm run render:9x16"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.539",
+    "@remotion/layout-utils": "^4.0.539",
+    "@remotion/paths": "4.0.539",
+    "@remotion/shapes": "4.0.539",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "remotion": "4.0.539"
+  },
+  "devDependencies": {
+    "@types/react": "19.1.8",
+    "typescript": "5.8.3"
+  }
+}
