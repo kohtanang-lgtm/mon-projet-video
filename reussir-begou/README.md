@@ -27,7 +27,8 @@ Vidéo promotionnelle de la conférence « Vérités et Réconciliation sur l'Em
 ```bash
 npm install
 npm run studio        # aperçu interactif dans le navigateur
-npm run render        # rend les deux formats dans out/
+npm run render        # rend les deux formats dans out/ (qualité master)
+npm run export        # versions légères : -reseaux.mp4 (1080p) et -whatsapp.mp4 (720p)
 ```
 
 ## Personnaliser

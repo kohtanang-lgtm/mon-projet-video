@@ -29,7 +29,9 @@ export const S1Hook: React.FC = () => {
 
   // Chute (accélérée) puis écrasement.
   const fallP = interpolate(frame, [0, IMPACT], [0, 1], clamp);
-  const fallY = -(1 - fallP * fallP) * height * 1.05;
+  // Distance de chute réglée pour que le bas du « ! » soit déjà visible dès la première image.
+  const fallDist = cy + exclH * 2.15 * 0.15;
+  const fallY = -(1 - fallP * fallP) * fallDist;
   const k = frame - IMPACT;
   const squash = k >= 0 ? Math.exp(-k / 3.2) * Math.cos(k / 1.6) : 0;
   const sx = k >= 0 ? 1 + 0.16 * squash : 0.9;

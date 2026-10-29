@@ -7,7 +7,8 @@
     "studio": "remotion studio",
     "render:16x9": "remotion render Teaser16x9 out/reussir-begou-16x9.mp4",
     "render:9x16": "remotion render Teaser9x16 out/reussir-begou-9x16.mp4",
-    "render": "npm run render:16x9 && npm run render:9x16"
+    "render": "npm run render:16x9 && npm run render:9x16",
+    "export": "bash scripts/export_share.sh"
   },
   "dependencies": {
     "@remotion/cli": "4.0.539",
